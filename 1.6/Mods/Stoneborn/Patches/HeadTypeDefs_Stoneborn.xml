@@ -1,28 +1,19 @@
 <?xml version="1.0" encoding="utf-8" ?>
+<!-- Gated by LoadFolders: IfModActive="det.stoneborn" -->
 <Patch>
-    <Operation Class="PatchOperationFindMod">
-        <mods>
-            <li>Det's Xenotypes - Stoneborn</li>
-        </mods>
-        <match Class="PatchOperationSequence">
-            <operations>
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs</xpath>
-                    <value>
-                        <FacialAnimation.BrowTypeDef>
-                            <defName>Stoneborn_BlankBrow</defName>
-                            <texPath>Blank</texPath>
-                            <shader>Map/CutoutComplex</shader>
-                            <probability>0.0</probability>
-                            <targetGeneDefs>
-                                <li>DV_BushyEyebrows</li>
-                            </targetGeneDefs>
-                        </FacialAnimation.BrowTypeDef>
-                    </value>
-                </li>
-            </operations>
-        </match>
+    <!-- Stoneborn.BushyEyebrows -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs</xpath>
+        <value>
+            <FacialAnimation.BrowTypeDef>
+                <defName>Stoneborn_BlankBrow</defName>
+                <texPath>Blank</texPath>
+                <shader>Map/CutoutComplex</shader>
+                <probability>0.0</probability>
+                <targetGeneDefs>
+                    <li>DV_BushyEyebrows</li>
+                </targetGeneDefs>
+            </FacialAnimation.BrowTypeDef>
+        </value>
     </Operation>
 </Patch>
-
-

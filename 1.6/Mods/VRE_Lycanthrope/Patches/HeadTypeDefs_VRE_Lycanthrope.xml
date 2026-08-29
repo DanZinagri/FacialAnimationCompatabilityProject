@@ -1,30 +1,20 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Gated by LoadFolders: IfModActive="vanillaracesexpanded.lycanthrope" -->
 <Patch>
-    <Operation Class="PatchOperationFindMod">
-        <mods>
-            <li>Vanilla Races Expanded - Lycanthrope</li>
-        </mods>
-        <match Class="PatchOperationSequence">
-            <operations>
-                <li Class="PatchOperationRemove">
-					<xpath>/Defs/GeneDef[defName="VRE_CanineNose"]/renderNodeProperties</xpath>
-				</li>
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs</xpath>
-                    <value>
-                        <FacialAnimation.HeadTypeDef>
-                            <defName>CanineNose</defName>
-                            <texPath>CanineNose</texPath>
-                            <probability>1</probability>
-                            <shader>Map/CutoutSkin</shader>
-                            <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
-                            <targetGeneDefs>
-                                <li>VRE_CanineNose</li>
-                            </targetGeneDefs>
-                        </FacialAnimation.HeadTypeDef>
-                    </value>
-                </li>
-            </operations>
-        </match>
+    <!-- Lycanthrope.CanineNose -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs</xpath>
+        <value>
+            <FacialAnimation.HeadTypeDef>
+                <defName>CanineNose</defName>
+                <texPath>CanineNose</texPath>
+                <probability>1</probability>
+                <shader>Map/CutoutSkin</shader>
+                <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                <targetGeneDefs>
+                    <li>VRE_CanineNose</li>
+                </targetGeneDefs>
+            </FacialAnimation.HeadTypeDef>
+        </value>
     </Operation>
 </Patch>

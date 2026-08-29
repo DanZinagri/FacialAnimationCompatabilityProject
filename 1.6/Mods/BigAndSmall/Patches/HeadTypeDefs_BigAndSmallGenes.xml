@@ -1,163 +1,49 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Gated by LoadFolders: IfModActive="RedMattis.BigSmall.Core"
+
+     Several targets here sit behind further gates inside Big and Small itself:
+     BS_GhoulHead lives in its Anomaly folder, and BS_DragonHead / BS_SatanHead /
+     BS_StonemaskHead come from its FacialAnim folder. Ops touching those stay wrapped
+     in PatchOperationConditional. -->
 <Patch>
-        <Operation Class="PatchOperationFindMod">
-            <mods>
-                <li>Big and Small - Genes &amp; More</li>
-            </mods>
-            <match Class="PatchOperationSequence">
-                <operations>
-                    <!-- Ghouls (BS_GhoulHead only exists when Anomaly is active) -->
-                    <li Class="PatchOperationConditional">
-                        <xpath>/Defs/GeneDef[defName="BS_GhoulHead"]/modExtensions</xpath>
-                        <match Class="PatchOperationRemove">
-                            <xpath>/Defs/GeneDef[defName="BS_GhoulHead"]/modExtensions</xpath>
-                        </match>
-                    </li>
-                    <li Class="PatchOperationAdd">
-                        <xpath>/Defs</xpath>
-                        <value>
-                            <FacialAnimation.HeadTypeDef>
-                                <defName>BS_GhoulHead</defName>
-                                <texPath>BS_GhoulHead</texPath>
-                                <probability>1</probability>
-                                <shader>Map/CutoutSkin</shader>
-                                <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
-                                <targetGeneDefs>
-                                    <li>BS_GhoulHead</li>
-                                </targetGeneDefs>
-                            </FacialAnimation.HeadTypeDef>
-                        </value>
-                    </li>
-                    <!-- Dragonhead Broodmother -->
-                    <li Class="PatchOperationConditional">
-                        <xpath>/Defs/GeneDef[defName="BS_DragonHead"]/modExtensions</xpath>
-                        <match Class="PatchOperationRemove">
-                            <xpath>/Defs/GeneDef[defName="BS_DragonHead"]/modExtensions</xpath>
-                        </match>
-                    </li>
-                    <li Class="PatchOperationConditional">
-                        <xpath>/Defs/GeneDef[defName="BS_DragonHead"]/forcedHeadTypes</xpath>
-                        <match Class="PatchOperationRemove">
-                            <xpath>/Defs/GeneDef[defName="BS_DragonHead"]/forcedHeadTypes</xpath>
-                        </match>
-                    </li>
-                    <li Class="PatchOperationConditional">
-                        <xpath>/Defs/GeneDef[defName="BS_DragonHead"]/renderNodeProperties</xpath>
-                        <match Class="PatchOperationRemove">
-                            <xpath>/Defs/GeneDef[defName="BS_DragonHead"]/renderNodeProperties</xpath>
-                        </match>
-                    </li>
-                    <li Class="PatchOperationAdd">
-                        <xpath>/Defs</xpath>
-                        <value>
-                            <FacialAnimation.HeadTypeDef>
-                                <defName>BS_DragonHead</defName>
-                                <texPath>DragonNose</texPath>
-                                <probability>1</probability>
-                                <shader>Map/CutoutSkin</shader>
-                                <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
-                                <targetGeneDefs>
-                                    <li>BS_DragonHead</li>
-                                </targetGeneDefs>
-                            </FacialAnimation.HeadTypeDef>
-                            <FacialAnimation.MouthTypeDef>
-                                <defName>BS_DragonHeadMouthBlank</defName>
-                                <texPath>Mouth/BlankMouth</texPath>
-                                <shader>Map/Transparent</shader>
-                                <targetGeneDefs>
-                                    <li>BS_DragonHead</li>
-                                </targetGeneDefs>
-                            </FacialAnimation.MouthTypeDef>
-                        </value>
-                    </li>
-                    <!-- Satan -->
-                    <li Class="PatchOperationReplace">
-                        <xpath>/Defs/GeneDef[defName="BS_SatanHead"]/renderNodeProperties/li/drawData/defaultData/layer</xpath>
-                        <value>
-                            <layer>50</layer>
-                        </value>
-                    </li>
-                    <li Class="PatchOperationConditional">
-                        <xpath>/Defs/GeneDef[defName="BS_SatanHead"]/modExtensions/li[@Class="BigAndSmall.PawnExtension"]/disableFacialAnimations</xpath>
-                        <match Class="PatchOperationRemove">
-                            <xpath>/Defs/GeneDef[defName="BS_SatanHead"]/modExtensions/li[@Class="BigAndSmall.PawnExtension"]/disableFacialAnimations</xpath>
-                        </match>
-                    </li>
-
-                    <li Class="PatchOperationConditional">
-                        <xpath>/Defs/GeneDef[defName="BS_SatanHead"]/modExtensions/li[@Class="BigAndSmall.PawnExtension"]/facialDisabler</xpath>
-
-                        <match Class="PatchOperationReplace">
-                            <xpath>/Defs/GeneDef[defName="BS_SatanHead"]/modExtensions/li[@Class="BigAndSmall.PawnExtension"]/facialDisabler</xpath>
-                            <value>
-                                <facialDisabler>
-                                    <skinName>retain</skinName>
-                                    <lidName>retain</lidName>
-                                    <lidOptionsName>retain</lidOptionsName>
-                                    <eyeballName>retain</eyeballName>
-                                    <browName>retain</browName>
-                                </facialDisabler>
-                            </value>
-                        </match>
-
-                        <nomatch Class="PatchOperationAdd">
-                            <xpath>/Defs/GeneDef[defName="BS_SatanHead"]/modExtensions/li[@Class="BigAndSmall.PawnExtension"]</xpath>
-                            <value>
-                                <facialDisabler>
-                                    <skinName>retain</skinName>
-                                    <lidName>retain</lidName>
-                                    <lidOptionsName>retain</lidOptionsName>
-                                    <eyeballName>retain</eyeballName>
-                                    <browName>retain</browName>
-                                </facialDisabler>
-                            </value>
-                        </nomatch>
-                    </li>
-                    <!-- Authority -->
-
-                    <li Class="PatchOperationReplace">
-                        <xpath>/Defs/GeneDef[defName="BS_StonemaskHead"]/renderNodeProperties/li/drawData/defaultData/layer</xpath>
-                        <value>
-                            <layer>50</layer>
-                        </value>
-                    </li>
-                    <li Class="PatchOperationConditional">
-                        <xpath>/Defs/GeneDef[defName="BS_StonemaskHead"]/modExtensions/li[@Class="BigAndSmall.PawnExtension"]/disableFacialAnimations</xpath>
-                        <match Class="PatchOperationRemove">
-                            <xpath>/Defs/GeneDef[defName="BS_StonemaskHead"]/modExtensions/li[@Class="BigAndSmall.PawnExtension"]/disableFacialAnimations</xpath>
-                        </match>
-                    </li>
-
-                    <li Class="PatchOperationConditional">
-                        <xpath>/Defs/GeneDef[defName="BS_StonemaskHead"]/modExtensions/li[@Class="BigAndSmall.PawnExtension"]/facialDisabler</xpath>
-
-                        <match Class="PatchOperationReplace">
-                            <xpath>/Defs/GeneDef[defName="BS_StonemaskHead"]/modExtensions/li[@Class="BigAndSmall.PawnExtension"]/facialDisabler</xpath>
-                            <value>
-                                <facialDisabler>
-                                    <skinName>retain</skinName>
-                                    <lidName>retain</lidName>
-                                    <lidOptionsName>retain</lidOptionsName>
-                                    <eyeballName>retain</eyeballName>
-                                    <browName>retain</browName>
-                                </facialDisabler>
-                            </value>
-                        </match>
-
-                        <nomatch Class="PatchOperationAdd">
-                            <xpath>/Defs/GeneDef[defName="BS_StonemaskHead"]/modExtensions/li[@Class="BigAndSmall.PawnExtension"]</xpath>
-                            <value>
-                                <facialDisabler>
-                                    <skinName>retain</skinName>
-                                    <lidName>retain</lidName>
-                                    <lidOptionsName>retain</lidOptionsName>
-                                    <eyeballName>retain</eyeballName>
-                                    <browName>retain</browName>
-                                </facialDisabler>
-                            </value>
-                        </nomatch>
-                    </li>
-                </operations>
-            </match>
-        </Operation>
+    <!-- BigAndSmall.GhoulHead -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs</xpath>
+        <value>
+            <FacialAnimation.HeadTypeDef>
+                <defName>BS_GhoulHead</defName>
+                <texPath>BS_GhoulHead</texPath>
+                <probability>1</probability>
+                <shader>Map/CutoutSkin</shader>
+                <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                <targetGeneDefs>
+                    <li>BS_GhoulHead</li>
+                </targetGeneDefs>
+            </FacialAnimation.HeadTypeDef>
+        </value>
+    </Operation>
+    <!-- BigAndSmall.DragonHead -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs</xpath>
+        <value>
+            <FacialAnimation.HeadTypeDef>
+                <defName>BS_DragonHead</defName>
+                <texPath>DragonNose</texPath>
+                <probability>1</probability>
+                <shader>Map/CutoutSkin</shader>
+                <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                <targetGeneDefs>
+                    <li>BS_DragonHead</li>
+                </targetGeneDefs>
+            </FacialAnimation.HeadTypeDef>
+            <FacialAnimation.MouthTypeDef>
+                <defName>BS_DragonHeadMouthBlank</defName>
+                <texPath>Mouth/BlankMouth</texPath>
+                <shader>Map/Transparent</shader>
+                <targetGeneDefs>
+                    <li>BS_DragonHead</li>
+                </targetGeneDefs>
+            </FacialAnimation.MouthTypeDef>
+        </value>
+    </Operation>
 </Patch>

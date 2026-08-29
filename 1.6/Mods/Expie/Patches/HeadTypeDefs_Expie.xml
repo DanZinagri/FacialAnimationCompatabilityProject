@@ -1,23 +1,20 @@
 <?xml version="1.0" encoding="utf-8" ?>
+<!-- Gated by LoadFolders: IfModActive="erin.expie" -->
 <Patch>
-    <Operation Class="PatchOperationFindMod">
-        <mods>
-            <li>Erin's Experiment (Expie)</li>
-        </mods>
-        <match Class="PatchOperationAdd">
-            <xpath>/Defs</xpath>
-            <value>
-                <FacialAnimation.HeadTypeDef>
-                    <defName>ERN_ExpieHead</defName>
-                    <texPath>ExpieHead</texPath>
-                    <probability>1</probability>
-                    <shader>Map/CutoutSkin</shader>
-                    <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
-                    <targetGeneDefs>
-                        <li>ERN_ExpieHead</li>
-                    </targetGeneDefs>
-                </FacialAnimation.HeadTypeDef>
-            </value>
-        </match>
+    <!-- Expie.Head -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs</xpath>
+        <value>
+            <FacialAnimation.HeadTypeDef>
+                <defName>ERN_ExpieHead</defName>
+                <texPath>ExpieHead</texPath>
+                <probability>1</probability>
+                <shader>Map/CutoutSkin</shader>
+                <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                <targetGeneDefs>
+                    <li>ERN_ExpieHead</li>
+                </targetGeneDefs>
+            </FacialAnimation.HeadTypeDef>
+        </value>
     </Operation>
 </Patch>

@@ -1,9 +1,53 @@
 <?xml version="1.0" encoding="utf-8" ?>
+<!-- Vanilla Biotech genes. Every gene targeted here comes from Biotech, so the removals
+     are wrapped in PatchOperationConditional to stay quiet without the DLC. -->
 <Patch>
-    <Operation Class="PatchOperationRemove">
-        <xpath>Defs/XenotypeDef[defName="Yttakin"]/genes/li[text()="Hair_BaldOnly"]</xpath>
+    <!-- Vanilla.Gaunt -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs</xpath>
+        <value>
+            <FacialAnimation.HeadTypeDef>
+                <defName>Gaunt</defName>
+                <texPath>Gaunt</texPath>
+                <probability>1</probability>
+                <shader>Map/CutoutSkin</shader>
+                <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                <targetGeneDefs>
+                    <li>Head_Gaunt</li>
+                </targetGeneDefs>
+            </FacialAnimation.HeadTypeDef>
+        </value>
     </Operation>
-    <Operation Class="PatchOperationRemove">
-        <xpath>Defs/GeneDef[defName="Nose_Pig"]/renderNodeProperties</xpath>
+    <!-- Vanilla.HeavyJaw -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs</xpath>
+        <value>
+            <FacialAnimation.HeadTypeDef>
+                <defName>HeavyJaw</defName>
+                <texPath>HeavyJaw</texPath>
+                <probability>1</probability>
+                <shader>Map/CutoutSkin</shader>
+                <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                <targetGeneDefs>
+                    <li>Jaw_Heavy</li>
+                </targetGeneDefs>
+            </FacialAnimation.HeadTypeDef>
+        </value>
+    </Operation>
+    <!-- Vanilla.PigNose -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs</xpath>
+        <value>
+            <FacialAnimation.HeadTypeDef>
+                <defName>Nose_Pig</defName>
+                <texPath>Nose_Pig</texPath>
+                <probability>1</probability>
+                <shader>Map/CutoutSkin</shader>
+                <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                <targetGeneDefs>
+                    <li>Nose_Pig</li>
+                </targetGeneDefs>
+            </FacialAnimation.HeadTypeDef>
+        </value>
     </Operation>
 </Patch>

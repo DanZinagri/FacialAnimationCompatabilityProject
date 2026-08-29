@@ -1,13 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <!-- Gated by LoadFolders: IfModActive="RedMattis.LamiasAndOtherSnakes" -->
 <Patch>
-    <!-- Snek Hed -->
-    <Operation Class="PatchOperationRemove">
-        <xpath>/Defs/GeneDef[defName="LoS_SnekSnoot"]/modExtensions</xpath>
-    </Operation>
-    <Operation Class="PatchOperationRemove">
-        <xpath>/Defs/GeneDef[defName="LoS_SnekSnoot"]/forcedHeadTypes</xpath>
-    </Operation>
+    <!-- Lamias.SnekSnoot -->
     <Operation Class="PatchOperationAdd">
         <xpath>/Defs</xpath>
         <value>
