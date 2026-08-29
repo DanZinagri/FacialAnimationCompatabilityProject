@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Roo's Faun Xenotype</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <operations>
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/GeneDef[defName="RBSF_DeerHead"]/forcedHeadTypes</xpath>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <FacialAnimation.HeadTypeDef>
+                            <defName>RBSF_AverageHead1</defName>
+                            <texPath>Faun/RBSF_DeerHeadA</texPath>
+                            <shader>Map/CutoutSkin</shader>
+                            <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                            <probability>0.25</probability>
+                            <targetGeneDefs>
+                                <li>RBSF_DeerHead</li>
+                            </targetGeneDefs>
+                        </FacialAnimation.HeadTypeDef>
+
+                        <FacialAnimation.HeadTypeDef>
+                            <defName>RBSF_AverageHead2</defName>
+                            <texPath>Faun/RBSF_DeerHeadB</texPath>
+                            <shader>Map/CutoutSkin</shader>
+                            <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                            <probability>0.25</probability>
+                            <targetGeneDefs>
+                                <li>RBSF_DeerHead</li>
+                            </targetGeneDefs>
+                        </FacialAnimation.HeadTypeDef>
+
+                        <FacialAnimation.HeadTypeDef>
+                            <defName>RBSF_AverageHead3</defName>
+                            <texPath>Faun/RBSF_DeerHeadC</texPath>
+                            <shader>Map/CutoutSkin</shader>
+                            <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                            <probability>0.25</probability>
+                            <targetGeneDefs>
+                                <li>RBSF_DeerHead</li>
+                            </targetGeneDefs>
+                        </FacialAnimation.HeadTypeDef>
+
+                        <FacialAnimation.HeadTypeDef>
+                            <defName>RBSF_AverageHead4</defName>
+                            <texPath>Faun/RBSF_DeerHeadD</texPath>
+                            <shader>Map/CutoutSkin</shader>
+                            <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                            <probability>0.25</probability>
+                            <targetGeneDefs>
+                                <li>RBSF_DeerHead</li>
+                            </targetGeneDefs>
+                        </FacialAnimation.HeadTypeDef>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

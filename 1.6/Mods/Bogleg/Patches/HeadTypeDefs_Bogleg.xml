@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Det's Xenotypes - Boglegs</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <operations>
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/GeneDef[defName="DV_Jaw_FatSac"]/renderNodeProperties</xpath>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <FacialAnimation.HeadTypeDef>
+                            <defName>DV_Jaw_FatSac</defName>
+                            <texPath>Bogleg</texPath>
+                            <probability>1</probability>
+                            <shader>Map/CutoutSkin</shader>
+                            <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                            <targetGeneDefs>
+                                <li>DV_Jaw_FatSac</li>
+                            </targetGeneDefs>
+                        </FacialAnimation.HeadTypeDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/XenotypeDef[defName="DV_Bogleg"]/genes/li[text()="Head_Gaunt"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

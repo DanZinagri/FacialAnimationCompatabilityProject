@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Vanilla Races Expanded - Phytokin</li>
+        </mods>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs</xpath>
+            <value>
+                <FacialAnimation.HeadTypeDef>
+                    <defName>BarkSkin</defName>
+                    <texPath>Heads_VRE_Phytokin/BarkSkin</texPath>
+                    <probability>1</probability>
+                    <shader>Map/CutoutSkin</shader>
+                    <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                    <targetGeneDefs>
+                        <li>VRE_BarkSkin</li>
+                    </targetGeneDefs>
+                </FacialAnimation.HeadTypeDef>
+            </value>
+        </match>
+    </Operation>
+</Patch>

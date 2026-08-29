@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- Gated by LoadFolders: IfModActive="RedMattis.BSSlimes" -->
+<Patch>
+    <!-- Slimes/Sludge -->
+    <Operation Class="PatchOperationRemove">
+        <xpath>/Defs/GeneDef[defName="BS_SludgeBody"]/forcedHeadTypes</xpath>
+    </Operation>
+    <Operation Class="PatchOperationRemove">
+        <xpath>/Defs/GeneDef[defName="BS_SludgeBody"]/renderNodeProperties/li[texPaths/li="BS_Heads/Slime/facial_animation/SlimeHead_NoEyes"]</xpath>
+    </Operation>
+</Patch>

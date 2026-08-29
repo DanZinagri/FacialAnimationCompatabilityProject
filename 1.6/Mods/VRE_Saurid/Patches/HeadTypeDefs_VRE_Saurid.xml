@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Vanilla Races Expanded - Saurid</li>
+        </mods>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs</xpath>
+            <value>
+                <FacialAnimation.HeadTypeDef>
+                    <defName>VRESaurids_ScaleSkin</defName>
+                    <texPath>scaled</texPath>
+                    <probability>1</probability>
+                    <shader>Map/CutoutSkin</shader>
+                    <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                    <targetGeneDefs>
+                        <li>VRESaurids_ScaleSkin</li>
+                    </targetGeneDefs>
+                </FacialAnimation.HeadTypeDef>
+            </value>
+        </match>
+    </Operation>
+</Patch>

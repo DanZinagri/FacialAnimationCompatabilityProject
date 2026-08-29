@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- Gated by LoadFolders: IfModActive="RedMattis.Undead" -->
+<Patch>
+    <!-- Involuntary Werewolf -->
+    <Operation Class="PatchOperationRemove">
+        <xpath>/Defs/GeneDef[defName="BS_WerewolfSnoot"]/forcedHeadTypes</xpath>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs</xpath>
+        <value>
+            <FacialAnimation.HeadTypeDef>
+                <defName>BS_WerewolfSnoot</defName>
+                <texPath>CanineNose</texPath>
+                <probability>1</probability>
+                <shader>Map/CutoutSkin</shader>
+                <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                <targetGeneDefs>
+                    <li>BS_WerewolfSnoot</li>
+                </targetGeneDefs>
+            </FacialAnimation.HeadTypeDef>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationReplace">
+        <xpath>/Defs/HediffDef[defName="BS_WerewolfForm"]/renderNodeProperties/li[texPath="BS_HeadAttachments/BS_GenericAnimalPersonEars"]/texPath</xpath>
+        <value>
+            <texPath>Things/Pawn/Humanlike/HeadAttachments/CanineEars/CanineEars</texPath>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationReplace">
+        <xpath>/Defs/HediffDef[defName="BS_WerewolfForm"]/comps/li[@Class="BigAndSmall.CompProperties_ColorAndFur"]/disableFacialAnims</xpath>
+        <value>
+            <disableFacialAnims>false</disableFacialAnims>
+        </value>
+    </Operation>
+</Patch>

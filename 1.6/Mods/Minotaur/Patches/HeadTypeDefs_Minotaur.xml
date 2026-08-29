@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Roo's Minotaur Xenotype</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <operations>
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/GeneDef[defName="RBM_BovineHead"]/forcedHeadTypes</xpath>
+                </li>
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/GeneDef[defName="RBM_BovineHead"]/renderNodeProperties</xpath>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/GeneDef[defName="RBM_BovineHead"]</xpath>
+                    <value>
+                        <renderNodeProperties>
+                            <li>
+                                <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+                                <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+
+                                <texPaths>
+                                    <li>Minotaur/Head_Blank/normal</li>
+                                    <li>Minotaur/Head_Blank/normal</li>
+                                    <li>Minotaur/Head_Blank/normal</li>
+                                    <li>Minotaur/Head_Blank/normal</li>
+
+                                    <li>Minotaur/Head_NoseRing/normal</li>
+                                </texPaths>
+
+                                <colorType>Custom</colorType>
+                                <color>(255,215,0)</color>
+                                <parentTagDef>Head</parentTagDef>
+                                <useSkinShader>false</useSkinShader>
+                                <useRottenColor>false</useRottenColor>
+                                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+
+                                <drawData>
+                                    <defaultData>
+                                        <layer>61</layer>
+                                        <offset>(0,0,0)</offset>
+                                    </defaultData>
+                                    <dataNorth>
+                                        <layer>-2</layer>
+                                        <offset>(0,0,0)</offset>
+                                    </dataNorth>
+                                    <dataSouth>
+                                        <layer>61</layer>
+                                        <offset>(0,0,0)</offset>
+                                    </dataSouth>
+                                    <dataEast>
+                                        <layer>61</layer>
+                                        <offset>(0,0,0)</offset>
+                                    </dataEast>
+                                    <dataWest>
+                                        <layer>61</layer>
+                                        <offset>(0,0,0)</offset>
+                                    </dataWest>
+                                </drawData>
+                            </li>
+                        </renderNodeProperties>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <FacialAnimation.HeadTypeDef>
+                            <defName>MinotaurNormal</defName>
+                            <texPath>Minotaur/Head_Normal</texPath>
+                            <shader>Map/CutoutSkin</shader>
+                            <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                            <probability>0.05</probability>
+                            <targetGeneDefs>
+                                <li>RBM_BovineHead</li>
+                            </targetGeneDefs>
+                        </FacialAnimation.HeadTypeDef>
+
+                        <FacialAnimation.HeadTypeDef>
+                            <defName>MinotaurBull1</defName>
+                            <texPath>Minotaur/Head_Bull1</texPath>
+                            <shader>Map/CutoutSkin</shader>
+                            <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                            <probability>0.05</probability>
+                            <targetGeneDefs>
+                                <li>RBM_BovineHead</li>
+                            </targetGeneDefs>
+                        </FacialAnimation.HeadTypeDef>
+
+                        <FacialAnimation.HeadTypeDef>
+                            <defName>MinotaurBull2</defName>
+                            <texPath>Minotaur/Head_Bull2</texPath>
+                            <shader>Map/CutoutSkin</shader>
+                            <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                            <probability>0.05</probability>
+                            <targetGeneDefs>
+                                <li>RBM_BovineHead</li>
+                            </targetGeneDefs>
+                        </FacialAnimation.HeadTypeDef>
+
+                        <FacialAnimation.HeadTypeDef>
+                            <defName>MinotaurBull3</defName>
+                            <texPath>Minotaur/Head_Bull3</texPath>
+                            <shader>Map/CutoutSkin</shader>
+                            <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                            <probability>0.05</probability>
+                            <targetGeneDefs>
+                                <li>RBM_BovineHead</li>
+                            </targetGeneDefs>
+                        </FacialAnimation.HeadTypeDef>
+
+                        <FacialAnimation.HeadTypeDef>
+                            <defName>MinotaurBull4</defName>
+                            <texPath>Minotaur/Head_Bull4</texPath>
+                            <shader>Map/CutoutSkin</shader>
+                            <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                            <probability>0.05</probability>
+                            <targetGeneDefs>
+                                <li>RBM_BovineHead</li>
+                            </targetGeneDefs>
+                        </FacialAnimation.HeadTypeDef>
+
+                        <FacialAnimation.HeadTypeDef>
+                            <defName>MinotaurCow1</defName>
+                            <texPath>Minotaur/Head_Cow1</texPath>
+                            <shader>Map/CutoutSkin</shader>
+                            <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                            <probability>0.05</probability>
+                            <targetGeneDefs>
+                                <li>RBM_BovineHead</li>
+                            </targetGeneDefs>
+                        </FacialAnimation.HeadTypeDef>
+
+                        <FacialAnimation.HeadTypeDef>
+                            <defName>MinotaurCow2</defName>
+                            <texPath>Minotaur/Head_Cow2</texPath>
+                            <shader>Map/CutoutSkin</shader>
+                            <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                            <probability>0.05</probability>
+                            <targetGeneDefs>
+                                <li>RBM_BovineHead</li>
+                            </targetGeneDefs>
+                        </FacialAnimation.HeadTypeDef>
+
+                        <FacialAnimation.HeadTypeDef>
+                            <defName>MinotaurCow3</defName>
+                            <texPath>Minotaur/Head_Cow3</texPath>
+                            <shader>Map/CutoutSkin</shader>
+                            <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                            <probability>0.05</probability>
+                            <targetGeneDefs>
+                                <li>RBM_BovineHead</li>
+                            </targetGeneDefs>
+                        </FacialAnimation.HeadTypeDef>
+
+                        <FacialAnimation.HeadTypeDef>
+                            <defName>MinotaurCow4</defName>
+                            <texPath>Minotaur/Head_Cow4</texPath>
+                            <shader>Map/CutoutSkin</shader>
+                            <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                            <probability>0.05</probability>
+                            <targetGeneDefs>
+                                <li>RBM_BovineHead</li>
+                            </targetGeneDefs>
+                        </FacialAnimation.HeadTypeDef>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+    <FacialAnimation.HeadTypeDef>
+		<defName>Gaunt</defName>
+		<texPath>Gaunt</texPath>
+		<probability>1</probability>
+		<shader>Map/CutoutSkin</shader>
+		<shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+		<targetGeneDefs>
+			<li>Head_Gaunt</li>
+		</targetGeneDefs>
+	</FacialAnimation.HeadTypeDef>
+
+	<FacialAnimation.HeadTypeDef>
+		<defName>HeavyJaw</defName>
+		<texPath>HeavyJaw</texPath>
+		<probability>1</probability>
+		<shader>Map/CutoutSkin</shader>
+		<shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+		<targetGeneDefs>
+			<li>Jaw_Heavy</li>
+		</targetGeneDefs>
+	</FacialAnimation.HeadTypeDef>
+
+	<FacialAnimation.HeadTypeDef>
+		<defName>Nose_Pig</defName>
+		<texPath>Nose_Pig</texPath>
+		<probability>1</probability>
+		<shader>Map/CutoutSkin</shader>
+		<shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+		<targetGeneDefs>
+			<li>Nose_Pig</li>
+		</targetGeneDefs>
+	</FacialAnimation.HeadTypeDef>
+</Defs>

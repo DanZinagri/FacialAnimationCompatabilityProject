@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- Gated by LoadFolders: IfModActive="RedMattis.LamiasAndOtherSnakes" -->
+<Patch>
+    <!-- Snek Hed -->
+    <Operation Class="PatchOperationRemove">
+        <xpath>/Defs/GeneDef[defName="LoS_SnekSnoot"]/modExtensions</xpath>
+    </Operation>
+    <Operation Class="PatchOperationRemove">
+        <xpath>/Defs/GeneDef[defName="LoS_SnekSnoot"]/forcedHeadTypes</xpath>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs</xpath>
+        <value>
+            <FacialAnimation.HeadTypeDef>
+                <defName>LoS_SnekHead</defName>
+                <texPath>DragonNose</texPath>
+                <probability>1</probability>
+                <shader>Map/CutoutSkin</shader>
+                <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                <targetGeneDefs>
+                    <li>LoS_SnekSnoot</li>
+                </targetGeneDefs>
+            </FacialAnimation.HeadTypeDef>
+            <FacialAnimation.MouthTypeDef>
+                <defName>LoS_SnekHeadMouthBlank</defName>
+                <texPath>Mouth/BlankMouth</texPath>
+                <shader>Map/Transparent</shader>
+                <targetGeneDefs>
+                    <li>LoS_SnekSnoot</li>
+                </targetGeneDefs>
+            </FacialAnimation.MouthTypeDef>
+        </value>
+    </Operation>
+</Patch>

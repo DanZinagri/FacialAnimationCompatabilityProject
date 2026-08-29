@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>Facial Animation Compatability Project</name>
+	<author>DanZinagri</author>
+	<supportedVersions>
+		<li>1.6</li>
+	</supportedVersions>
+	<packageId>DanZinagri.FacialAnimationCompatabilityProject</packageId>
+	<description>I like what Genetic Framework is doing, it seems like a really clean system, but I like the head shapes provided by NL Facial Animation, as they tend to fit the more anime aesthetic, especially as i tend to run stuff alongside races like ratkin and the like. So going to do some adjustments in an attempt to bring things more in line with that style.
+	
+	Currently Supported:
+	- Vanilla Races Expanded - Phytokin (Specifically the Barkskin head) - No Heavy Jaw or Gaunt Yet.
+    - Vanilla Heavy Jaw Gene (so Neanderthals and such)
+    - Vanilla Gaunt Gene (So wasters and such)
+    
+    If applying to existing save/pawn, go into the facial animation menu and select the BarkSkin face, this should swap over to the new head texture; this overwrites the normal list of heads.
+	</description>
+	<modDependencies>
+		<li>
+			<packageId>nals.facialanimation</packageId>
+			<displayName>[NL] Facial Animation - WIP</displayName>
+			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=1635901197</steamWorkshopUrl>
+		</li>
+	</modDependencies>
+	<loadAfter>
+		<li>Ludeon.RimWorld</li>
+		<li>Ludeon.RimWorld.Biotech</li>
+		<li>zaire82.hdheadattatchmentsforfacialanimation</li>
+		<li>vanillaracesexpanded.pigskin</li>
+		<li>vanillaracesexpanded.lycanthrope</li>
+		<li>nals.facialanimation</li>
+		<li>nals.facialanimationexperimentals</li>
+        <li>sd.fa.geneticheadsframework</li>
+		<li>vanillaracesexpanded.phytokin</li>
+		<li>redmattis.bigsmall.core</li>
+		<li>redmattis.bigsmall.core</li>
+		<li>redmattis.morexenos</li>
+		<li>redmattis.bigsmall</li>
+		<li>redmattis.bsslimes</li>
+		<li>redmattis.undead</li>
+		<li>redmattis.yokai</li>
+		<li>erin.expie</li>
+		<li>redmattis.bigsmall.bugs</li>
+		<li>redmattis.bigsmall.bugs</li>
+		<li>sarg.alphagenes</li>
+		<li>redmattis.lamiasandothersnakes</li>
+		<li>vanillaracesexpanded.saurid</li>
+		<li>erin.shisune</li>
+		<li>tug.minotaur</li>
+		<li>tug.minotaur.expanded</li>
+		<li>v.rooboid.faun</li>
+		<li>tug.satyrfaun.expanded</li>
+		<li>lucius.eyegenes3</li>
+		<li>det.stoneborn</li>
+		<li>erin.rhyaeth</li>
+		<li>eclair155.onixeno</li>
+		<li>det.boglegs</li>
+		<li>det.keshig</li>
+		<li>det.brawnum</li>
+		<li>det.venators</li>
+	</loadAfter>
+</ModMetaData>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Erin's Shisune</li>
+        </mods>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs</xpath>
+            <value>
+                <FacialAnimation.HeadTypeDef>
+                    <defName>ERN_ShisuneHead</defName>
+                    <texPath>Shisune</texPath>
+                    <probability>1</probability>
+                    <shader>Map/CutoutSkin</shader>
+                    <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                    <targetGeneDefs>
+                        <li>ERN_ShisuneHead</li>
+                    </targetGeneDefs>
+                </FacialAnimation.HeadTypeDef>
+            </value>
+        </match>
+    </Operation>
+</Patch>

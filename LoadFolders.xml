@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<loadFolders>
+	<v1.6>
+		<li>/</li>
+		<li>1.6</li>
+		<li IfModActive="sarg.alphagenes">1.6/Mods/AlphaGenes</li>
+		<li IfModActive="RedMattis.BigSmall.Core">1.6/Mods/BigAndSmall</li>
+		<li IfModActive="RedMattis.LamiasAndOtherSnakes">1.6/Mods/BS_Lamias</li>
+		<li IfModActive="RedMattis.BSSlimes">1.6/Mods/BS_Slimes</li>
+		<li IfModActive="RedMattis.Yokai">1.6/Mods/BS_Yokai</li>
+		<li IfModActive="RedMattis.Undead">1.6/Mods/BS_Undead</li>
+		<li IfModActive="det.boglegs">1.6/Mods/Bogleg</li>
+		<li IfModActive="det.brawnum">1.6/Mods/Brawnum</li>
+		<li IfModActive="erin.expie">1.6/Mods/Expie</li>
+		<li IfModActive="V.Rooboid.Faun">1.6/Mods/Faun</li>
+		<li IfModActive="det.keshig">1.6/Mods/Keshig</li>
+		<li IfModActive="tug.Minotaur">1.6/Mods/Minotaur</li>
+		<li IfModActive="eclair155.onixeno">1.6/Mods/Oni</li>
+		<li IfModActive="erin.rhyaeth">1.6/Mods/Rhyaeth</li>
+		<li IfModActive="Erin.Shisune">1.6/Mods/Shisune</li>
+		<li IfModActive="det.stoneborn">1.6/Mods/Stoneborn</li>
+		<li IfModActive="vanillaracesexpanded.lycanthrope">1.6/Mods/VRE_Lycanthrope</li>
+		<li IfModActive="vanillaracesexpanded.phytokin">1.6/Mods/VRE_Phytokin</li>
+		<li IfModActive="vanillaracesexpanded.saurid">1.6/Mods/VRE_Saurid</li>
+		<li IfModActive="det.venators">1.6/Mods/Venators</li>
+	</v1.6>
+</loadFolders>

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- Gated by LoadFolders: IfModActive="RedMattis.Yokai" -->
+<Patch>
+    <!-- Lesser Oni -->
+    <Operation Class="PatchOperationRemove">
+        <xpath>/Defs/XenotypeDef[defName="BS_LesserOni"]/genes/li[text()="BS_FacialAnimDisabled"]</xpath>
+    </Operation>
+</Patch>
