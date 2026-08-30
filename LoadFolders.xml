@@ -13,6 +13,7 @@
 		<li IfModActive="det.boglegs">1.6/Mods/Bogleg</li>
 		<li IfModActive="det.brawnum">1.6/Mods/Brawnum</li>
 		<li IfModActive="erin.expie">1.6/Mods/Expie</li>
+		<li IfModActive="Erin.Fenrisulfr">1.6/Mods/Fenrisulfr</li>
 		<li IfModActive="V.Rooboid.Faun">1.6/Mods/Faun</li>
 		<li IfModActive="det.keshig">1.6/Mods/Keshig</li>
 		<li IfModActive="tug.Minotaur">1.6/Mods/Minotaur</li>

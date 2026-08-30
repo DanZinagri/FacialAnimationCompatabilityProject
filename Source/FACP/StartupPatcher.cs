@@ -343,6 +343,9 @@ namespace FACP
                 case "Auraeyl.Head":
                     ClearForcedHeads("ERN_AuraeylHead");
                     break;
+                case "Fenrisulfr.Head":
+                    ClearForcedHeads("ERN_FenrisulfrHead");
+                    break;
                 case "Expie.Head":
                 case "Shisune.Head":
                     break; // pure additions

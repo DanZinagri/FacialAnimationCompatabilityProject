@@ -59,5 +59,11 @@
 		<li>det.brawnum</li>
 		<li>det.venators</li>
 		<li>erin.auraeyl</li>
+		<li>erin.fenrisulfr</li>
+		<li>erin.auronyabiotech</li>
+		<li>unagi.facialanimation</li>
 	</loadAfter>
+	<loadBefore>
+		<li>barb.facetexture</li>
+	</loadBefore>
 </ModMetaData>

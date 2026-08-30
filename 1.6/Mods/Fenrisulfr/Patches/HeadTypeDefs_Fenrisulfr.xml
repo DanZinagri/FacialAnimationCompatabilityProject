@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Gated by LoadFolders: IfModActive="Erin.Fenrisulfr"
+
+     The head textures are currently a straight copy of this mod's shared CanineNose art, so
+     the folder structure and def are in place for unique art to drop in later. -->
+<Patch>
+
+    <!-- Fenrisulfr.Head -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs</xpath>
+        <value>
+            <FacialAnimation.HeadTypeDef>
+                <defName>ERN_FenrisulfrHead</defName>
+                <texPath>Fenrisulfr</texPath>
+                <probability>1</probability>
+                <shader>Map/CutoutSkin</shader>
+                <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                <targetGeneDefs>
+                    <li>ERN_FenrisulfrHead</li>
+                </targetGeneDefs>
+            </FacialAnimation.HeadTypeDef>
+        </value>
+    </Operation>
+
+</Patch>

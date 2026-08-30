@@ -46,6 +46,7 @@ namespace FACP
             { "Keshig.SplitJaw", new[] { "DV_Jaw_Split_Head", "DV_Jaw_Split_Jaw" } },
             { "Stoneborn.BushyEyebrows", new[] { "Stoneborn_BlankBrow" } },
             { "Auraeyl.Head", new[] { "ERN_AuraeylHead" } },
+            { "Fenrisulfr.Head", new[] { "ERN_FenrisulfrHead" } },
             { "Expie.Head", new[] { "ERN_ExpieHead" } },
             { "Shisune.Head", new[] { "ERN_ShisuneHead" } },
             { "Rhyaeth.Head", new[] { "ERN_RhyaethHead", "ERN_RhyaethMouthBlank" } },
@@ -213,6 +214,12 @@ namespace FACP
                 + "colour gizmo. Needs Harmony; without it this does nothing and the colour has to be "
                 + "set by hand, as Erin's mod documents.",
                 "Erin.Auraeyl");
+
+            // ---- Fenrisúlfr ----
+            Add(list, "Fenrisulfr.Head", "Fenrisúlfr head", "Fenrisúlfr",
+                "Drops ERN_FenrisulfrHead's forced head types in favour of a Facial Animation head, "
+                + "so the muzzle keeps Facial Animation's own eyes.",
+                "Erin.Fenrisulfr");
 
             // ---- Expie ----
             Add(list, "Expie.Head", "Expie head", "Expie",
