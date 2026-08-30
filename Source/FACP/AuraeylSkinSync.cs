@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using RimWorld;
 using UnityEngine;
 using Verse;
 
@@ -23,6 +25,7 @@ namespace FACP
     {
         private const string GeneTypeName = "ErinsAuraeyl.Gene_SecondColor";
 
+        private static Type geneType;
         private static FieldInfo primaryColorField;
 
         public static void Apply()
@@ -34,7 +37,7 @@ namespace FACP
                 return;
             }
 
-            Type geneType = GenTypes.GetTypeInAnyAssembly(GeneTypeName);
+            geneType = GenTypes.GetTypeInAnyAssembly(GeneTypeName);
             if (geneType == null)
             {
                 Log.Warning("[FACP] Auraeyl skin sync: " + GeneTypeName + " not found; skipping.");
@@ -58,9 +61,16 @@ namespace FACP
                 return;
             }
 
+            // Notify_GenesChanged is the safety net. PostAdd alone is not enough: any later
+            // gene add can run EnsureCorrectSkinColorOverride, which reassigns skinColorOverride
+            // from gene defs and would drop our value; and pawn editors may build a pawn's genes
+            // by a route that never calls PostAdd at all. Both fire only on gene changes.
+            MethodInfo genesChanged = typeof(Pawn_GeneTracker).GetMethod("Notify_GenesChanged",
+                BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+
             try
             {
-                PatchWithHarmony(target);
+                PatchWithHarmony(target, genesChanged);
             }
             catch (Exception ex)
             {
@@ -70,12 +80,24 @@ namespace FACP
 
         // Kept separate and non-inlined so HarmonyLib is only resolved when it exists.
         [MethodImpl(MethodImplOptions.NoInlining)]
-        private static void PatchWithHarmony(MethodInfo target)
+        private static void PatchWithHarmony(MethodInfo postAdd, MethodInfo genesChanged)
         {
             HarmonyLib.Harmony harmony = new HarmonyLib.Harmony("DanZinagri.FacialAnimationCompatabilityProject");
-            MethodInfo postfix = typeof(AuraeylSkinSync).GetMethod(nameof(PostAddPostfix),
-                BindingFlags.Public | BindingFlags.Static);
-            harmony.Patch(target, null, new HarmonyLib.HarmonyMethod(postfix));
+
+            harmony.Patch(postAdd, null, new HarmonyLib.HarmonyMethod(
+                typeof(AuraeylSkinSync).GetMethod(nameof(PostAddPostfix), BindingFlags.Public | BindingFlags.Static)));
+
+            if (genesChanged != null)
+            {
+                harmony.Patch(genesChanged, null, new HarmonyLib.HarmonyMethod(
+                    typeof(AuraeylSkinSync).GetMethod(nameof(GenesChangedPostfix), BindingFlags.Public | BindingFlags.Static)));
+            }
+            else
+            {
+                Log.Warning("[FACP] Auraeyl skin sync: Pawn_GeneTracker.Notify_GenesChanged not found; "
+                    + "the colour may be overwritten when other genes are added.");
+            }
+
             Log.Message("[FACP] Auraeyl skin sync active: skin colour will follow the primary fur colour.");
         }
 
@@ -83,20 +105,57 @@ namespace FACP
         // compile time; the primary colour is read reflectively.
         public static void PostAddPostfix(Gene __instance)
         {
-            if (primaryColorField == null || __instance == null)
+            if (__instance != null)
             {
-                return;
+                TrySync(__instance.pawn);
             }
-            Pawn pawn = __instance.pawn;
-            if (pawn == null || pawn.story == null)
+        }
+
+        public static void GenesChangedPostfix(Pawn_GeneTracker __instance)
+        {
+            if (__instance != null)
+            {
+                TrySync(__instance.pawn);
+            }
+        }
+
+        // Finds the pawn's active second-colour gene and mirrors its primary onto the skin.
+        // Runs only on gene changes, and walks a list that is a handful of entries long.
+        private static void TrySync(Pawn pawn)
+        {
+            if (geneType == null || primaryColorField == null
+                || pawn == null || pawn.story == null || pawn.genes == null)
             {
                 return;
             }
 
-            object value = primaryColorField.GetValue(__instance);
-            if (value is Color primary)
+            List<Gene> genes = pawn.genes.GenesListForReading;
+            for (int i = 0; i < genes.Count; i++)
             {
-                pawn.story.skinColorOverride = primary;
+                Gene gene = genes[i];
+                if (gene == null || !gene.Active || !geneType.IsInstanceOfType(gene))
+                {
+                    continue;
+                }
+                if (primaryColorField.GetValue(gene) is Color primary
+                    && pawn.story.skinColorOverride != primary)
+                {
+                    pawn.story.skinColorOverride = primary;
+
+                    // Facial Animation rolls a face type the first time its comp initialises
+                    // (InitializeIfNeed -> SetRandomFaceType). If that happens before the
+                    // Auraeyl gene is on the pawn, it picks from the no-gene list and lands on
+                    // a generic head, which the muzzle marking is not aligned to. The fur
+                    // colour gizmo ends with SetAllGraphicsDirty and that is what visibly fixes
+                    // it, so do the same here - only on an actual change, so it stays a
+                    // one-per-pawn cost rather than anything repeating.
+                    Pawn_DrawTracker drawer = pawn.Drawer;
+                    if (drawer != null && drawer.renderer != null)
+                    {
+                        drawer.renderer.SetAllGraphicsDirty();
+                    }
+                }
+                return;
             }
         }
     }
