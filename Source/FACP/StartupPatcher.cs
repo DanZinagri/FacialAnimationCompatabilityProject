@@ -337,6 +337,9 @@ namespace FACP
                     break; // pure addition
 
                 // ---- Erin's xenotypes ----
+                case "Auraeyl.SyncSkinColour":
+                    AuraeylSkinSync.Apply();
+                    break;
                 case "Auraeyl.Head":
                     ClearForcedHeads("ERN_AuraeylHead");
                     break;
@@ -405,8 +408,8 @@ namespace FACP
             }
             else if (key == "Auraeyl.Head")
             {
-                // Switched off: drop our head attachment so the source mod's own head, which
-                // its postfix already two-tones, is what draws.
+                // Switched off: drop the marking overlay along with the head, so the source
+                // mod's own head - which its postfix already two-tones - is what draws.
                 RemoveAuraeylHead();
             }
             else if (key == "BigAndSmall.InsectoidFourArmed")
@@ -432,8 +435,8 @@ namespace FACP
         private static void RemoveAuraeylHead()
         {
             // The male path just identifies the node; it carries texPathFemale too, so this
-            // takes the head attachment away from both genders.
-            RemoveRenderNodeByTexPath("ERN_AuraeylBody", "Auraeyl/Male/normal");
+            // takes the marking away from both genders.
+            RemoveRenderNodeByTexPath("ERN_AuraeylBody", "Auraeyl_Markings/Male/normal");
         }
 
         // ---------------- def helpers ----------------

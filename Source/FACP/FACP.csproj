@@ -18,6 +18,12 @@
       <HintPath>E:\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>false</Private>
     </Reference>
+    <!-- Soft dependency: compile-time only. AuraeylSkinSync checks HarmonyLib is loaded
+         before any code that touches it runs, so this is never required at runtime. -->
+    <Reference Include="0Harmony">
+      <HintPath>E:\SteamLibrary\steamapps\workshop\content\294100\2009463077\Current\Assemblies\0Harmony.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
     <Reference Include="FacialAnimation">
       <HintPath>E:\SteamLibrary\steamapps\workshop\content\294100\1635901197\1.6\Assemblies\FacialAnimation.dll</HintPath>
       <Private>false</Private>

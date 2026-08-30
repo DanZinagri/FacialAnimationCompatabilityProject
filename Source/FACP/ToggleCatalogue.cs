@@ -207,6 +207,13 @@ namespace FACP
                 + "secondary fur colours, matching the body from the moment they spawn.",
                 "Erin.Auraeyl");
 
+            Add(list, "Auraeyl.SyncSkinColour", "Auraeyl skin follows fur colour", "Auraeyl",
+                "Applies the pawn's primary fur colour to its skin the moment the gene rolls its "
+                + "colours, so the head and eyelid are right from the start instead of needing the fur "
+                + "colour gizmo. Needs Harmony; without it this does nothing and the colour has to be "
+                + "set by hand, as Erin's mod documents.",
+                "Erin.Auraeyl");
+
             // ---- Expie ----
             Add(list, "Expie.Head", "Expie head", "Expie",
                 "Adds a Facial Animation head type for ERN_ExpieHead.",

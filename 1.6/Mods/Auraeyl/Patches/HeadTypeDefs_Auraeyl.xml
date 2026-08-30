@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Patch>
 
-    <!-- Auraeyl.Head : transparent stand-in, so the attachment below is what shows -->
+    <!-- Auraeyl.Head -->
     <Operation Class="PatchOperationAdd">
         <xpath>/Defs</xpath>
         <value>
             <FacialAnimation.HeadTypeDef>
                 <defName>ERN_AuraeylHead</defName>
-                <texPath>Auraeyl_Invisible</texPath>
-                <enableUnisexTexPath>true</enableUnisexTexPath>
-                <shader>Map/Transparent</shader>
+                <texPath>Auraeyl</texPath>
                 <probability>1</probability>
+                <shader>Map/CutoutSkin</shader>
+                <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
                 <targetGeneDefs>
                     <li>ERN_AuraeylHead</li>
                 </targetGeneDefs>
@@ -18,7 +18,7 @@
         </value>
     </Operation>
 
-    <!-- Auraeyl.Head : the head itself, two-toned by Erin's postfix via its own mask.
+    <!-- Auraeyl.Head : muzzle marking only, kept on the secondary fur colour.
          Appended into the existing list - this gene already carries its fur node. -->
     <Operation Class="PatchOperationAdd">
         <xpath>/Defs/GeneDef[defName="ERN_AuraeylBody"]/renderNodeProperties</xpath>
@@ -26,8 +26,8 @@
                 <li>
                     <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
                     <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
-                    <texPath>Auraeyl/Male/normal</texPath>
-                    <texPathFemale>Auraeyl/Female/normal</texPathFemale>
+                    <texPath>Auraeyl_Markings/Male/normal</texPath>
+                    <texPathFemale>Auraeyl_Markings/Female/normal</texPathFemale>
                     <colorType>Skin</colorType>
                     <parentTagDef>Head</parentTagDef>
                     <useSkinShader>false</useSkinShader>
@@ -35,7 +35,7 @@
                     <rotDrawMode>Fresh, Rotting</rotDrawMode>
                     <drawData>
                         <defaultData>
-                            <layer>49</layer>
+                            <layer>50.1</layer>
                         </defaultData>
                     </drawData>
                 </li>
