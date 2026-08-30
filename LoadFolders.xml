@@ -4,6 +4,7 @@
 		<li>/</li>
 		<li>1.6</li>
 		<li IfModActive="sarg.alphagenes">1.6/Mods/AlphaGenes</li>
+		<li IfModActive="Erin.Auraeyl">1.6/Mods/Auraeyl</li>
 		<li IfModActive="RedMattis.BigSmall.Core">1.6/Mods/BigAndSmall</li>
 		<li IfModActive="RedMattis.LamiasAndOtherSnakes">1.6/Mods/BS_Lamias</li>
 		<li IfModActive="RedMattis.BSSlimes">1.6/Mods/BS_Slimes</li>

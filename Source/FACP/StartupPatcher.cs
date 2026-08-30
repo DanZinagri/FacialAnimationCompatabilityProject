@@ -337,6 +337,9 @@ namespace FACP
                     break; // pure addition
 
                 // ---- Erin's xenotypes ----
+                case "Auraeyl.Head":
+                    ClearForcedHeads("ERN_AuraeylHead");
+                    break;
                 case "Expie.Head":
                 case "Shisune.Head":
                     break; // pure additions
@@ -400,6 +403,12 @@ namespace FACP
                 // Drop the node our XML appended, leaving the source mod's own head node.
                 KeepOnlyOurBovineNode(false);
             }
+            else if (key == "Auraeyl.Head")
+            {
+                // Switched off: drop our head attachment so the source mod's own head, which
+                // its postfix already two-tones, is what draws.
+                RemoveAuraeylHead();
+            }
             else if (key == "BigAndSmall.InsectoidFourArmed")
             {
                 // GraphicHelper keys its lookup on RaceName, defaulting every race to
@@ -418,6 +427,13 @@ namespace FACP
                 return;
             }
             adjustment.RaceName = DisabledMarker;
+        }
+
+        private static void RemoveAuraeylHead()
+        {
+            // The male path just identifies the node; it carries texPathFemale too, so this
+            // takes the head attachment away from both genders.
+            RemoveRenderNodeByTexPath("ERN_AuraeylBody", "Auraeyl/Male/normal");
         }
 
         // ---------------- def helpers ----------------
@@ -514,7 +530,11 @@ namespace FACP
             }
         }
 
-        private static void RemoveRenderNodeByTexPath(string geneDefName, string texPath)
+        // Removes the whole render node, matching on one of its texture paths purely as an
+        // identifier. A node carries texPath and texPathFemale together and the gender is not
+        // resolved until draw time (PawnRenderNode.TexPathFor), so matching the male path
+        // still removes the node for every pawn - it is not a per-gender operation.
+        private static void RemoveRenderNodeByTexPath(string geneDefName, string identifyingTexPath)
         {
             GeneDef gene = Gene(geneDefName);
             if (gene == null || gene.renderNodeProperties == null)
@@ -522,7 +542,8 @@ namespace FACP
                 return;
             }
             gene.renderNodeProperties.RemoveAll(n => n != null
-                && ((n.texPath == texPath) || (n.texPaths != null && n.texPaths.Contains(texPath))));
+                && ((n.texPath == identifyingTexPath)
+                    || (n.texPaths != null && n.texPaths.Contains(identifyingTexPath))));
         }
 
         // ---------------- per-toggle work ----------------

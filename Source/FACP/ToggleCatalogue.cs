@@ -45,6 +45,7 @@ namespace FACP
             { "Brawnum.Snout", new[] { "DV_Nose_Snout_Head" } },
             { "Keshig.SplitJaw", new[] { "DV_Jaw_Split_Head", "DV_Jaw_Split_Jaw" } },
             { "Stoneborn.BushyEyebrows", new[] { "Stoneborn_BlankBrow" } },
+            { "Auraeyl.Head", new[] { "ERN_AuraeylHead" } },
             { "Expie.Head", new[] { "ERN_ExpieHead" } },
             { "Shisune.Head", new[] { "ERN_ShisuneHead" } },
             { "Rhyaeth.Head", new[] { "ERN_RhyaethHead", "ERN_RhyaethMouthBlank" } },
@@ -198,6 +199,13 @@ namespace FACP
             Add(list, "Stoneborn.BushyEyebrows", "Bushy eyebrows - blank brow", "Stoneborn",
                 "Adds a zero-probability blank brow type for DV_BushyEyebrows, so the gene's own brow art is not doubled up by an animated one.",
                 "det.stoneborn");
+
+            // ---- Auraeyl ----
+            Add(list, "Auraeyl.Head", "Auraeyl head", "Auraeyl",
+                "Swaps the Auraeyl head for this mod's version, drawn under a transparent Facial Animation "
+                + "head so the animated eyes and mouth sit on top of it. Keeps the pawn's primary and "
+                + "secondary fur colours, matching the body from the moment they spawn.",
+                "Erin.Auraeyl");
 
             // ---- Expie ----
             Add(list, "Expie.Head", "Expie head", "Expie",

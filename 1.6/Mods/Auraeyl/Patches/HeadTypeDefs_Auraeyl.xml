@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+    <!-- Auraeyl.Head : transparent stand-in, so the attachment below is what shows -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs</xpath>
+        <value>
+            <FacialAnimation.HeadTypeDef>
+                <defName>ERN_AuraeylHead</defName>
+                <texPath>Auraeyl_Invisible</texPath>
+                <enableUnisexTexPath>true</enableUnisexTexPath>
+                <shader>Map/Transparent</shader>
+                <probability>1</probability>
+                <targetGeneDefs>
+                    <li>ERN_AuraeylHead</li>
+                </targetGeneDefs>
+            </FacialAnimation.HeadTypeDef>
+        </value>
+    </Operation>
+
+    <!-- Auraeyl.Head : the head itself, two-toned by Erin's postfix via its own mask.
+         Appended into the existing list - this gene already carries its fur node. -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/GeneDef[defName="ERN_AuraeylBody"]/renderNodeProperties</xpath>
+        <value>
+                <li>
+                    <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+                    <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+                    <texPath>Auraeyl/Male/normal</texPath>
+                    <texPathFemale>Auraeyl/Female/normal</texPathFemale>
+                    <colorType>Skin</colorType>
+                    <parentTagDef>Head</parentTagDef>
+                    <useSkinShader>false</useSkinShader>
+                    <useRottenColor>false</useRottenColor>
+                    <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                    <drawData>
+                        <defaultData>
+                            <layer>49</layer>
+                        </defaultData>
+                    </drawData>
+                </li>
+        </value>
+    </Operation>
+
+</Patch>
