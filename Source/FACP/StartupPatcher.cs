@@ -343,6 +343,9 @@ namespace FACP
                 case "Auraeyl.Head":
                     ClearForcedHeads("ERN_AuraeylHead");
                     break;
+                case "Auronya.Head":
+                    ClearForcedHeads("ERN_AuronyaHead");
+                    break;
                 case "Fenrisulfr.Head":
                     ClearForcedHeads("ERN_FenrisulfrHead");
                     break;
@@ -391,6 +394,7 @@ namespace FACP
                 case "Lycanthrope.CanineNose":
                     ClearRenderNodes("VRE_CanineNose");
                     break;
+                case "Auronya.Whiskers":
                 case "Phytokin.BarkSkin":
                 case "Saurid.ScaleSkin":
                     break; // pure additions
@@ -408,6 +412,12 @@ namespace FACP
             {
                 // Drop the node our XML appended, leaving the source mod's own head node.
                 KeepOnlyOurBovineNode(false);
+            }
+            else if (key == "Auronya.Whiskers" || key == "Auronya.Head")
+            {
+                // The head toggle is the master switch: with it off the source mod's own head
+                // draws, and that art already carries whiskers, so ours would double up.
+                RemoveRenderNodeByTexPath("ERN_AuronyaHead", "Auronya_Whiskers/whiskers");
             }
             else if (key == "Auraeyl.Head")
             {

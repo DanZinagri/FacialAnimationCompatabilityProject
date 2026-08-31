@@ -46,6 +46,7 @@ namespace FACP
             { "Keshig.SplitJaw", new[] { "DV_Jaw_Split_Head", "DV_Jaw_Split_Jaw" } },
             { "Stoneborn.BushyEyebrows", new[] { "Stoneborn_BlankBrow" } },
             { "Auraeyl.Head", new[] { "ERN_AuraeylHead" } },
+            { "Auronya.Head", new[] { "ERN_AuronyaHead" } },
             { "Fenrisulfr.Head", new[] { "ERN_FenrisulfrHead" } },
             { "Expie.Head", new[] { "ERN_ExpieHead" } },
             { "Shisune.Head", new[] { "ERN_ShisuneHead" } },
@@ -214,6 +215,17 @@ namespace FACP
                 + "colour gizmo. Needs Harmony; without it this does nothing and the colour has to be "
                 + "set by hand, as Erin's mod documents.",
                 "Erin.Auraeyl");
+
+            // ---- Auronya ----
+            Add(list, "Auronya.Head", "Auronya head", "Auronya",
+                "Drops ERN_AuronyaHead's forced head types in favour of a Facial Animation head, "
+                + "so the muzzle keeps Facial Animation's own eyes.",
+                "Erin.AuronyaBiotech");
+
+            Add(list, "Auronya.Whiskers", "Auronya whiskers", "Auronya",
+                "Hangs whiskers off the Auronya head gene so they draw with the Facial Animation "
+                + "head, leaving the pawn's beard slot free. Hair-coloured.",
+                "Erin.AuronyaBiotech");
 
             // ---- Fenrisúlfr ----
             Add(list, "Fenrisulfr.Head", "Fenrisúlfr head", "Fenrisúlfr",

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Gated by LoadFolders: IfModActive="Erin.AuronyaBiotech"
+
+     The head textures are currently a straight copy of this mod's shared CanineNose art, so
+     the folder structure and def are in place for unique art to drop in later. -->
+<Patch>
+
+    <!-- Auronya.Head -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs</xpath>
+        <value>
+            <FacialAnimation.HeadTypeDef>
+                <defName>ERN_AuronyaHead</defName>
+                <texPath>Auronya</texPath>
+                <probability>1</probability>
+                <shader>Map/CutoutSkin</shader>
+                <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                <targetGeneDefs>
+                    <li>ERN_AuronyaHead</li>
+                </targetGeneDefs>
+            </FacialAnimation.HeadTypeDef>
+        </value>
+    </Operation>
+
+    <!-- Auronya.Whiskers : whiskers hung off the head gene rather than occupying the beard
+         slot, so the pawn keeps its beard choice and the whiskers ride the Facial Animation
+         head. Vanilla head layers: head 50, tattoo 52, beard 60, hair 62, wounds 65, headgear
+         70 - so 62.5 clears the hair (which was cutting across the whiskers) while staying
+         under wounds and hats. Facing north the whiskers drop behind the pawn entirely, using
+         the same layer -5 / y-offset this mod already gives its own ears. Art traced from
+         Reese's Dirtmole Glowup's whisker beard; hair-coloured, as a beard would be. -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/GeneDef[defName="ERN_AuronyaHead"]</xpath>
+        <value>
+            <renderNodeProperties>
+                <li>
+                    <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+                    <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+                    <texPath>Auronya_Whiskers/whiskers</texPath>
+                    <colorType>Hair</colorType>
+                    <parentTagDef>Head</parentTagDef>
+                    <useSkinShader>false</useSkinShader>
+                    <useRottenColor>false</useRottenColor>
+                    <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                    <drawData>
+                        <defaultData>
+                            <layer>62.5</layer>
+                        </defaultData>
+                        <dataNorth>
+                            <offset>(0, -0.0002, 0)</offset>
+                            <layer>-5</layer>
+                        </dataNorth>
+                    </drawData>
+                </li>
+            </renderNodeProperties>
+        </value>
+    </Operation>
+
+</Patch>
