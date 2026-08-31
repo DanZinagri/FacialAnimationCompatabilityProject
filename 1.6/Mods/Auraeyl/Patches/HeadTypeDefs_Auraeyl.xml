@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Patch>
 
-    <!-- Auraeyl.Head -->
+    <!-- Auraeyl.Head : a def of our own, so it is added unconditionally. Switched off, the
+         startup pass parks it on a gene that cannot exist rather than deleting it. -->
     <Operation Class="PatchOperationAdd">
         <xpath>/Defs</xpath>
         <value>
@@ -18,28 +19,36 @@
         </value>
     </Operation>
 
-    <!-- Auraeyl.Head : muzzle marking only, kept on the secondary fur colour.
-         Appended into the existing list - this gene already carries its fur node. -->
-    <Operation Class="PatchOperationAdd">
-        <xpath>/Defs/GeneDef[defName="ERN_AuraeylBody"]/renderNodeProperties</xpath>
-        <value>
-                <li>
-                    <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
-                    <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
-                    <texPath>Auraeyl_Markings/Male/normal</texPath>
-                    <texPathFemale>Auraeyl_Markings/Female/normal</texPathFemale>
-                    <colorType>Skin</colorType>
-                    <parentTagDef>Head</parentTagDef>
-                    <useSkinShader>false</useSkinShader>
-                    <useRottenColor>false</useRottenColor>
-                    <rotDrawMode>Fresh, Rotting</rotDrawMode>
-                    <drawData>
-                        <defaultData>
-                            <layer>50.1</layer>
-                        </defaultData>
-                    </drawData>
-                </li>
-        </value>
+    <!-- Auraeyl.Head : muzzle marking only, kept on the secondary fur colour. Appended into
+         the existing list - this gene already carries its fur node.
+
+         Gated here rather than removed again at startup: this appends to somebody else's def,
+         so "off" has to mean the append never happens. -->
+    <Operation Class="FACP.PatchOperationToggled">
+        <key>Auraeyl.Head</key>
+        <operations>
+            <li Class="PatchOperationAdd">
+                <xpath>/Defs/GeneDef[defName="ERN_AuraeylBody"]/renderNodeProperties</xpath>
+                <value>
+                    <li>
+                        <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+                        <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+                        <texPath>Auraeyl_Markings/Male/normal</texPath>
+                        <texPathFemale>Auraeyl_Markings/Female/normal</texPathFemale>
+                        <colorType>Skin</colorType>
+                        <parentTagDef>Head</parentTagDef>
+                        <useSkinShader>false</useSkinShader>
+                        <useRottenColor>false</useRottenColor>
+                        <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                        <drawData>
+                            <defaultData>
+                                <layer>50.1</layer>
+                            </defaultData>
+                        </drawData>
+                    </li>
+                </value>
+            </li>
+        </operations>
     </Operation>
 
 </Patch>

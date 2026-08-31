@@ -77,6 +77,17 @@ namespace FACP
             }
             Log.Message("[FACP] Startup pass: " + on + " patches applied, " + off + " switched off, "
                 + ToggleRegistry.Entries.Count + " available.");
+
+            // Named in the log too, so a bug report from someone running an XML cache says up
+            // front which patches could have been served stale.
+            List<string> cacheSensitive = ToggleRegistry.CacheSensitiveCategories;
+            if (cacheSensitive.Count > 0
+                && ModLister.GetActiveModWithIdentifier("vr.missilegirl", true) != null)
+            {
+                Log.Message("[FACP] Missile Girl is active; these patches are gated inside the cached "
+                    + "XML, so toggling them needs its cache cleared first: "
+                    + string.Join(", ", cacheSensitive.ToArray()) + ".");
+            }
         }
 
         // Minotaur is the one patch with mutually exclusive treatments rather than on/off.
@@ -413,18 +424,6 @@ namespace FACP
                 // Drop the node our XML appended, leaving the source mod's own head node.
                 KeepOnlyOurBovineNode(false);
             }
-            else if (key == "Auronya.Whiskers" || key == "Auronya.Head")
-            {
-                // The head toggle is the master switch: with it off the source mod's own head
-                // draws, and that art already carries whiskers, so ours would double up.
-                RemoveRenderNodeByTexPath("ERN_AuronyaHead", "Auronya_Whiskers/whiskers");
-            }
-            else if (key == "Auraeyl.Head")
-            {
-                // Switched off: drop the marking overlay along with the head, so the source
-                // mod's own head - which its postfix already two-tones - is what draws.
-                RemoveAuraeylHead();
-            }
             else if (key == "BigAndSmall.InsectoidFourArmed")
             {
                 // GraphicHelper keys its lookup on RaceName, defaulting every race to
@@ -443,13 +442,6 @@ namespace FACP
                 return;
             }
             adjustment.RaceName = DisabledMarker;
-        }
-
-        private static void RemoveAuraeylHead()
-        {
-            // The male path just identifies the node; it carries texPathFemale too, so this
-            // takes the marking away from both genders.
-            RemoveRenderNodeByTexPath("ERN_AuraeylBody", "Auraeyl_Markings/Male/normal");
         }
 
         // ---------------- def helpers ----------------

@@ -24,6 +24,13 @@ namespace FACP
         // pawns generated afterwards. Flagged rows get a tag in the settings list.
         public bool modifiesGenes;
 
+        // Set on toggles whose XML is wrapped in PatchOperationToggled - the ones that append
+        // into a def owned by the source mod, where "off" has to mean the append never happens.
+        // Their on/off state is therefore decided while the combined XML document is being
+        // built, so a mod that caches that document freezes them until the cache is cleared.
+        // The settings window names the flagged patches when such a mod is running.
+        public bool gatedInXml;
+
         // Face types this toggle's XML adds. Always added; StartupPatcher parks them on a
         // non-existent gene when the toggle is off.
         public string[] faceTypeDefs;
@@ -74,6 +81,7 @@ namespace FACP
     {
         private static Dictionary<string, ToggleEntry> byKey;
         private static List<ToggleEntry> available;
+        private static List<string> cacheSensitiveCategories;
 
         private static Dictionary<string, ToggleEntry> ByKey
         {
@@ -131,6 +139,27 @@ namespace FACP
                     }
                 }
                 return available;
+            }
+        }
+
+        // Categories of the flagged toggles that are actually available, in list order, for
+        // the XML-cache notice. Empty when none of those source mods are installed.
+        public static List<string> CacheSensitiveCategories
+        {
+            get
+            {
+                if (cacheSensitiveCategories == null)
+                {
+                    cacheSensitiveCategories = new List<string>();
+                    foreach (ToggleEntry entry in Entries)
+                    {
+                        if (entry.gatedInXml && !cacheSensitiveCategories.Contains(entry.category))
+                        {
+                            cacheSensitiveCategories.Add(entry.category);
+                        }
+                    }
+                }
+                return cacheSensitiveCategories;
             }
         }
 

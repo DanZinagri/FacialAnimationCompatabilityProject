@@ -5,7 +5,8 @@
      the folder structure and def are in place for unique art to drop in later. -->
 <Patch>
 
-    <!-- Auronya.Head -->
+    <!-- Auronya.Head : a def of our own, so it is added unconditionally. Switched off, the
+         startup pass parks it on a gene that cannot exist rather than deleting it. -->
     <Operation Class="PatchOperationAdd">
         <xpath>/Defs</xpath>
         <value>
@@ -28,32 +29,43 @@
          70 - so 62.5 clears the hair (which was cutting across the whiskers) while staying
          under wounds and hats. Facing north the whiskers drop behind the pawn entirely, using
          the same layer -5 / y-offset this mod already gives its own ears. Art traced from
-         Reese's Dirtmole Glowup's whisker beard; hair-coloured, as a beard would be. -->
-    <Operation Class="PatchOperationAdd">
-        <xpath>/Defs/GeneDef[defName="ERN_AuronyaHead"]</xpath>
-        <value>
-            <renderNodeProperties>
-                <li>
-                    <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
-                    <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
-                    <texPath>Auronya_Whiskers/whiskers</texPath>
-                    <colorType>Hair</colorType>
-                    <parentTagDef>Head</parentTagDef>
-                    <useSkinShader>false</useSkinShader>
-                    <useRottenColor>false</useRottenColor>
-                    <rotDrawMode>Fresh, Rotting</rotDrawMode>
-                    <drawData>
-                        <defaultData>
-                            <layer>62.5</layer>
-                        </defaultData>
-                        <dataNorth>
-                            <offset>(0, -0.0002, 0)</offset>
-                            <layer>-5</layer>
-                        </dataNorth>
-                    </drawData>
-                </li>
-            </renderNodeProperties>
-        </value>
+         Reese's Dirtmole Glowup's whisker beard; hair-coloured, as a beard would be.
+
+         alsoRequires the head patch: with that off the source mod's own head draws, and its
+         art already carries whiskers, so ours would double up. -->
+    <Operation Class="FACP.PatchOperationToggled">
+        <key>Auronya.Whiskers</key>
+        <alsoRequires>
+            <li>Auronya.Head</li>
+        </alsoRequires>
+        <operations>
+            <li Class="PatchOperationAdd">
+                <xpath>/Defs/GeneDef[defName="ERN_AuronyaHead"]</xpath>
+                <value>
+                    <renderNodeProperties>
+                        <li>
+                            <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+                            <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+                            <texPath>Auronya_Whiskers/whiskers</texPath>
+                            <colorType>Hair</colorType>
+                            <parentTagDef>Head</parentTagDef>
+                            <useSkinShader>false</useSkinShader>
+                            <useRottenColor>false</useRottenColor>
+                            <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                            <drawData>
+                                <defaultData>
+                                    <layer>62.5</layer>
+                                </defaultData>
+                                <dataNorth>
+                                    <offset>(0, -0.0002, 0)</offset>
+                                    <layer>-5</layer>
+                                </dataNorth>
+                            </drawData>
+                        </li>
+                    </renderNodeProperties>
+                </value>
+            </li>
+        </operations>
     </Operation>
 
 </Patch>

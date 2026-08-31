@@ -300,7 +300,38 @@ namespace FACP
                 "Adds a Facial Animation head type for VRESaurids_ScaleSkin.",
                 "vanillaracesexpanded.saurid");
 
+            // ---- switched on and off in XML, not in the startup pass ----
+            // These append into a def that belongs to the source mod, so "off" cannot be a
+            // no-op the way it is for a def of our own - it has to mean the append never
+            // happens. Their patch files wrap the operation in PatchOperationToggled, which
+            // reads the setting while the combined XML document is being built. The cost is
+            // that an XML-caching mod freezes them at whatever they were when it cached, so
+            // the settings window names them while such a mod is running.
+            MarkGatedInXml(list,
+                "Auraeyl.Head",       // marking overlay appended to ERN_AuraeylBody
+                "Auronya.Whiskers");  // whisker node appended to ERN_AuronyaHead
+
+            // Minotaur.BovineHead is deliberately not on that list. Its "on" state deletes the
+            // source mod's own head node, which no amount of skipping a patch can do, so it
+            // stays in StartupPatcher where off means putting that node back.
+
             return list;
+        }
+
+        // Flags the toggles whose XML is gated by PatchOperationToggled. Keys are checked
+        // against the list so a rename cannot silently unflag one.
+        private static void MarkGatedInXml(List<ToggleEntry> list, params string[] keys)
+        {
+            foreach (string key in keys)
+            {
+                ToggleEntry entry = list.Find(e => e.key == key);
+                if (entry == null)
+                {
+                    Log.Error("[FACP] MarkGatedInXml: no toggle named \"" + key + "\".");
+                    continue;
+                }
+                entry.gatedInXml = true;
+            }
         }
 
         // A patch whose options are mutually exclusive. modeKeys[0] is the default.

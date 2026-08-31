@@ -28,6 +28,20 @@ namespace FACP
         // Enough room for each note to wrap to three lines in a narrow settings window.
         private const float ExistingPawnNoteHeight = 56f;
         private const float GeneNoteHeight = 52f;
+        private const float CacheNoticeHeight = 44f;
+
+        // Missile Girl bundles Gagarin, which caches the combined XML document and only
+        // rebuilds it when the mod list or the number of XML files changes. A cached launch
+        // never calls ApplyPatches at all, so the few patches that decide their own on/off
+        // state in XML - see ToggleRegistry.gatedInXml - keep whatever they were set to when
+        // that cache was written. Every other toggle runs from the startup pass and is
+        // unaffected, which is the distinction the notice has to draw.
+        private const string XmlCacheModId = "vr.missilegirl";
+
+        private static readonly Color CacheNoticeColor = new Color(1f, 0.66f, 0.32f);
+
+        private static int xmlCacheModActive = -1;
+        private static string cacheNotice;
 
         private static readonly Color GeneTagColor = new Color(0.88f, 0.72f, 0.36f);
 
@@ -200,7 +214,20 @@ namespace FACP
                 Text.Font = GameFont.Small;
             }
 
-            y += ButtonHeight + 10f;
+            y += ButtonHeight + 6f;
+
+            string notice = CacheNotice;
+            if (notice != null)
+            {
+                Text.Font = GameFont.Tiny;
+                GUI.color = CacheNoticeColor;
+                Widgets.Label(new Rect(inRect.x, y, inRect.width, CacheNoticeHeight - 4f), notice);
+                GUI.color = Color.white;
+                Text.Font = GameFont.Small;
+                y += CacheNoticeHeight;
+            }
+
+            y += 4f;
             return y - inRect.y;
         }
 
@@ -240,6 +267,40 @@ namespace FACP
                 + "from existing pawns automatically and will need manual adjustment.");
             GUI.color = Color.white;
             Text.Font = GameFont.Small;
+        }
+
+        // Null unless an XML-caching mod is running and we actually ship a flagged patch for
+        // something installed. Built once, then reused for as long as the window is open.
+        private static string CacheNotice
+        {
+            get
+            {
+                if (xmlCacheModActive < 0)
+                {
+                    xmlCacheModActive =
+                        (ModLister.GetActiveModWithIdentifier(XmlCacheModId, true) != null) ? 1 : 0;
+                }
+                if (xmlCacheModActive == 0)
+                {
+                    return null;
+                }
+
+                if (cacheNotice == null)
+                {
+                    List<string> categories = ToggleRegistry.CacheSensitiveCategories;
+                    if (categories.Count == 0)
+                    {
+                        xmlCacheModActive = 0;
+                        return null;
+                    }
+                    cacheNotice = "Missile Girl is caching the combined XML. These patches are switched "
+                        + "on and off inside that document, so changing them here does nothing until you "
+                        + "clear the cache from Missile Girl's settings and restart: "
+                        + string.Join(", ", categories.ToArray())
+                        + ". Every other toggle applies normally.";
+                }
+                return cacheNotice;
+            }
         }
 
         private static float GeneTagWidth
