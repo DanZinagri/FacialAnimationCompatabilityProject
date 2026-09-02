@@ -269,6 +269,19 @@ namespace FACP
                     ClearForcedHeads("BS_DragonHead");
                     ClearRenderNodes("BS_DragonHead");
                     break;
+                case "BigAndSmall.OgreHeadUncanny":
+                    // The extension's facialDisabler retains everything except the head, which
+                    // is exactly what has to go for an FA head to draw; the render node is the
+                    // source mod's own FA-style overlay, replaced by our head types.
+                    ClearModExtensions("BS_OgreHead");
+                    ClearForcedHeads("BS_OgreHead");
+                    ClearRenderNodes("BS_OgreHead");
+                    break;
+                case "BigAndSmall.OgreHeadLumpy":
+                    ClearModExtensions("BS_FomorialHead_Savage");
+                    ClearForcedHeads("BS_FomorialHead_Savage");
+                    ClearRenderNodes("BS_FomorialHead_Savage");
+                    break;
                 case "BigAndSmall.SatanHead":
                     KeepTheFace("BS_SatanHead");
                     break;

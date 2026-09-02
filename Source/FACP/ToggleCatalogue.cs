@@ -39,6 +39,8 @@ namespace FACP
             { "AlphaGenes.RockSpurs", new[] { "AG_RockSpursHead" } },
             { "BigAndSmall.GhoulHead", new[] { "BS_GhoulHead" } },
             { "BigAndSmall.DragonHead", new[] { "BS_DragonHead", "BS_DragonHeadMouthBlank" } },
+            { "BigAndSmall.OgreHeadUncanny", new[] { "FACP_OgreUncannyNormal", "FACP_OgreUncannySquare", "FACP_OgreUncannyPointy" } },
+            { "BigAndSmall.OgreHeadLumpy", new[] { "FACP_OgreLumpyA", "FACP_OgreLumpyB", "FACP_OgreLumpyC", "FACP_OgreLumpyD" } },
             { "Lamias.SnekSnoot", new[] { "LoS_SnekHead", "LoS_SnekHeadMouthBlank" } },
             { "Undead.WerewolfSnoot", new[] { "BS_WerewolfSnoot" } },
             { "Bogleg.FatSac", new[] { "DV_Jaw_FatSac" } },
@@ -117,6 +119,14 @@ namespace FACP
                 BigAndSmallCore, DlcGate.Anomaly);
             Add(list, "BigAndSmall.DragonHead", "Dragonhead broodmother", bigAndSmall,
                 "Gives BS_DragonHead the shared dragon-snout Facial Animation head plus a blank mouth, in place of its own render node.",
+                BigAndSmallCore);
+            Add(list, "BigAndSmall.OgreHeadUncanny", "Ogre head (uncanny)", bigAndSmall,
+                "Gives BS_OgreHead proper Facial Animation head types - one per art variant - in place "
+                + "of its forced heads and overlay render node. Art from the source mod, used with permission.",
+                BigAndSmallCore);
+            Add(list, "BigAndSmall.OgreHeadLumpy", "Ogre head (lumpy)", bigAndSmall,
+                "Gives BS_FomorialHead_Savage proper Facial Animation head types - one per art variant - in "
+                + "place of its forced heads and overlay render node. Art from the source mod, used with permission.",
                 BigAndSmallCore);
             Add(list, "BigAndSmall.SatanHead", "Satan head - keep the face", bigAndSmall,
                 "Stops BS_SatanHead disabling facial animations, and lifts its overlay to layer 50 so it draws above the animated face.",

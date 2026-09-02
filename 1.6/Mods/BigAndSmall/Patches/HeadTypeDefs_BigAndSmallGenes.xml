@@ -46,4 +46,89 @@
             </FacialAnimation.MouthTypeDef>
         </value>
     </Operation>
+    <!-- BigAndSmall.OgreHeadUncanny : one Facial Animation head per art variant, so the pick
+         is per-pawn and editable in FA's face editor - same treatment as the Minotaur heads.
+         Art reused from the source mod's own FA-style overlays (BS_Heads_FA), with the
+         author's permission, moved onto our own texture root so nothing shadows theirs. -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs</xpath>
+        <value>
+            <FacialAnimation.HeadTypeDef>
+                <defName>FACP_OgreUncannyNormal</defName>
+                <texPath>FACP_OgreHeads/Uncanny_Normal</texPath>
+                <probability>1</probability>
+                <shader>Map/CutoutSkin</shader>
+                <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                <targetGeneDefs>
+                    <li>BS_OgreHead</li>
+                </targetGeneDefs>
+            </FacialAnimation.HeadTypeDef>
+            <FacialAnimation.HeadTypeDef>
+                <defName>FACP_OgreUncannySquare</defName>
+                <texPath>FACP_OgreHeads/Uncanny_Square</texPath>
+                <probability>1</probability>
+                <shader>Map/CutoutSkin</shader>
+                <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                <targetGeneDefs>
+                    <li>BS_OgreHead</li>
+                </targetGeneDefs>
+            </FacialAnimation.HeadTypeDef>
+            <FacialAnimation.HeadTypeDef>
+                <defName>FACP_OgreUncannyPointy</defName>
+                <texPath>FACP_OgreHeads/Uncanny_Pointy</texPath>
+                <probability>1</probability>
+                <shader>Map/CutoutSkin</shader>
+                <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                <targetGeneDefs>
+                    <li>BS_OgreHead</li>
+                </targetGeneDefs>
+            </FacialAnimation.HeadTypeDef>
+        </value>
+    </Operation>
+    <!-- BigAndSmall.OgreHeadLumpy : as above, for the four savage/lumpy variants. -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs</xpath>
+        <value>
+            <FacialAnimation.HeadTypeDef>
+                <defName>FACP_OgreLumpyA</defName>
+                <texPath>FACP_OgreHeads/Lumpy_A</texPath>
+                <probability>1</probability>
+                <shader>Map/CutoutSkin</shader>
+                <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                <targetGeneDefs>
+                    <li>BS_FomorialHead_Savage</li>
+                </targetGeneDefs>
+            </FacialAnimation.HeadTypeDef>
+            <FacialAnimation.HeadTypeDef>
+                <defName>FACP_OgreLumpyB</defName>
+                <texPath>FACP_OgreHeads/Lumpy_B</texPath>
+                <probability>1</probability>
+                <shader>Map/CutoutSkin</shader>
+                <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                <targetGeneDefs>
+                    <li>BS_FomorialHead_Savage</li>
+                </targetGeneDefs>
+            </FacialAnimation.HeadTypeDef>
+            <FacialAnimation.HeadTypeDef>
+                <defName>FACP_OgreLumpyC</defName>
+                <texPath>FACP_OgreHeads/Lumpy_C</texPath>
+                <probability>1</probability>
+                <shader>Map/CutoutSkin</shader>
+                <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                <targetGeneDefs>
+                    <li>BS_FomorialHead_Savage</li>
+                </targetGeneDefs>
+            </FacialAnimation.HeadTypeDef>
+            <FacialAnimation.HeadTypeDef>
+                <defName>FACP_OgreLumpyD</defName>
+                <texPath>FACP_OgreHeads/Lumpy_D</texPath>
+                <probability>1</probability>
+                <shader>Map/CutoutSkin</shader>
+                <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                <targetGeneDefs>
+                    <li>BS_FomorialHead_Savage</li>
+                </targetGeneDefs>
+            </FacialAnimation.HeadTypeDef>
+        </value>
+    </Operation>
 </Patch>
