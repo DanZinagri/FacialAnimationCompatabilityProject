@@ -398,12 +398,19 @@ namespace FACP
                     ClearForcedHeads("RBSF_DeerHead");
                     break;
                 case "Minotaur.NoseRing":
-                    // Only bites in the EyesOnly mode, where the source mod's marking node is
-                    // the one still drawing. Its ring entry appears several times as a weight,
-                    // so every occurrence is swapped.
-                    RedirectExactTexPath("RBM_BovineHead",
-                        "Things/Pawn/Humanlike/Markings/Head_NoseRing/Ring",
-                        "Minotaur/Head_NoseRing/normal");
+                    // Only bites in the EyesOnly and Off modes, where the source mod's marking
+                    // node is the one still drawing. In FacialAnimHeads mode that node has
+                    // already been stripped by the BovineHead entry (which runs first), so the
+                    // redirect would find nothing and warn about it - skip it, so the miss
+                    // warning still means something in the modes where it can.
+                    if (FACPMod.GetMode("Minotaur.BovineHead", "FacialAnimHeads") != "FacialAnimHeads")
+                    {
+                        // Its ring entry appears several times as a weight, so every
+                        // occurrence is swapped.
+                        RedirectExactTexPath("RBM_BovineHead",
+                            "Things/Pawn/Humanlike/Markings/Head_NoseRing/Ring",
+                            "Minotaur/Head_NoseRing/normal");
+                    }
                     break;
 
                 // ---- Vanilla Races Expanded ----
