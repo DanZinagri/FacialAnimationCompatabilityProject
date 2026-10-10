@@ -24,6 +24,7 @@
 		<li IfModActive="det.stoneborn">1.6/Mods/Stoneborn</li>
 		<li IfModActive="vanillaracesexpanded.lycanthrope">1.6/Mods/VRE_Lycanthrope</li>
 		<li IfModActive="vanillaracesexpanded.phytokin">1.6/Mods/VRE_Phytokin</li>
+		<li IfModActive="vanillaracesexpanded.sanguophage">1.6/Mods/VRE_Sanguophage</li>
 		<li IfModActive="vanillaracesexpanded.saurid">1.6/Mods/VRE_Saurid</li>
 		<li IfModActive="det.venators">1.6/Mods/Venators</li>
 	</v1.6>

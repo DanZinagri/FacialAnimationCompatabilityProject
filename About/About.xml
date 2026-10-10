@@ -62,6 +62,8 @@
 		<li>erin.fenrisulfr</li>
 		<li>erin.auronyabiotech</li>
 		<li>unagi.facialanimation</li>
+		<li>vanillaracesexpanded.sanguophage</li>
+		<li>vres.betterparts</li>
 	</loadAfter>
 	<loadBefore>
 		<li>barb.facetexture</li>

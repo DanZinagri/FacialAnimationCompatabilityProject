@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Gated by LoadFolders: IfModActive="vanillaracesexpanded.sanguophage" -->
+<Patch>
+
+    <!-- Sanguophage.EarlessHead : both bat ear genes draw their ears as a render node on top
+         of the head, so the head underneath has to come without ears of its own or the pawn
+         ends up with two pairs. One head type covers both genes; Facial Animation offers a
+         type to a pawn when any one of its genes appears in targetGeneDefs.
+
+         The art is this mod's shared Earless head (root Textures/Earless), not a copy.
+
+         A def of our own, so it is added unconditionally. Switched off, the startup pass
+         parks it on a gene that cannot exist rather than deleting it. -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs</xpath>
+        <value>
+            <FacialAnimation.HeadTypeDef>
+                <defName>FACP_SanguophageEarless</defName>
+                <texPath>Earless</texPath>
+                <probability>1</probability>
+                <shader>Map/CutoutSkin</shader>
+                <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                <targetGeneDefs>
+                    <li>VRE_BatEars</li>
+                    <li>VRE_UpperBatEars</li>
+                </targetGeneDefs>
+            </FacialAnimation.HeadTypeDef>
+        </value>
+    </Operation>
+
+</Patch>

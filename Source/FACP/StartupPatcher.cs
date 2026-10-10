@@ -422,10 +422,33 @@ namespace FACP
                     RedirectTexPaths("VRE_CanineTail",
                         "Things/Pawn/Humanlike/BodyAttachments/WolfTail/", "FACP/WolfTail/");
                     break;
+                // Our copies sit on FACP/ paths rather than on the source mod's own, so a
+                // switched-off toggle leaves the gene exactly as shipped, and a retexture mod
+                // that shadows Pawn/Bat*/ (Better Parts does) cannot swap our art back out.
+                case "Sanguophage.EkkimianGaunt":
+                    // Ekkimians carry both the chiropteric ears and Head_Gaunt, and Facial
+                    // Animation picks at random between every head a pawn's genes qualify for.
+                    // Dropping the gene leaves the earless head as the only candidate. Only
+                    // worth doing while that head is in play; with it off the gene is harmless.
+                    if (FACPMod.IsEnabled("Sanguophage.EarlessHead"))
+                    {
+                        RemoveGeneFromXenotype("VRE_Ekkimian", "Head_Gaunt");
+                    }
+                    break;
+                case "Sanguophage.BatEars":
+                    RedirectTexPaths("VRE_BatEars", "Pawn/BatEars/", "FACP/BatEars/");
+                    break;
+                case "Sanguophage.UpperBatEars":
+                    RedirectTexPaths("VRE_UpperBatEars", "Pawn/UpperBatEars/", "FACP/UpperBatEars/");
+                    break;
+                case "Sanguophage.BatNose":
+                    RedirectTexPaths("VRE_BatNose", "Pawn/BatNose/", "FACP/BatNose/");
+                    break;
                 case "Lycanthrope.CanineNose":
                     ClearRenderNodes("VRE_CanineNose");
                     break;
                 case "Auronya.Whiskers":
+                case "Sanguophage.EarlessHead":
                 case "Phytokin.BarkSkin":
                 case "Saurid.ScaleSkin":
                     break; // pure additions

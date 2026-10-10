@@ -56,6 +56,7 @@ namespace FACP
             { "Faun.DeerHead", new[] { "RBSF_AverageHead1", "RBSF_AverageHead2", "RBSF_AverageHead3", "RBSF_AverageHead4" } },
             { "Minotaur.BovineHead", new[] { "MinotaurNormal", "MinotaurBull1", "MinotaurBull2", "MinotaurBull3", "MinotaurBull4", "MinotaurCow1", "MinotaurCow2", "MinotaurCow3", "MinotaurCow4" } },
             { "Lycanthrope.CanineNose", new[] { "CanineNose" } },
+            { "Sanguophage.EarlessHead", new[] { "FACP_SanguophageEarless" } },
             { "Phytokin.BarkSkin", new[] { "BarkSkin" } },
             { "Saurid.ScaleSkin", new[] { "VRESaurids_ScaleSkin" } }
         };
@@ -306,6 +307,29 @@ namespace FACP
             Add(list, "Phytokin.BarkSkin", "Barkskin head", "VRE - Phytokin",
                 "Adds a Facial Animation head type for VRE_BarkSkin.",
                 "vanillaracesexpanded.phytokin");
+            Add(list, "Sanguophage.EarlessHead", "Earless head for bat ears", "VRE - Sanguophage",
+                "Gives pawns with VRE_BatEars or VRE_UpperBatEars an earless Facial Animation head, so the "
+                + "head's own ears do not show underneath the gene's.",
+                "vanillaracesexpanded.sanguophage");
+            Add(list, "Sanguophage.EkkimianGaunt", "Ekkimian - drop the gaunt head gene", "VRE - Sanguophage",
+                "Removes Head_Gaunt from the Ekkimian xenotype. The earless head above needs this: the gaunt "
+                + "gene has a Facial Animation head of its own, with ears, and Facial Animation picks at "
+                + "random between every head a pawn's genes qualify for - so with the gene left in, about "
+                + "half of Ekkimians would show a second pair of ears under their chiropteric ones. Switch "
+                + "this off to give Ekkimians the gaunt gene back. Does nothing while the earless head is off.",
+                "vanillaracesexpanded.sanguophage", DlcGate.None, modifiesGenes: true);
+            Add(list, "Sanguophage.BatEars", "Bat ears - replacement art", "VRE - Sanguophage",
+                "Points VRE_BatEars at this mod's ear texture. Switched off, Sanguophage draws its own "
+                + "- or whichever retexture mod is shadowing that path.",
+                "vanillaracesexpanded.sanguophage");
+            Add(list, "Sanguophage.UpperBatEars", "Chiropteric ears - replacement art", "VRE - Sanguophage",
+                "Points VRE_UpperBatEars at this mod's ear texture. Switched off, Sanguophage draws its "
+                + "own - or whichever retexture mod is shadowing that path.",
+                "vanillaracesexpanded.sanguophage");
+            Add(list, "Sanguophage.BatNose", "Bat nose - replacement art", "VRE - Sanguophage",
+                "Points VRE_BatNose at this mod's nose texture. Switched off, Sanguophage draws its own "
+                + "- or whichever retexture mod is shadowing that path.",
+                "vanillaracesexpanded.sanguophage");
             Add(list, "Saurid.ScaleSkin", "Scaled skin head", "VRE - Saurid",
                 "Adds a Facial Animation head type for VRESaurids_ScaleSkin.",
                 "vanillaracesexpanded.saurid");
