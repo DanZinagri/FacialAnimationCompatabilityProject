@@ -57,6 +57,7 @@ namespace FACP
             { "Minotaur.BovineHead", new[] { "MinotaurNormal", "MinotaurBull1", "MinotaurBull2", "MinotaurBull3", "MinotaurBull4", "MinotaurCow1", "MinotaurCow2", "MinotaurCow3", "MinotaurCow4" } },
             { "Lycanthrope.CanineNose", new[] { "CanineNose" } },
             { "Sanguophage.EarlessHead", new[] { "FACP_SanguophageEarless" } },
+            { "Starlet.Ridge", new[] { "FACP_StarletRidge" } },
             { "Phytokin.BarkSkin", new[] { "BarkSkin" } },
             { "Saurid.ScaleSkin", new[] { "VRESaurids_ScaleSkin" } }
         };
@@ -263,6 +264,13 @@ namespace FACP
                 + "Switched off, Rhy'aeth draws its own.",
                 "erin.rhyaeth");
 
+            // ---- Starlet ----
+            Add(list, "Starlet.Ridge", "Facial ridges head", "Starlet Xenotype",
+                "Gives GS_Ridge a Facial Animation head with the ridges painted in, and removes the gene's "
+                + "own ridge overlay. The ridges run through the eyes, which an overlay cannot do without "
+                + "either being painted over by the eyelids or drawing across the eyeball.",
+                "Sovereign.bnuy");
+
             // ---- Faun ----
             Add(list, "Faun.DeerHead", "Deer heads", "Faun",
                 "Replaces RBSF_DeerHead's forced head types with four Facial Animation deer heads, rolled evenly.",
@@ -335,15 +343,18 @@ namespace FACP
                 "vanillaracesexpanded.saurid");
 
             // ---- switched on and off in XML, not in the startup pass ----
-            // These append into a def that belongs to the source mod, so "off" cannot be a
-            // no-op the way it is for a def of our own - it has to mean the append never
-            // happens. Their patch files wrap the operation in PatchOperationToggled, which
+            // These append into, or replace a value in, a def that belongs to the source mod,
+            // so "off" cannot be a no-op the way it is for a def of our own - it has to mean
+            // the edit never happens. Their patch files wrap the operation in PatchOperationToggled, which
             // reads the setting while the combined XML document is being built. The cost is
             // that an XML-caching mod freezes them at whatever they were when it cached, so
             // the settings window names them while such a mod is running.
             MarkGatedInXml(list,
                 "Auraeyl.Head",       // marking overlay appended to ERN_AuraeylBody
-                "Auronya.Whiskers");  // whisker node appended to ERN_AuronyaHead
+                "Auronya.Whiskers",   // whisker node appended to ERN_AuronyaHead
+                "Sanguophage.BatEars",       // texPath replaced on VRE_BatEars
+                "Sanguophage.UpperBatEars",  // texPath replaced on VRE_UpperBatEars
+                "Sanguophage.BatNose");      // texPath replaced on VRE_BatNose
 
             // Minotaur.BovineHead is deliberately not on that list. Its "on" state deletes the
             // source mod's own head node, which no amount of skipping a patch can do, so it

@@ -64,6 +64,7 @@
 		<li>unagi.facialanimation</li>
 		<li>vanillaracesexpanded.sanguophage</li>
 		<li>vres.betterparts</li>
+		<li>sovereign.bnuy</li>
 	</loadAfter>
 	<loadBefore>
 		<li>barb.facetexture</li>

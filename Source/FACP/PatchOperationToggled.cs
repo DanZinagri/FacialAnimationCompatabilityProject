@@ -11,9 +11,10 @@ namespace FACP
     // ErrorCheckPatches() and ApplyPatches(). So a switched-off patch is simply never applied
     // and there is nothing for the startup pass to undo afterwards.
     //
-    // Only wrap operations that ADD something. "Off" here means the operation never runs, which
-    // is not the same as putting something back: anything that has to REMOVE part of another
-    // mod's def still belongs in StartupPatcher, because there "off" is itself an edit.
+    // Wrap operations whose "off" state is simply the source mod's def as it shipped: an add,
+    // or a replace of one of its values. "Off" here means the operation never runs, which is
+    // not the same as putting something back - where switching a patch off has to be an edit
+    // in its own right, that still belongs in StartupPatcher.
     //
     // The catch, and it is a real one: an XML-caching mod (Gagarin, bundled in Missile Girl)
     // serves a pre-combined document and never calls ApplyPatches at all, so a toggle changed

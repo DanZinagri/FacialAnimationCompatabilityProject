@@ -28,4 +28,44 @@
         </value>
     </Operation>
 
+    <!-- Sanguophage.BatEars / UpperBatEars / BatNose : each points one gene's render node at
+         our copy of its art. The copies sit on FACP/ paths rather than the source mod's own, so
+         a retexture mod that shadows Pawn/Bat*/ (Better Parts does) cannot swap ours back out.
+
+         Gated here rather than in the startup pass: switched off, the replace never runs and
+         the gene keeps the path it shipped with. -->
+    <Operation Class="FACP.PatchOperationToggled">
+        <key>Sanguophage.BatEars</key>
+        <operations>
+            <li Class="PatchOperationReplace">
+                <xpath>/Defs/GeneDef[defName="VRE_BatEars"]/renderNodeProperties/li/texPath</xpath>
+                <value>
+                    <texPath>FACP/BatEars/BatEars</texPath>
+                </value>
+            </li>
+        </operations>
+    </Operation>
+    <Operation Class="FACP.PatchOperationToggled">
+        <key>Sanguophage.UpperBatEars</key>
+        <operations>
+            <li Class="PatchOperationReplace">
+                <xpath>/Defs/GeneDef[defName="VRE_UpperBatEars"]/renderNodeProperties/li/texPath</xpath>
+                <value>
+                    <texPath>FACP/UpperBatEars/VRE_UpperBatEar</texPath>
+                </value>
+            </li>
+        </operations>
+    </Operation>
+    <Operation Class="FACP.PatchOperationToggled">
+        <key>Sanguophage.BatNose</key>
+        <operations>
+            <li Class="PatchOperationReplace">
+                <xpath>/Defs/GeneDef[defName="VRE_BatNose"]/renderNodeProperties/li/texPath</xpath>
+                <value>
+                    <texPath>FACP/BatNose/BatNose</texPath>
+                </value>
+            </li>
+        </operations>
+    </Operation>
+
 </Patch>
