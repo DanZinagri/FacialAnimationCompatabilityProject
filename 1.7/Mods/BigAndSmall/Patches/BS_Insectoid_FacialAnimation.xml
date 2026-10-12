@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Gated by LoadFolders: IfModActive="RedMattis.BigSmall.Core" -->
+<Patch>
+    <!-- BigAndSmall.InsectoidFourArmed -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs</xpath>
+        <value>
+            <FacialAnimation.FaceAdjustmentDef>
+                <defName>BS_InsectoidHumanoid_FourArmed_FaceAdjustment</defName>
+                <RaceName>BS_InsectoidHumanoid_FourArmed</RaceName>
+                <Size>(1.5,1.5)</Size>
+                <RightEyeLabel>right compound eye</RightEyeLabel>
+                <LeftEyeLabel>left compound eye</LeftEyeLabel>
+            </FacialAnimation.FaceAdjustmentDef>
+        </value>
+    </Operation>
+</Patch>

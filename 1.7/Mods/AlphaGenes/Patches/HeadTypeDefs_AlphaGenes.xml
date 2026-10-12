@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Gated by LoadFolders: IfModActive="sarg.alphagenes" -->
+<Patch>
+    <!-- AlphaGenes.FoxFace -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs</xpath>
+        <value>
+            <FacialAnimation.HeadTypeDef>
+                <defName>AG_FoxFace</defName>
+                <texPath>CanineNose</texPath>
+                <probability>1</probability>
+                <shader>Map/CutoutSkin</shader>
+                <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                <targetGeneDefs>
+                    <li>AG_FoxFace</li>
+                </targetGeneDefs>
+            </FacialAnimation.HeadTypeDef>
+        </value>
+    </Operation>
+    <!-- AlphaGenes.Drakonori -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs</xpath>
+        <value>
+            <FacialAnimation.HeadTypeDef>
+                <defName>AG_DrakonoriHead</defName>
+                <texPath>DragonNose</texPath>
+                <probability>1</probability>
+                <shader>Map/CutoutSkin</shader>
+                <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                <targetGeneDefs>
+                    <li>AG_DrakonoriHead</li>
+                </targetGeneDefs>
+            </FacialAnimation.HeadTypeDef>
+            <FacialAnimation.MouthTypeDef>
+                <defName>AG_DrakonoriHeadMouthBlank</defName>
+                <texPath>Mouth/BlankMouth</texPath>
+                <shader>Map/Transparent</shader>
+                <targetGeneDefs>
+                    <li>AG_DrakonoriHead</li>
+                </targetGeneDefs>
+            </FacialAnimation.MouthTypeDef>
+        </value>
+    </Operation>
+    <!-- AlphaGenes.RockSpurs -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs</xpath>
+        <value>
+            <FacialAnimation.HeadTypeDef>
+                <defName>AG_RockSpursHead</defName>
+                <texPath>Rocky</texPath>
+                <probability>1</probability>
+                <shader>Map/CutoutSkin</shader>
+                <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                <targetGeneDefs>
+                    <li>AG_RockSpurs</li>
+                </targetGeneDefs>
+            </FacialAnimation.HeadTypeDef>
+        </value>
+    </Operation>
+</Patch>

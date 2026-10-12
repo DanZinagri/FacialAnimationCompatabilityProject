@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Gated by LoadFolders: IfModActive="vanillaracesexpanded.sanguophage" -->
+<Patch>
+
+    <!-- Sanguophage.EarlessHead : both bat ear genes draw their ears as a render node on top
+         of the head, so the head underneath has to come without ears of its own or the pawn
+         ends up with two pairs. One head type covers both genes; Facial Animation offers a
+         type to a pawn when any one of its genes appears in targetGeneDefs.
+
+         The art is this mod's shared Earless head (root Textures/Earless), not a copy.
+
+         A def of our own, so it is added unconditionally. Switched off, the startup pass
+         parks it on a gene that cannot exist rather than deleting it. -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs</xpath>
+        <value>
+            <FacialAnimation.HeadTypeDef>
+                <defName>FACP_SanguophageEarless</defName>
+                <texPath>Earless</texPath>
+                <probability>1</probability>
+                <shader>Map/CutoutSkin</shader>
+                <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                <targetGeneDefs>
+                    <li>VRE_BatEars</li>
+                    <li>VRE_UpperBatEars</li>
+                </targetGeneDefs>
+            </FacialAnimation.HeadTypeDef>
+        </value>
+    </Operation>
+
+    <!-- Sanguophage.BatEars / UpperBatEars / BatNose : each points one gene's render node at
+         our copy of its art. The copies sit on FACP/ paths rather than the source mod's own, so
+         a retexture mod that shadows Pawn/Bat*/ (Better Parts does) cannot swap ours back out.
+
+         Gated here rather than in the startup pass: switched off, the replace never runs and
+         the gene keeps the path it shipped with. -->
+    <Operation Class="FACP.PatchOperationToggled">
+        <key>Sanguophage.BatEars</key>
+        <operations>
+            <li Class="PatchOperationReplace">
+                <xpath>/Defs/GeneDef[defName="VRE_BatEars"]/renderNodeProperties/li/texPath</xpath>
+                <value>
+                    <texPath>FACP/BatEars/BatEars</texPath>
+                </value>
+            </li>
+        </operations>
+    </Operation>
+    <Operation Class="FACP.PatchOperationToggled">
+        <key>Sanguophage.UpperBatEars</key>
+        <operations>
+            <li Class="PatchOperationReplace">
+                <xpath>/Defs/GeneDef[defName="VRE_UpperBatEars"]/renderNodeProperties/li/texPath</xpath>
+                <value>
+                    <texPath>FACP/UpperBatEars/VRE_UpperBatEar</texPath>
+                </value>
+            </li>
+        </operations>
+    </Operation>
+    <Operation Class="FACP.PatchOperationToggled">
+        <key>Sanguophage.BatNose</key>
+        <operations>
+            <li Class="PatchOperationReplace">
+                <xpath>/Defs/GeneDef[defName="VRE_BatNose"]/renderNodeProperties/li/texPath</xpath>
+                <value>
+                    <texPath>FACP/BatNose/BatNose</texPath>
+                </value>
+            </li>
+        </operations>
+    </Operation>
+
+</Patch>

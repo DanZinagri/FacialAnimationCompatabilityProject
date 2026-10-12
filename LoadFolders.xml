@@ -3,30 +3,99 @@
 	<v1.6>
 		<li>/</li>
 		<li>1.6</li>
+		<li IfModActive="sarg.alphagenes">Common/Mods/AlphaGenes</li>
 		<li IfModActive="sarg.alphagenes">1.6/Mods/AlphaGenes</li>
+		<li IfModActive="Erin.Auraeyl">Common/Mods/Auraeyl</li>
 		<li IfModActive="Erin.Auraeyl">1.6/Mods/Auraeyl</li>
+		<li IfModActive="Erin.AuronyaBiotech">Common/Mods/Auronya</li>
 		<li IfModActive="Erin.AuronyaBiotech">1.6/Mods/Auronya</li>
+		<li IfModActive="RedMattis.BigSmall.Core">Common/Mods/BigAndSmall</li>
 		<li IfModActive="RedMattis.BigSmall.Core">1.6/Mods/BigAndSmall</li>
 		<li IfModActive="RedMattis.LamiasAndOtherSnakes">1.6/Mods/BS_Lamias</li>
 		<li IfModActive="RedMattis.BSSlimes">1.6/Mods/BS_Slimes</li>
 		<li IfModActive="RedMattis.Yokai">1.6/Mods/BS_Yokai</li>
 		<li IfModActive="RedMattis.Undead">1.6/Mods/BS_Undead</li>
+		<li IfModActive="det.boglegs">Common/Mods/Bogleg</li>
 		<li IfModActive="det.boglegs">1.6/Mods/Bogleg</li>
+		<li IfModActive="det.brawnum">Common/Mods/Brawnum</li>
 		<li IfModActive="det.brawnum">1.6/Mods/Brawnum</li>
+		<li IfModActive="erin.expie">Common/Mods/Expie</li>
 		<li IfModActive="erin.expie">1.6/Mods/Expie</li>
+		<li IfModActive="Erin.Fenrisulfr">Common/Mods/Fenrisulfr</li>
 		<li IfModActive="Erin.Fenrisulfr">1.6/Mods/Fenrisulfr</li>
+		<li IfModActive="V.Rooboid.Faun">Common/Mods/Faun</li>
 		<li IfModActive="V.Rooboid.Faun">1.6/Mods/Faun</li>
+		<li IfModActive="det.keshig">Common/Mods/Keshig</li>
 		<li IfModActive="det.keshig">1.6/Mods/Keshig</li>
+		<li IfModActive="tug.Minotaur">Common/Mods/Minotaur</li>
 		<li IfModActive="tug.Minotaur">1.6/Mods/Minotaur</li>
+		<li IfModActive="eclair155.onixeno">Common/Mods/Oni</li>
 		<li IfModActive="eclair155.onixeno">1.6/Mods/Oni</li>
+		<li IfModActive="erin.rhyaeth">Common/Mods/Rhyaeth</li>
 		<li IfModActive="erin.rhyaeth">1.6/Mods/Rhyaeth</li>
+		<li IfModActive="Erin.Shisune">Common/Mods/Shisune</li>
 		<li IfModActive="Erin.Shisune">1.6/Mods/Shisune</li>
+		<li IfModActive="Sovereign.bnuy">Common/Mods/Starlet</li>
 		<li IfModActive="Sovereign.bnuy">1.6/Mods/Starlet</li>
+		<li IfModActive="det.stoneborn">Common/Mods/Stoneborn</li>
 		<li IfModActive="det.stoneborn">1.6/Mods/Stoneborn</li>
+		<li IfModActive="vanillaracesexpanded.lycanthrope">Common/Mods/VRE_Lycanthrope</li>
 		<li IfModActive="vanillaracesexpanded.lycanthrope">1.6/Mods/VRE_Lycanthrope</li>
+		<li IfModActive="vanillaracesexpanded.phytokin">Common/Mods/VRE_Phytokin</li>
 		<li IfModActive="vanillaracesexpanded.phytokin">1.6/Mods/VRE_Phytokin</li>
+		<li IfModActive="vanillaracesexpanded.sanguophage">Common/Mods/VRE_Sanguophage</li>
 		<li IfModActive="vanillaracesexpanded.sanguophage">1.6/Mods/VRE_Sanguophage</li>
+		<li IfModActive="vanillaracesexpanded.saurid">Common/Mods/VRE_Saurid</li>
 		<li IfModActive="vanillaracesexpanded.saurid">1.6/Mods/VRE_Saurid</li>
-		<li IfModActive="det.venators">1.6/Mods/Venators</li>
+		<li IfModActive="det.venators">Common/Mods/Venators</li>
 	</v1.6>
+	<v1.7>
+		<li>/</li>
+		<li>1.7</li>
+		<li IfModActive="sarg.alphagenes">Common/Mods/AlphaGenes</li>
+		<li IfModActive="sarg.alphagenes">1.7/Mods/AlphaGenes</li>
+		<li IfModActive="Erin.Auraeyl">Common/Mods/Auraeyl</li>
+		<li IfModActive="Erin.Auraeyl">1.7/Mods/Auraeyl</li>
+		<li IfModActive="Erin.AuronyaBiotech">Common/Mods/Auronya</li>
+		<li IfModActive="Erin.AuronyaBiotech">1.7/Mods/Auronya</li>
+		<li IfModActive="RedMattis.BigSmall.Core">Common/Mods/BigAndSmall</li>
+		<li IfModActive="RedMattis.BigSmall.Core">1.7/Mods/BigAndSmall</li>
+		<li IfModActive="RedMattis.LamiasAndOtherSnakes">1.7/Mods/BS_Lamias</li>
+		<li IfModActive="RedMattis.BSSlimes">1.7/Mods/BS_Slimes</li>
+		<li IfModActive="RedMattis.Yokai">1.7/Mods/BS_Yokai</li>
+		<li IfModActive="RedMattis.Undead">1.7/Mods/BS_Undead</li>
+		<li IfModActive="det.boglegs">Common/Mods/Bogleg</li>
+		<li IfModActive="det.boglegs">1.7/Mods/Bogleg</li>
+		<li IfModActive="det.brawnum">Common/Mods/Brawnum</li>
+		<li IfModActive="det.brawnum">1.7/Mods/Brawnum</li>
+		<li IfModActive="erin.expie">Common/Mods/Expie</li>
+		<li IfModActive="erin.expie">1.7/Mods/Expie</li>
+		<li IfModActive="Erin.Fenrisulfr">Common/Mods/Fenrisulfr</li>
+		<li IfModActive="Erin.Fenrisulfr">1.7/Mods/Fenrisulfr</li>
+		<li IfModActive="V.Rooboid.Faun">Common/Mods/Faun</li>
+		<li IfModActive="V.Rooboid.Faun">1.7/Mods/Faun</li>
+		<li IfModActive="det.keshig">Common/Mods/Keshig</li>
+		<li IfModActive="det.keshig">1.7/Mods/Keshig</li>
+		<li IfModActive="tug.Minotaur">Common/Mods/Minotaur</li>
+		<li IfModActive="tug.Minotaur">1.7/Mods/Minotaur</li>
+		<li IfModActive="eclair155.onixeno">Common/Mods/Oni</li>
+		<li IfModActive="eclair155.onixeno">1.7/Mods/Oni</li>
+		<li IfModActive="erin.rhyaeth">Common/Mods/Rhyaeth</li>
+		<li IfModActive="erin.rhyaeth">1.7/Mods/Rhyaeth</li>
+		<li IfModActive="Erin.Shisune">Common/Mods/Shisune</li>
+		<li IfModActive="Erin.Shisune">1.7/Mods/Shisune</li>
+		<li IfModActive="Sovereign.bnuy">Common/Mods/Starlet</li>
+		<li IfModActive="Sovereign.bnuy">1.7/Mods/Starlet</li>
+		<li IfModActive="det.stoneborn">Common/Mods/Stoneborn</li>
+		<li IfModActive="det.stoneborn">1.7/Mods/Stoneborn</li>
+		<li IfModActive="vanillaracesexpanded.lycanthrope">Common/Mods/VRE_Lycanthrope</li>
+		<li IfModActive="vanillaracesexpanded.lycanthrope">1.7/Mods/VRE_Lycanthrope</li>
+		<li IfModActive="vanillaracesexpanded.phytokin">Common/Mods/VRE_Phytokin</li>
+		<li IfModActive="vanillaracesexpanded.phytokin">1.7/Mods/VRE_Phytokin</li>
+		<li IfModActive="vanillaracesexpanded.sanguophage">Common/Mods/VRE_Sanguophage</li>
+		<li IfModActive="vanillaracesexpanded.sanguophage">1.7/Mods/VRE_Sanguophage</li>
+		<li IfModActive="vanillaracesexpanded.saurid">Common/Mods/VRE_Saurid</li>
+		<li IfModActive="vanillaracesexpanded.saurid">1.7/Mods/VRE_Saurid</li>
+		<li IfModActive="det.venators">Common/Mods/Venators</li>
+	</v1.7>
 </loadFolders>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Gated by LoadFolders: IfModActive="det.keshig" -->
+<Patch>
+    <!-- Keshig.SplitJaw -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs</xpath>
+        <value>
+            <FacialAnimation.HeadTypeDef>
+                <defName>DV_Jaw_Split_Head</defName>
+                <texPath>Keshig/Head</texPath>
+                <shader>Map/CutoutSkin</shader>
+                <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                <targetGeneDefs>
+                    <li>DV_Jaw_Split</li>
+                </targetGeneDefs>
+            </FacialAnimation.HeadTypeDef>
+            <FacialAnimation.MouthTypeDef>
+                <defName>DV_Jaw_Split_Jaw</defName>
+                <texPath>Keshig/Jaw</texPath>
+                <shader>Map/CutoutSkin</shader>
+                <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                <targetGeneDefs>
+                    <li>DV_Jaw_Split</li>
+                </targetGeneDefs>
+            </FacialAnimation.MouthTypeDef>
+        </value>
+    </Operation>
+</Patch>

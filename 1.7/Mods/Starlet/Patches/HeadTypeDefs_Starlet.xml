@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Gated by LoadFolders: IfModActive="Sovereign.bnuy" -->
+<Patch>
+
+    <!-- Starlet.Ridge : the facial ridges are painted into the head itself instead of drawn as
+         an overlay. They run straight through the eyes, and no overlay layer can do that:
+         Facial Animation's lid "cover" is a redraw of the head texture sitting above the
+         eyeballs, so an overlay under the eyes gets painted over and one above the cover draws
+         across the eyeball. Baked into the head, the cover carries the ridges with it.
+
+         The gene's own overlay node is removed by the startup pass while this is on, so the
+         ridges are not drawn twice.
+
+         A def of our own, so it is added unconditionally. Switched off, the startup pass
+         parks it on a gene that cannot exist rather than deleting it. -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs</xpath>
+        <value>
+            <FacialAnimation.HeadTypeDef>
+                <defName>FACP_StarletRidge</defName>
+                <texPath>FACP/Starlet</texPath>
+                <probability>1</probability>
+                <shader>Map/CutoutSkin</shader>
+                <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                <targetGeneDefs>
+                    <li>GS_Ridge</li>
+                </targetGeneDefs>
+            </FacialAnimation.HeadTypeDef>
+        </value>
+    </Operation>
+
+</Patch>
