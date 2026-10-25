@@ -22,6 +22,11 @@ namespace FACP
     // depending on anything having run.
     //
     // Declaration order is display order; categories appear in the order first seen here.
+    //
+    // No player-facing text lives here. Labels, descriptions and category names are keyed
+    // translations in Languages/English/Keyed/FACP_Toggles.xml, looked up by toggle key when
+    // the settings window draws - they cannot be read any earlier, because keyed files load
+    // after the patches that consult this list.
     public static class ToggleCatalogue
     {
         public const string BigAndSmallCore = "RedMattis.BigSmall.Core";
@@ -58,8 +63,19 @@ namespace FACP
             { "Lycanthrope.CanineNose", new[] { "CanineNose" } },
             { "Sanguophage.EarlessHead", new[] { "FACP_SanguophageEarless" } },
             { "Starlet.Ridge", new[] { "FACP_StarletRidge" } },
+            { "Geist.BlankFace", new[] { "FACP_GeistBlankEyes", "FACP_GeistBlankLids", "FACP_GeistBlankBrows" } },
+            { "Dioktri.SnakeTongue", new[] { "FACP_SnakeMouthNormal", "FACP_SnakeMouthFang", "FACP_SnakeMouthShark" } },
             { "Phytokin.BarkSkin", new[] { "BarkSkin" } },
             { "Saurid.ScaleSkin", new[] { "VRESaurids_ScaleSkin" } }
+        };
+
+        // Face types that only exist when a second mod is installed too, so not finding one is
+        // expected rather than a sign its patch failed. Fang and Shark come from the
+        // Dioktri_Experimentals folder, which loads only alongside FA - Experimentals.
+        public static readonly HashSet<string> FaceTypesNeedingAnotherMod = new HashSet<string>
+        {
+            "FACP_SnakeMouthFang",
+            "FACP_SnakeMouthShark"
         };
 
         private static List<ToggleEntry> entries;
@@ -81,266 +97,116 @@ namespace FACP
             List<ToggleEntry> list = new List<ToggleEntry>();
 
             // ---- Vanilla (Biotech) ----
-            const string vanilla = "Vanilla (Biotech)";
-            Add(list, "Vanilla.Gaunt", "Gaunt head", vanilla,
-                "Gives the Head_Gaunt gene (wasters and friends) a Facial Animation head type instead of a vanilla one.",
-                null, DlcGate.Biotech);
-            Add(list, "Vanilla.HeavyJaw", "Heavy jaw head", vanilla,
-                "Gives the Jaw_Heavy gene (neanderthals and friends) a Facial Animation head type instead of a vanilla one.",
-                null, DlcGate.Biotech);
-            Add(list, "Vanilla.PigNose", "Pig nose head", vanilla,
-                "Bakes the Nose_Pig gene's snout into a Facial Animation head instead of drawing it as a render node over the face.",
-                null, DlcGate.Biotech);
-            Add(list, "Vanilla.YttakinHair", "Yttakin - allow hair", vanilla,
-                "Drops Hair_BaldOnly from the Yttakin xenotype so they can roll hair styles.",
-                null, DlcGate.Biotech, modifiesGenes: true);
+            Add(list, "Vanilla.Gaunt", null, DlcGate.Biotech);
+            Add(list, "Vanilla.HeavyJaw", null, DlcGate.Biotech);
+            Add(list, "Vanilla.PigNose", null, DlcGate.Biotech);
+            Add(list, "Vanilla.YttakinHair", null, DlcGate.Biotech, modifiesGenes: true);
 
             // ---- Alpha Genes ----
-            const string alphaGenes = "Alpha Genes";
             const string alphaGenesId = "sarg.alphagenes";
-            Add(list, "AlphaGenes.FoxFace", "Fox face", alphaGenes,
-                "Replaces AG_FoxFace's forced vanilla head types with a Facial Animation canine-snout head.",
-                alphaGenesId);
-            Add(list, "AlphaGenes.AnimusEars", "Animus ears", alphaGenes,
-                "Swaps AG_AnimusEars over to this mod's canine ear texture, hair-coloured and off the skin shader.",
-                alphaGenesId);
-            Add(list, "AlphaGenes.Drakonori", "Drakonori head", alphaGenes,
-                "Gives AG_DrakonoriHead the shared dragon-snout Facial Animation head, with a blank mouth so the snout reads as one piece.",
-                alphaGenesId);
-            Add(list, "AlphaGenes.RockSpurs", "Rock spurs head", alphaGenes,
-                "Bakes AG_RockSpurs' facial rock growths into a Facial Animation head instead of overlaying them as a render node.",
-                alphaGenesId);
-            Add(list, "AlphaGenes.VenomFangs", "Venom fangs - hide overlay", alphaGenes,
-                "Drops AG_VenomFangs' render node, which otherwise draws fangs across a Facial Animation mouth.",
-                alphaGenesId);
+            Add(list, "AlphaGenes.FoxFace", alphaGenesId);
+            Add(list, "AlphaGenes.AnimusEars", alphaGenesId);
+            Add(list, "AlphaGenes.Drakonori", alphaGenesId);
+            Add(list, "AlphaGenes.RockSpurs", alphaGenesId);
+            Add(list, "AlphaGenes.VenomFangs", alphaGenesId);
 
             // ---- Big and Small ----
-            const string bigAndSmall = "Big and Small - Genes & More";
-            Add(list, "BigAndSmall.GhoulHead", "Ghoul head", bigAndSmall,
-                "Gives BS_GhoulHead a Facial Animation head type.",
-                BigAndSmallCore, DlcGate.Anomaly);
-            Add(list, "BigAndSmall.DragonHead", "Dragonhead broodmother", bigAndSmall,
-                "Gives BS_DragonHead the shared dragon-snout Facial Animation head plus a blank mouth, in place of its own render node.",
-                BigAndSmallCore);
-            Add(list, "BigAndSmall.OgreHeadUncanny", "Ogre head (uncanny)", bigAndSmall,
-                "Gives BS_OgreHead proper Facial Animation head types - one per art variant - in place "
-                + "of its forced heads and overlay render node. Art from the source mod, used with permission.",
-                BigAndSmallCore);
-            Add(list, "BigAndSmall.OgreHeadLumpy", "Ogre head (lumpy)", bigAndSmall,
-                "Gives BS_FomorialHead_Savage proper Facial Animation head types - one per art variant - in "
-                + "place of its forced heads and overlay render node. Art from the source mod, used with permission.",
-                BigAndSmallCore);
-            Add(list, "BigAndSmall.SatanHead", "Satan head - keep the face", bigAndSmall,
-                "Stops BS_SatanHead disabling facial animations, and lifts its overlay to layer 50 so it draws above the animated face.",
-                BigAndSmallCore);
-            Add(list, "BigAndSmall.StonemaskHead", "Authority stonemask - keep the face", bigAndSmall,
-                "Stops BS_StonemaskHead disabling facial animations, and lifts its overlay to layer 50 so it draws above the animated face.",
-                BigAndSmallCore);
-            Add(list, "BigAndSmall.InsectoidFourArmed", "Four-armed insectoid - face support", bigAndSmall,
-                "Makes sure the four-armed insectoid race has the Facial Animation comps, sizes its face to its head, "
-                + "and labels its eyes as compound eyes. Switched off, the race falls back to Facial Animation's "
-                + "default face size and position. The race normally inherits Facial Animation from Human, so "
-                + "switching this off may not remove the face itself.",
-                BigAndSmallCore);
+            Add(list, "BigAndSmall.GhoulHead", BigAndSmallCore, DlcGate.Anomaly);
+            Add(list, "BigAndSmall.DragonHead", BigAndSmallCore);
+            Add(list, "BigAndSmall.OgreHeadUncanny", BigAndSmallCore);
+            Add(list, "BigAndSmall.OgreHeadLumpy", BigAndSmallCore);
+            Add(list, "BigAndSmall.SatanHead", BigAndSmallCore);
+            Add(list, "BigAndSmall.StonemaskHead", BigAndSmallCore);
+            Add(list, "BigAndSmall.InsectoidFourArmed", BigAndSmallCore);
 
             // ---- Lamias and Other Snakes ----
-            Add(list, "Lamias.SnekSnoot", "Snake snout head", "Big and Small - Lamias and other Snake-People",
-                "Gives LoS_SnekSnoot the shared dragon-snout Facial Animation head plus a blank mouth, in place of its forced head types.",
-                "RedMattis.LamiasAndOtherSnakes");
+            Add(list, "Lamias.SnekSnoot", "RedMattis.LamiasAndOtherSnakes");
 
             // ---- Slimes ----
-            Add(list, "Slimes.SludgeBody", "Sludge body - use normal heads", "Big and Small - Slimes",
-                "Drops BS_SludgeBody's forced head types and its eyeless slime head node, so slimes render an ordinary animated face.",
-                "RedMattis.BSSlimes");
+            Add(list, "Slimes.SludgeBody", "RedMattis.BSSlimes");
 
             // ---- Undead ----
-            const string undead = "Big and Small - Vampires and the Undead";
             const string undeadId = "RedMattis.Undead";
-            Add(list, "Undead.WerewolfSnoot", "Werewolf snout head", undead,
-                "Gives BS_WerewolfSnoot the shared canine-snout Facial Animation head in place of its forced head types.",
-                undeadId);
-            Add(list, "Undead.WerewolfForm", "Werewolf form - keep the face", undead,
-                "Stops the werewolf transformation hediff disabling facial animations, and swaps its ears over to this mod's canine ear texture.",
-                undeadId);
+            Add(list, "Undead.WerewolfSnoot", undeadId);
+            Add(list, "Undead.WerewolfForm", undeadId);
 
             // ---- Yokai ----
-            Add(list, "Yokai.LesserOni", "Lesser oni - enable faces", "Big and Small - Yokai",
-                "Drops BS_FacialAnimDisabled from the lesser oni xenotype so they get an animated face.",
-                "RedMattis.Yokai", DlcGate.None, modifiesGenes: true);
+            Add(list, "Yokai.LesserOni", "RedMattis.Yokai", DlcGate.None, modifiesGenes: true);
 
             // ---- Boglegs ----
-            Add(list, "Bogleg.FatSac", "Fat sac jaw head", "Boglegs",
-                "Bakes DV_Jaw_FatSac's throat sac into a Facial Animation head, and drops Head_Gaunt from the bogleg xenotype so it does not fight the new head.",
-                "det.boglegs", DlcGate.None, modifiesGenes: true);
+            Add(list, "Bogleg.FatSac", "det.boglegs", DlcGate.None, modifiesGenes: true);
 
-            Add(list, "Bogleg.Whiskers", "Barbels - replacement art", "Boglegs",
-                "Points the barbel gene at this mod's upscaled, realigned barbel textures. Switched off, "
-                + "Boglegs draws its own art, which the replacement is deliberately not aligned to.",
-                "det.boglegs");
+            Add(list, "Bogleg.Whiskers", "det.boglegs");
 
             // ---- Brawnum ----
-            Add(list, "Brawnum.Snout", "Snout head", "Brawnum",
-                "Bakes DV_Nose_Snout into a Facial Animation head instead of overlaying it as a render node.",
-                "det.brawnum");
+            Add(list, "Brawnum.Snout", "det.brawnum");
 
-            Add(list, "Brawnum.Bonechin", "Bone chin - replacement art", "Brawnum",
-                "Points the bone chin gene at this mod's realigned chin textures. Switched off, Brawnum "
-                + "draws its own art, which the replacement is deliberately not aligned to.",
-                "det.brawnum");
-            Add(list, "Brawnum.BovineEars", "Bovine ears - replacement art", "Brawnum",
-                "Points the drooped ear gene at this mod's realigned ear texture. Switched off, Brawnum "
-                + "draws its own art, which the replacement is deliberately not aligned to.",
-                "det.brawnum");
+            Add(list, "Brawnum.Bonechin", "det.brawnum");
+            Add(list, "Brawnum.BovineEars", "det.brawnum");
 
             // ---- Venators ----
-            Add(list, "Venators.DownturnedEars", "Downturned ears - replacement art", "Venators",
-                "Points the downturned ear gene at this mod's realigned ear textures. Switched off, "
-                + "Venators draws its own art, which the replacement is deliberately not aligned to.",
-                "det.venators");
+            Add(list, "Venators.DownturnedEars", "det.venators");
 
             // ---- Oni ----
-            Add(list, "Oni.Ears", "Oni ears - replacement art", "Oni",
-                "Points the oni ear gene at this mod's realigned ear textures. Switched off, Oni Xenotype "
-                + "draws its own art, which the replacement is deliberately not aligned to.",
-                "eclair155.onixeno");
+            Add(list, "Oni.Ears", "eclair155.onixeno");
 
             // ---- Keshig ----
-            Add(list, "Keshig.SplitJaw", "Split jaw head and mouth", "Keshig",
-                "Replaces DV_Jaw_Split's forced head types with a Facial Animation head plus a matching split-jaw mouth type.",
-                "det.keshig");
+            Add(list, "Keshig.SplitJaw", "det.keshig");
 
             // ---- Stoneborn ----
-            Add(list, "Stoneborn.BushyEyebrows", "Bushy eyebrows - blank brow", "Stoneborn",
-                "Adds a zero-probability blank brow type for DV_BushyEyebrows, so the gene's own brow art is not doubled up by an animated one.",
-                "det.stoneborn");
+            Add(list, "Stoneborn.BushyEyebrows", "det.stoneborn");
 
             // ---- Auraeyl ----
-            Add(list, "Auraeyl.Head", "Auraeyl head", "Auraeyl",
-                "Swaps the Auraeyl head for this mod's version, drawn under a transparent Facial Animation "
-                + "head so the animated eyes and mouth sit on top of it. Keeps the pawn's primary and "
-                + "secondary fur colours, matching the body from the moment they spawn.",
-                "Erin.Auraeyl");
+            Add(list, "Auraeyl.Head", "Erin.Auraeyl");
 
-            Add(list, "Auraeyl.SyncSkinColour", "Auraeyl skin follows fur colour", "Auraeyl",
-                "Applies the pawn's primary fur colour to its skin the moment the gene rolls its "
-                + "colours, so the head and eyelid are right from the start instead of needing the fur "
-                + "colour gizmo. Needs Harmony; without it this does nothing and the colour has to be "
-                + "set by hand, as Erin's mod documents.",
-                "Erin.Auraeyl");
+            Add(list, "Auraeyl.SyncSkinColour", "Erin.Auraeyl");
 
             // ---- Auronya ----
-            Add(list, "Auronya.Head", "Auronya head", "Auronya",
-                "Drops ERN_AuronyaHead's forced head types in favour of a Facial Animation head, "
-                + "so the muzzle keeps Facial Animation's own eyes.",
-                "Erin.AuronyaBiotech");
+            Add(list, "Auronya.Head", "Erin.AuronyaBiotech");
 
-            Add(list, "Auronya.Whiskers", "Auronya whiskers", "Auronya",
-                "Hangs whiskers off the Auronya head gene so they draw with the Facial Animation "
-                + "head, leaving the pawn's beard slot free. Hair-coloured.",
-                "Erin.AuronyaBiotech");
+            Add(list, "Auronya.Whiskers", "Erin.AuronyaBiotech");
 
             // ---- Fenrisúlfr ----
-            Add(list, "Fenrisulfr.Head", "Fenrisúlfr head", "Fenrisúlfr",
-                "Drops ERN_FenrisulfrHead's forced head types in favour of a Facial Animation head, "
-                + "so the muzzle keeps Facial Animation's own eyes.",
-                "Erin.Fenrisulfr");
+            Add(list, "Fenrisulfr.Head", "Erin.Fenrisulfr");
 
             // ---- Expie ----
-            Add(list, "Expie.Head", "Expie head", "Expie",
-                "Adds a Facial Animation head type for ERN_ExpieHead.",
-                "erin.expie");
+            Add(list, "Expie.Head", "erin.expie");
 
             // ---- Shisune ----
-            Add(list, "Shisune.Head", "Shisune head", "Shisune",
-                "Adds a Facial Animation head type for ERN_ShisuneHead.",
-                "Erin.Shisune");
+            Add(list, "Shisune.Head", "Erin.Shisune");
 
             // ---- Rhyaeth ----
-            Add(list, "Rhyaeth.Head", "Rhyaeth head", "Rhyaeth",
-                "Gives ERN_RhyaethHead the shared dragon-snout Facial Animation head plus a blank mouth, in place of its forced head types.",
-                "erin.rhyaeth");
-            Add(list, "Rhyaeth.FaceOverlays", "Face overlays - replacement art", "Rhyaeth",
-                "Points the ear, horn, frill and whisker genes at this mod's realigned overlay art. "
-                + "Switched off, Rhy'aeth draws its own.",
-                "erin.rhyaeth");
+            Add(list, "Rhyaeth.Head", "erin.rhyaeth");
+            Add(list, "Rhyaeth.FaceOverlays", "erin.rhyaeth");
 
             // ---- Starlet ----
-            Add(list, "Starlet.Ridge", "Facial ridges head", "Starlet Xenotype",
-                "Gives GS_Ridge a Facial Animation head with the ridges painted in, and removes the gene's "
-                + "own ridge overlay. The ridges run through the eyes, which an overlay cannot do without "
-                + "either being painted over by the eyelids or drawing across the eyeball.",
-                "Sovereign.bnuy");
+            Add(list, "Starlet.Ridge", "Sovereign.bnuy");
+
+            // ---- Geist ----
+            Add(list, "Geist.BlankFace", "Sov.Tenmo");
+
+            // ---- Dioktri ----
+            Add(list, "Dioktri.SnakeTongue", "Rimsenal.Dioktri");
 
             // ---- Faun ----
-            Add(list, "Faun.DeerHead", "Deer heads", "Faun",
-                "Replaces RBSF_DeerHead's forced head types with four Facial Animation deer heads, rolled evenly.",
-                "V.Rooboid.Faun");
+            Add(list, "Faun.DeerHead", "V.Rooboid.Faun");
 
             // ---- Minotaur ----
-            AddMode(list, "Minotaur.BovineHead", "Bovine heads", "Minotaur", "tug.Minotaur",
-                new[] { "FacialAnimHeads", "EyesOnly", "Off" },
-                new[]
-                {
-                    "NL Humanoid Bovine Heads",
-                    "Original heads, animated eyes only",
-                    "Off"
-                },
-                new[]
-                {
-                    "Swaps the forced head types for nine Facial Animation bovine heads and this mod's "
-                        + "horn attachment, giving a fully animated face.",
-                    "Keeps the source mod's own bovine heads and markings, and lets Facial Animation draw "
-                        + "only the eyes, lids and brows over them. The animated head and mouth are blanked, "
-                        + "since neither would line up with the bovine muzzle.",
-                    "Minotaurs render exactly as their own mod draws them, with no animated face."
-                });
-            Add(list, "Minotaur.NoseRing", "Nose ring - replacement art", "Minotaur",
-                "Points the source mod's nose ring marking at this mod's ring texture. Only has an effect in "
-                + "the \"original heads\" mode, where the source mod's own markings are the ones drawing.",
-                "tug.Minotaur");
+            AddMode(list, "Minotaur.BovineHead", "tug.Minotaur", new[] { "FacialAnimHeads", "EyesOnly", "Off" });
+            Add(list, "Minotaur.NoseRing", "tug.Minotaur");
 
 
             // ---- Vanilla Races Expanded ----
-            Add(list, "Lycanthrope.CanineNose", "Canine nose head", "VRE - Lycanthrope",
-                "Bakes VRE_CanineNose into the shared canine-snout Facial Animation head instead of overlaying it as a render node.",
-                "vanillaracesexpanded.lycanthrope");
-            Add(list, "Lycanthrope.CanineEars", "Canine ears - replacement art", "VRE - Lycanthrope",
-                "Points VRE's own canine ear gene at this mod's ear texture. Switched off, Lycanthrope draws "
-                + "its own ears; the Alpha Genes and werewolf patches keep using ours either way.",
-                "vanillaracesexpanded.lycanthrope");
-            Add(list, "Lycanthrope.WolfTail", "Wolf tail - replacement art", "VRE - Lycanthrope",
-                "Points the canine tail gene at this mod's realigned tail art. Switched off, Lycanthrope "
-                + "draws its own.",
-                "vanillaracesexpanded.lycanthrope");
-            Add(list, "Phytokin.BarkSkin", "Barkskin head", "VRE - Phytokin",
-                "Adds a Facial Animation head type for VRE_BarkSkin.",
-                "vanillaracesexpanded.phytokin");
-            Add(list, "Sanguophage.EarlessHead", "Earless head for bat ears", "VRE - Sanguophage",
-                "Gives pawns with VRE_BatEars or VRE_UpperBatEars an earless Facial Animation head, so the "
-                + "head's own ears do not show underneath the gene's.",
-                "vanillaracesexpanded.sanguophage");
-            Add(list, "Sanguophage.EkkimianGaunt", "Ekkimian - drop the gaunt head gene", "VRE - Sanguophage",
-                "Removes Head_Gaunt from the Ekkimian xenotype. The earless head above needs this: the gaunt "
-                + "gene has a Facial Animation head of its own, with ears, and Facial Animation picks at "
-                + "random between every head a pawn's genes qualify for - so with the gene left in, about "
-                + "half of Ekkimians would show a second pair of ears under their chiropteric ones. Switch "
-                + "this off to give Ekkimians the gaunt gene back. Does nothing while the earless head is off.",
-                "vanillaracesexpanded.sanguophage", DlcGate.None, modifiesGenes: true);
-            Add(list, "Sanguophage.BatEars", "Bat ears - replacement art", "VRE - Sanguophage",
-                "Points VRE_BatEars at this mod's ear texture. Switched off, Sanguophage draws its own "
-                + "- or whichever retexture mod is shadowing that path.",
-                "vanillaracesexpanded.sanguophage");
-            Add(list, "Sanguophage.UpperBatEars", "Chiropteric ears - replacement art", "VRE - Sanguophage",
-                "Points VRE_UpperBatEars at this mod's ear texture. Switched off, Sanguophage draws its "
-                + "own - or whichever retexture mod is shadowing that path.",
-                "vanillaracesexpanded.sanguophage");
-            Add(list, "Sanguophage.BatNose", "Bat nose - replacement art", "VRE - Sanguophage",
-                "Points VRE_BatNose at this mod's nose texture. Switched off, Sanguophage draws its own "
-                + "- or whichever retexture mod is shadowing that path.",
-                "vanillaracesexpanded.sanguophage");
-            Add(list, "Saurid.ScaleSkin", "Scaled skin head", "VRE - Saurid",
-                "Adds a Facial Animation head type for VRESaurids_ScaleSkin.",
-                "vanillaracesexpanded.saurid");
+            Add(list, "Lycanthrope.CanineNose", "vanillaracesexpanded.lycanthrope");
+            Add(list, "Lycanthrope.CanineEars", "vanillaracesexpanded.lycanthrope");
+            Add(list, "Lycanthrope.WolfTail", "vanillaracesexpanded.lycanthrope");
+            Add(list, "Phytokin.BarkSkin", "vanillaracesexpanded.phytokin");
+            Add(list, "Sanguophage.EarlessHead", "vanillaracesexpanded.sanguophage");
+            Add(list, "Sanguophage.EkkimianGaunt", "vanillaracesexpanded.sanguophage", DlcGate.None, modifiesGenes: true);
+            Add(list, "Sanguophage.BatEars", "vanillaracesexpanded.sanguophage");
+            Add(list, "Sanguophage.UpperBatEars", "vanillaracesexpanded.sanguophage");
+            Add(list, "Sanguophage.BatNose", "vanillaracesexpanded.sanguophage");
+            Add(list, "Saurid.ScaleSkin", "vanillaracesexpanded.saurid");
 
             // ---- switched on and off in XML, not in the startup pass ----
             // These append into, or replace a value in, a def that belongs to the source mod,
@@ -380,26 +246,22 @@ namespace FACP
         }
 
         // A patch whose options are mutually exclusive. modeKeys[0] is the default.
-        private static void AddMode(List<ToggleEntry> list, string key, string label, string category,
-            string packageId, string[] modeKeys, string[] modeLabels, string[] modeDescriptions,
+        private static void AddMode(List<ToggleEntry> list, string key, string packageId, string[] modeKeys,
             DlcGate dlc = DlcGate.None)
         {
-            Add(list, key, label, category, null, packageId, dlc);
-            ToggleEntry entry = list[list.Count - 1];
-            entry.modeKeys = modeKeys;
-            entry.modeLabels = modeLabels;
-            entry.modeDescriptions = modeDescriptions;
+            Add(list, key, packageId, dlc);
+            list[list.Count - 1].modeKeys = modeKeys;
         }
 
-        private static void Add(List<ToggleEntry> list, string key, string label, string category,
-            string description, string packageId, DlcGate dlc = DlcGate.None, bool modifiesGenes = false)
+        // The category is the key's first segment ("Sanguophage" for "Sanguophage.BatEars"),
+        // so every toggle of one source mod shares a header without naming it twice.
+        private static void Add(List<ToggleEntry> list, string key, string packageId,
+            DlcGate dlc = DlcGate.None, bool modifiesGenes = false)
         {
             list.Add(new ToggleEntry
             {
                 key = key,
-                label = label,
-                category = category,
-                description = description,
+                category = key.Substring(0, key.IndexOf('.')),
                 packageId = packageId,
                 dlc = dlc,
                 modifiesGenes = modifiesGenes

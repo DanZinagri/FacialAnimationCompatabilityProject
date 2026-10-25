@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+	<!-- Vanilla (Biotech) -->
+	<FACP.Category.Vanilla>Vanilla (Biotech)</FACP.Category.Vanilla>
+	<FACP.Toggle.Vanilla.Gaunt.Label>Gaunt head</FACP.Toggle.Vanilla.Gaunt.Label>
+	<FACP.Toggle.Vanilla.Gaunt.Desc>Gives the Head_Gaunt gene (wasters and friends) a Facial Animation head type instead of a vanilla one.</FACP.Toggle.Vanilla.Gaunt.Desc>
+	<FACP.Toggle.Vanilla.HeavyJaw.Label>Heavy jaw head</FACP.Toggle.Vanilla.HeavyJaw.Label>
+	<FACP.Toggle.Vanilla.HeavyJaw.Desc>Gives the Jaw_Heavy gene (neanderthals and friends) a Facial Animation head type instead of a vanilla one.</FACP.Toggle.Vanilla.HeavyJaw.Desc>
+	<FACP.Toggle.Vanilla.PigNose.Label>Pig nose head</FACP.Toggle.Vanilla.PigNose.Label>
+	<FACP.Toggle.Vanilla.PigNose.Desc>Bakes the Nose_Pig gene's snout into a Facial Animation head instead of drawing it as a render node over the face.</FACP.Toggle.Vanilla.PigNose.Desc>
+	<FACP.Toggle.Vanilla.YttakinHair.Label>Yttakin - allow hair</FACP.Toggle.Vanilla.YttakinHair.Label>
+	<FACP.Toggle.Vanilla.YttakinHair.Desc>Drops Hair_BaldOnly from the Yttakin xenotype so they can roll hair styles.</FACP.Toggle.Vanilla.YttakinHair.Desc>
+
+	<!-- Alpha Genes -->
+	<FACP.Category.AlphaGenes>Alpha Genes</FACP.Category.AlphaGenes>
+	<FACP.Toggle.AlphaGenes.FoxFace.Label>Fox face</FACP.Toggle.AlphaGenes.FoxFace.Label>
+	<FACP.Toggle.AlphaGenes.FoxFace.Desc>Replaces AG_FoxFace's forced vanilla head types with a Facial Animation canine-snout head.</FACP.Toggle.AlphaGenes.FoxFace.Desc>
+	<FACP.Toggle.AlphaGenes.AnimusEars.Label>Animus ears</FACP.Toggle.AlphaGenes.AnimusEars.Label>
+	<FACP.Toggle.AlphaGenes.AnimusEars.Desc>Swaps AG_AnimusEars over to this mod's canine ear texture, hair-coloured and off the skin shader.</FACP.Toggle.AlphaGenes.AnimusEars.Desc>
+	<FACP.Toggle.AlphaGenes.Drakonori.Label>Drakonori head</FACP.Toggle.AlphaGenes.Drakonori.Label>
+	<FACP.Toggle.AlphaGenes.Drakonori.Desc>Gives AG_DrakonoriHead the shared dragon-snout Facial Animation head, with a blank mouth so the snout reads as one piece.</FACP.Toggle.AlphaGenes.Drakonori.Desc>
+	<FACP.Toggle.AlphaGenes.RockSpurs.Label>Rock spurs head</FACP.Toggle.AlphaGenes.RockSpurs.Label>
+	<FACP.Toggle.AlphaGenes.RockSpurs.Desc>Bakes AG_RockSpurs' facial rock growths into a Facial Animation head instead of overlaying them as a render node.</FACP.Toggle.AlphaGenes.RockSpurs.Desc>
+	<FACP.Toggle.AlphaGenes.VenomFangs.Label>Venom fangs - hide overlay</FACP.Toggle.AlphaGenes.VenomFangs.Label>
+	<FACP.Toggle.AlphaGenes.VenomFangs.Desc>Drops AG_VenomFangs' render node, which otherwise draws fangs across a Facial Animation mouth.</FACP.Toggle.AlphaGenes.VenomFangs.Desc>
+
+	<!-- Big and Small - Genes & More -->
+	<FACP.Category.BigAndSmall>Big and Small - Genes &amp; More</FACP.Category.BigAndSmall>
+	<FACP.Toggle.BigAndSmall.GhoulHead.Label>Ghoul head</FACP.Toggle.BigAndSmall.GhoulHead.Label>
+	<FACP.Toggle.BigAndSmall.GhoulHead.Desc>Gives BS_GhoulHead a Facial Animation head type.</FACP.Toggle.BigAndSmall.GhoulHead.Desc>
+	<FACP.Toggle.BigAndSmall.DragonHead.Label>Dragonhead broodmother</FACP.Toggle.BigAndSmall.DragonHead.Label>
+	<FACP.Toggle.BigAndSmall.DragonHead.Desc>Gives BS_DragonHead the shared dragon-snout Facial Animation head plus a blank mouth, in place of its own render node.</FACP.Toggle.BigAndSmall.DragonHead.Desc>
+	<FACP.Toggle.BigAndSmall.OgreHeadUncanny.Label>Ogre head (uncanny)</FACP.Toggle.BigAndSmall.OgreHeadUncanny.Label>
+	<FACP.Toggle.BigAndSmall.OgreHeadUncanny.Desc>Gives BS_OgreHead proper Facial Animation head types - one per art variant - in place of its forced heads and overlay render node. Art from the source mod, used with permission.</FACP.Toggle.BigAndSmall.OgreHeadUncanny.Desc>
+	<FACP.Toggle.BigAndSmall.OgreHeadLumpy.Label>Ogre head (lumpy)</FACP.Toggle.BigAndSmall.OgreHeadLumpy.Label>
+	<FACP.Toggle.BigAndSmall.OgreHeadLumpy.Desc>Gives BS_FomorialHead_Savage proper Facial Animation head types - one per art variant - in place of its forced heads and overlay render node. Art from the source mod, used with permission.</FACP.Toggle.BigAndSmall.OgreHeadLumpy.Desc>
+	<FACP.Toggle.BigAndSmall.SatanHead.Label>Satan head - keep the face</FACP.Toggle.BigAndSmall.SatanHead.Label>
+	<FACP.Toggle.BigAndSmall.SatanHead.Desc>Stops BS_SatanHead disabling facial animations, and lifts its overlay to layer 50 so it draws above the animated face.</FACP.Toggle.BigAndSmall.SatanHead.Desc>
+	<FACP.Toggle.BigAndSmall.StonemaskHead.Label>Authority stonemask - keep the face</FACP.Toggle.BigAndSmall.StonemaskHead.Label>
+	<FACP.Toggle.BigAndSmall.StonemaskHead.Desc>Stops BS_StonemaskHead disabling facial animations, and lifts its overlay to layer 50 so it draws above the animated face.</FACP.Toggle.BigAndSmall.StonemaskHead.Desc>
+	<FACP.Toggle.BigAndSmall.InsectoidFourArmed.Label>Four-armed insectoid - face support</FACP.Toggle.BigAndSmall.InsectoidFourArmed.Label>
+	<FACP.Toggle.BigAndSmall.InsectoidFourArmed.Desc>Makes sure the four-armed insectoid race has the Facial Animation comps, sizes its face to its head, and labels its eyes as compound eyes. Switched off, the race falls back to Facial Animation's default face size and position. The race normally inherits Facial Animation from Human, so switching this off may not remove the face itself.</FACP.Toggle.BigAndSmall.InsectoidFourArmed.Desc>
+
+	<!-- Big and Small - Lamias and other Snake-People -->
+	<FACP.Category.Lamias>Big and Small - Lamias and other Snake-People</FACP.Category.Lamias>
+	<FACP.Toggle.Lamias.SnekSnoot.Label>Snake snout head</FACP.Toggle.Lamias.SnekSnoot.Label>
+	<FACP.Toggle.Lamias.SnekSnoot.Desc>Gives LoS_SnekSnoot the shared dragon-snout Facial Animation head plus a blank mouth, in place of its forced head types.</FACP.Toggle.Lamias.SnekSnoot.Desc>
+
+	<!-- Big and Small - Slimes -->
+	<FACP.Category.Slimes>Big and Small - Slimes</FACP.Category.Slimes>
+	<FACP.Toggle.Slimes.SludgeBody.Label>Sludge body - use normal heads</FACP.Toggle.Slimes.SludgeBody.Label>
+	<FACP.Toggle.Slimes.SludgeBody.Desc>Drops BS_SludgeBody's forced head types and its eyeless slime head node, so slimes render an ordinary animated face.</FACP.Toggle.Slimes.SludgeBody.Desc>
+
+	<!-- Big and Small - Vampires and the Undead -->
+	<FACP.Category.Undead>Big and Small - Vampires and the Undead</FACP.Category.Undead>
+	<FACP.Toggle.Undead.WerewolfSnoot.Label>Werewolf snout head</FACP.Toggle.Undead.WerewolfSnoot.Label>
+	<FACP.Toggle.Undead.WerewolfSnoot.Desc>Gives BS_WerewolfSnoot the shared canine-snout Facial Animation head in place of its forced head types.</FACP.Toggle.Undead.WerewolfSnoot.Desc>
+	<FACP.Toggle.Undead.WerewolfForm.Label>Werewolf form - keep the face</FACP.Toggle.Undead.WerewolfForm.Label>
+	<FACP.Toggle.Undead.WerewolfForm.Desc>Stops the werewolf transformation hediff disabling facial animations, and swaps its ears over to this mod's canine ear texture.</FACP.Toggle.Undead.WerewolfForm.Desc>
+
+	<!-- Big and Small - Yokai -->
+	<FACP.Category.Yokai>Big and Small - Yokai</FACP.Category.Yokai>
+	<FACP.Toggle.Yokai.LesserOni.Label>Lesser oni - enable faces</FACP.Toggle.Yokai.LesserOni.Label>
+	<FACP.Toggle.Yokai.LesserOni.Desc>Drops BS_FacialAnimDisabled from the lesser oni xenotype so they get an animated face.</FACP.Toggle.Yokai.LesserOni.Desc>
+
+	<!-- Boglegs -->
+	<FACP.Category.Bogleg>Boglegs</FACP.Category.Bogleg>
+	<FACP.Toggle.Bogleg.FatSac.Label>Fat sac jaw head</FACP.Toggle.Bogleg.FatSac.Label>
+	<FACP.Toggle.Bogleg.FatSac.Desc>Bakes DV_Jaw_FatSac's throat sac into a Facial Animation head, and drops Head_Gaunt from the bogleg xenotype so it does not fight the new head.</FACP.Toggle.Bogleg.FatSac.Desc>
+	<FACP.Toggle.Bogleg.Whiskers.Label>Barbels - replacement art</FACP.Toggle.Bogleg.Whiskers.Label>
+	<FACP.Toggle.Bogleg.Whiskers.Desc>Points the barbel gene at this mod's upscaled, realigned barbel textures. Switched off, Boglegs draws its own art, which the replacement is deliberately not aligned to.</FACP.Toggle.Bogleg.Whiskers.Desc>
+
+	<!-- Brawnum -->
+	<FACP.Category.Brawnum>Brawnum</FACP.Category.Brawnum>
+	<FACP.Toggle.Brawnum.Snout.Label>Snout head</FACP.Toggle.Brawnum.Snout.Label>
+	<FACP.Toggle.Brawnum.Snout.Desc>Bakes DV_Nose_Snout into a Facial Animation head instead of overlaying it as a render node.</FACP.Toggle.Brawnum.Snout.Desc>
+	<FACP.Toggle.Brawnum.Bonechin.Label>Bone chin - replacement art</FACP.Toggle.Brawnum.Bonechin.Label>
+	<FACP.Toggle.Brawnum.Bonechin.Desc>Points the bone chin gene at this mod's realigned chin textures. Switched off, Brawnum draws its own art, which the replacement is deliberately not aligned to.</FACP.Toggle.Brawnum.Bonechin.Desc>
+	<FACP.Toggle.Brawnum.BovineEars.Label>Bovine ears - replacement art</FACP.Toggle.Brawnum.BovineEars.Label>
+	<FACP.Toggle.Brawnum.BovineEars.Desc>Points the drooped ear gene at this mod's realigned ear texture. Switched off, Brawnum draws its own art, which the replacement is deliberately not aligned to.</FACP.Toggle.Brawnum.BovineEars.Desc>
+
+	<!-- Venators -->
+	<FACP.Category.Venators>Venators</FACP.Category.Venators>
+	<FACP.Toggle.Venators.DownturnedEars.Label>Downturned ears - replacement art</FACP.Toggle.Venators.DownturnedEars.Label>
+	<FACP.Toggle.Venators.DownturnedEars.Desc>Points the downturned ear gene at this mod's realigned ear textures. Switched off, Venators draws its own art, which the replacement is deliberately not aligned to.</FACP.Toggle.Venators.DownturnedEars.Desc>
+
+	<!-- Oni -->
+	<FACP.Category.Oni>Oni</FACP.Category.Oni>
+	<FACP.Toggle.Oni.Ears.Label>Oni ears - replacement art</FACP.Toggle.Oni.Ears.Label>
+	<FACP.Toggle.Oni.Ears.Desc>Points the oni ear gene at this mod's realigned ear textures. Switched off, Oni Xenotype draws its own art, which the replacement is deliberately not aligned to.</FACP.Toggle.Oni.Ears.Desc>
+
+	<!-- Keshig -->
+	<FACP.Category.Keshig>Keshig</FACP.Category.Keshig>
+	<FACP.Toggle.Keshig.SplitJaw.Label>Split jaw head and mouth</FACP.Toggle.Keshig.SplitJaw.Label>
+	<FACP.Toggle.Keshig.SplitJaw.Desc>Replaces DV_Jaw_Split's forced head types with a Facial Animation head plus a matching split-jaw mouth type.</FACP.Toggle.Keshig.SplitJaw.Desc>
+
+	<!-- Stoneborn -->
+	<FACP.Category.Stoneborn>Stoneborn</FACP.Category.Stoneborn>
+	<FACP.Toggle.Stoneborn.BushyEyebrows.Label>Bushy eyebrows - blank brow</FACP.Toggle.Stoneborn.BushyEyebrows.Label>
+	<FACP.Toggle.Stoneborn.BushyEyebrows.Desc>Adds a zero-probability blank brow type for DV_BushyEyebrows, so the gene's own brow art is not doubled up by an animated one.</FACP.Toggle.Stoneborn.BushyEyebrows.Desc>
+
+	<!-- Auraeyl -->
+	<FACP.Category.Auraeyl>Auraeyl</FACP.Category.Auraeyl>
+	<FACP.Toggle.Auraeyl.Head.Label>Auraeyl head</FACP.Toggle.Auraeyl.Head.Label>
+	<FACP.Toggle.Auraeyl.Head.Desc>Swaps the Auraeyl head for this mod's version, drawn under a transparent Facial Animation head so the animated eyes and mouth sit on top of it. Keeps the pawn's primary and secondary fur colours, matching the body from the moment they spawn.</FACP.Toggle.Auraeyl.Head.Desc>
+	<FACP.Toggle.Auraeyl.SyncSkinColour.Label>Auraeyl skin follows fur colour</FACP.Toggle.Auraeyl.SyncSkinColour.Label>
+	<FACP.Toggle.Auraeyl.SyncSkinColour.Desc>Applies the pawn's primary fur colour to its skin the moment the gene rolls its colours, so the head and eyelid are right from the start instead of needing the fur colour gizmo. Needs Harmony; without it this does nothing and the colour has to be set by hand, as Erin's mod documents.</FACP.Toggle.Auraeyl.SyncSkinColour.Desc>
+
+	<!-- Auronya -->
+	<FACP.Category.Auronya>Auronya</FACP.Category.Auronya>
+	<FACP.Toggle.Auronya.Head.Label>Auronya head</FACP.Toggle.Auronya.Head.Label>
+	<FACP.Toggle.Auronya.Head.Desc>Drops ERN_AuronyaHead's forced head types in favour of a Facial Animation head, so the muzzle keeps Facial Animation's own eyes.</FACP.Toggle.Auronya.Head.Desc>
+	<FACP.Toggle.Auronya.Whiskers.Label>Auronya whiskers</FACP.Toggle.Auronya.Whiskers.Label>
+	<FACP.Toggle.Auronya.Whiskers.Desc>Hangs whiskers off the Auronya head gene so they draw with the Facial Animation head, leaving the pawn's beard slot free. Hair-coloured.</FACP.Toggle.Auronya.Whiskers.Desc>
+
+	<!-- Fenrisúlfr -->
+	<FACP.Category.Fenrisulfr>Fenrisúlfr</FACP.Category.Fenrisulfr>
+	<FACP.Toggle.Fenrisulfr.Head.Label>Fenrisúlfr head</FACP.Toggle.Fenrisulfr.Head.Label>
+	<FACP.Toggle.Fenrisulfr.Head.Desc>Drops ERN_FenrisulfrHead's forced head types in favour of a Facial Animation head, so the muzzle keeps Facial Animation's own eyes.</FACP.Toggle.Fenrisulfr.Head.Desc>
+
+	<!-- Expie -->
+	<FACP.Category.Expie>Expie</FACP.Category.Expie>
+	<FACP.Toggle.Expie.Head.Label>Expie head</FACP.Toggle.Expie.Head.Label>
+	<FACP.Toggle.Expie.Head.Desc>Adds a Facial Animation head type for ERN_ExpieHead.</FACP.Toggle.Expie.Head.Desc>
+
+	<!-- Shisune -->
+	<FACP.Category.Shisune>Shisune</FACP.Category.Shisune>
+	<FACP.Toggle.Shisune.Head.Label>Shisune head</FACP.Toggle.Shisune.Head.Label>
+	<FACP.Toggle.Shisune.Head.Desc>Adds a Facial Animation head type for ERN_ShisuneHead.</FACP.Toggle.Shisune.Head.Desc>
+
+	<!-- Rhyaeth -->
+	<FACP.Category.Rhyaeth>Rhyaeth</FACP.Category.Rhyaeth>
+	<FACP.Toggle.Rhyaeth.Head.Label>Rhyaeth head</FACP.Toggle.Rhyaeth.Head.Label>
+	<FACP.Toggle.Rhyaeth.Head.Desc>Gives ERN_RhyaethHead the shared dragon-snout Facial Animation head plus a blank mouth, in place of its forced head types.</FACP.Toggle.Rhyaeth.Head.Desc>
+	<FACP.Toggle.Rhyaeth.FaceOverlays.Label>Face overlays - replacement art</FACP.Toggle.Rhyaeth.FaceOverlays.Label>
+	<FACP.Toggle.Rhyaeth.FaceOverlays.Desc>Points the ear, horn, frill and whisker genes at this mod's realigned overlay art. Switched off, Rhy'aeth draws its own.</FACP.Toggle.Rhyaeth.FaceOverlays.Desc>
+
+	<!-- Starlet Xenotype -->
+	<FACP.Category.Starlet>Starlet Xenotype</FACP.Category.Starlet>
+	<FACP.Toggle.Starlet.Ridge.Label>Facial ridges head</FACP.Toggle.Starlet.Ridge.Label>
+	<FACP.Toggle.Starlet.Ridge.Desc>Gives GS_Ridge a Facial Animation head with the ridges painted in, and removes the gene's own ridge overlay. The ridges run through the eyes, which an overlay cannot do without either being painted over by the eyelids or drawing across the eyeball.</FACP.Toggle.Starlet.Ridge.Desc>
+
+	<!-- Geist Xenotype -->
+	<FACP.Category.Geist>Geist Xenotype</FACP.Category.Geist>
+	<FACP.Toggle.Geist.BlankFace.Label>Faceless - blank eyes, lids and brows</FACP.Toggle.Geist.BlankFace.Label>
+	<FACP.Toggle.Geist.BlankFace.Desc>Gives GS_Skullplate_Head fully transparent Facial Animation eyes, eyelids and brows, so the Geist's featureless skull stays featureless.</FACP.Toggle.Geist.BlankFace.Desc>
+
+	<!-- Rimsenal Xenotype Pack - Dioktri -->
+	<FACP.Category.Dioktri>Rimsenal Xenotype Pack - Dioktri</FACP.Category.Dioktri>
+	<FACP.Toggle.Dioktri.SnakeTongue.Label>Snake tongue mouths</FACP.Toggle.Dioktri.SnakeTongue.Label>
+	<FACP.Toggle.Dioktri.SnakeTongue.Desc>Removes Gene_SnakeTongue's tongue overlay and gives carriers their own list of Facial Animation mouths with the tongue drawn in, so it moves with the animated mouth. Mirrors the normal mouth list: one snake mouth on plain Facial Animation; with FA - Experimentals, snake copies of its normal, fang and shark mouths.</FACP.Toggle.Dioktri.SnakeTongue.Desc>
+
+	<!-- Faun -->
+	<FACP.Category.Faun>Faun</FACP.Category.Faun>
+	<FACP.Toggle.Faun.DeerHead.Label>Deer heads</FACP.Toggle.Faun.DeerHead.Label>
+	<FACP.Toggle.Faun.DeerHead.Desc>Replaces RBSF_DeerHead's forced head types with four Facial Animation deer heads, rolled evenly.</FACP.Toggle.Faun.DeerHead.Desc>
+
+	<!-- Minotaur -->
+	<FACP.Category.Minotaur>Minotaur</FACP.Category.Minotaur>
+	<FACP.Toggle.Minotaur.BovineHead.Label>Bovine heads</FACP.Toggle.Minotaur.BovineHead.Label>
+	<FACP.Toggle.Minotaur.BovineHead.Mode.FacialAnimHeads>NL Humanoid Bovine Heads</FACP.Toggle.Minotaur.BovineHead.Mode.FacialAnimHeads>
+	<FACP.Toggle.Minotaur.BovineHead.Mode.FacialAnimHeads.Desc>Swaps the forced head types for nine Facial Animation bovine heads and this mod's horn attachment, giving a fully animated face.</FACP.Toggle.Minotaur.BovineHead.Mode.FacialAnimHeads.Desc>
+	<FACP.Toggle.Minotaur.BovineHead.Mode.EyesOnly>Original heads, animated eyes only</FACP.Toggle.Minotaur.BovineHead.Mode.EyesOnly>
+	<FACP.Toggle.Minotaur.BovineHead.Mode.EyesOnly.Desc>Keeps the source mod's own bovine heads and markings, and lets Facial Animation draw only the eyes, lids and brows over them. The animated head and mouth are blanked, since neither would line up with the bovine muzzle.</FACP.Toggle.Minotaur.BovineHead.Mode.EyesOnly.Desc>
+	<FACP.Toggle.Minotaur.BovineHead.Mode.Off>Off</FACP.Toggle.Minotaur.BovineHead.Mode.Off>
+	<FACP.Toggle.Minotaur.BovineHead.Mode.Off.Desc>Minotaurs render exactly as their own mod draws them, with no animated face.</FACP.Toggle.Minotaur.BovineHead.Mode.Off.Desc>
+	<FACP.Toggle.Minotaur.NoseRing.Label>Nose ring - replacement art</FACP.Toggle.Minotaur.NoseRing.Label>
+	<FACP.Toggle.Minotaur.NoseRing.Desc>Points the source mod's nose ring marking at this mod's ring texture. Only has an effect in the "original heads" mode, where the source mod's own markings are the ones drawing.</FACP.Toggle.Minotaur.NoseRing.Desc>
+
+	<!-- VRE - Lycanthrope -->
+	<FACP.Category.Lycanthrope>VRE - Lycanthrope</FACP.Category.Lycanthrope>
+	<FACP.Toggle.Lycanthrope.CanineNose.Label>Canine nose head</FACP.Toggle.Lycanthrope.CanineNose.Label>
+	<FACP.Toggle.Lycanthrope.CanineNose.Desc>Bakes VRE_CanineNose into the shared canine-snout Facial Animation head instead of overlaying it as a render node.</FACP.Toggle.Lycanthrope.CanineNose.Desc>
+	<FACP.Toggle.Lycanthrope.CanineEars.Label>Canine ears - replacement art</FACP.Toggle.Lycanthrope.CanineEars.Label>
+	<FACP.Toggle.Lycanthrope.CanineEars.Desc>Points VRE's own canine ear gene at this mod's ear texture. Switched off, Lycanthrope draws its own ears; the Alpha Genes and werewolf patches keep using ours either way.</FACP.Toggle.Lycanthrope.CanineEars.Desc>
+	<FACP.Toggle.Lycanthrope.WolfTail.Label>Wolf tail - replacement art</FACP.Toggle.Lycanthrope.WolfTail.Label>
+	<FACP.Toggle.Lycanthrope.WolfTail.Desc>Points the canine tail gene at this mod's realigned tail art. Switched off, Lycanthrope draws its own.</FACP.Toggle.Lycanthrope.WolfTail.Desc>
+
+	<!-- VRE - Phytokin -->
+	<FACP.Category.Phytokin>VRE - Phytokin</FACP.Category.Phytokin>
+	<FACP.Toggle.Phytokin.BarkSkin.Label>Barkskin head</FACP.Toggle.Phytokin.BarkSkin.Label>
+	<FACP.Toggle.Phytokin.BarkSkin.Desc>Adds a Facial Animation head type for VRE_BarkSkin.</FACP.Toggle.Phytokin.BarkSkin.Desc>
+
+	<!-- VRE - Sanguophage -->
+	<FACP.Category.Sanguophage>VRE - Sanguophage</FACP.Category.Sanguophage>
+	<FACP.Toggle.Sanguophage.EarlessHead.Label>Earless head for bat ears</FACP.Toggle.Sanguophage.EarlessHead.Label>
+	<FACP.Toggle.Sanguophage.EarlessHead.Desc>Gives pawns with VRE_BatEars or VRE_UpperBatEars an earless Facial Animation head, so the head's own ears do not show underneath the gene's.</FACP.Toggle.Sanguophage.EarlessHead.Desc>
+	<FACP.Toggle.Sanguophage.EkkimianGaunt.Label>Ekkimian - drop the gaunt head gene</FACP.Toggle.Sanguophage.EkkimianGaunt.Label>
+	<FACP.Toggle.Sanguophage.EkkimianGaunt.Desc>Removes Head_Gaunt from the Ekkimian xenotype. The earless head above needs this: the gaunt gene has a Facial Animation head of its own, with ears, and Facial Animation picks at random between every head a pawn's genes qualify for - so with the gene left in, about half of Ekkimians would show a second pair of ears under their chiropteric ones. Switch this off to give Ekkimians the gaunt gene back. Does nothing while the earless head is off.</FACP.Toggle.Sanguophage.EkkimianGaunt.Desc>
+	<FACP.Toggle.Sanguophage.BatEars.Label>Bat ears - replacement art</FACP.Toggle.Sanguophage.BatEars.Label>
+	<FACP.Toggle.Sanguophage.BatEars.Desc>Points VRE_BatEars at this mod's ear texture. Switched off, Sanguophage draws its own - or whichever retexture mod is shadowing that path.</FACP.Toggle.Sanguophage.BatEars.Desc>
+	<FACP.Toggle.Sanguophage.UpperBatEars.Label>Chiropteric ears - replacement art</FACP.Toggle.Sanguophage.UpperBatEars.Label>
+	<FACP.Toggle.Sanguophage.UpperBatEars.Desc>Points VRE_UpperBatEars at this mod's ear texture. Switched off, Sanguophage draws its own - or whichever retexture mod is shadowing that path.</FACP.Toggle.Sanguophage.UpperBatEars.Desc>
+	<FACP.Toggle.Sanguophage.BatNose.Label>Bat nose - replacement art</FACP.Toggle.Sanguophage.BatNose.Label>
+	<FACP.Toggle.Sanguophage.BatNose.Desc>Points VRE_BatNose at this mod's nose texture. Switched off, Sanguophage draws its own - or whichever retexture mod is shadowing that path.</FACP.Toggle.Sanguophage.BatNose.Desc>
+
+	<!-- VRE - Saurid -->
+	<FACP.Category.Saurid>VRE - Saurid</FACP.Category.Saurid>
+	<FACP.Toggle.Saurid.ScaleSkin.Label>Scaled skin head</FACP.Toggle.Saurid.ScaleSkin.Label>
+	<FACP.Toggle.Saurid.ScaleSkin.Desc>Adds a Facial Animation head type for VRESaurids_ScaleSkin.</FACP.Toggle.Saurid.ScaleSkin.Desc>
+
+</LanguageData>

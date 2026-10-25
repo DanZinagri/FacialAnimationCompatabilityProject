@@ -9,11 +9,17 @@ namespace FACP
     // the settings window is actually open.
     public class FACPMod : Mod
     {
-        public const string GeneChangeTag = "Gene add/remove";
+        // All player-facing text is in Languages/English/Keyed/FACP_Settings.xml (window) and
+        // FACP_Toggles.xml (the toggles themselves).
+        public static string GeneChangeTag
+        {
+            get { return "FACP.UI.GeneTag".Translate(); }
+        }
 
-        public const string GeneChangeNote = "This patch changes which genes a xenotype has. "
-            + "Genes are not added to or removed from existing pawns automatically, so anyone "
-            + "already in your save needs adjusting by hand.";
+        public static string GeneChangeNote
+        {
+            get { return "FACP.UI.GeneChangeNote".Translate(); }
+        }
 
         public static FACPSettings Settings;
 
@@ -69,7 +75,7 @@ namespace FACP
 
         public override string SettingsCategory()
         {
-            return "Facial Animation Compatability Project";
+            return "FACP.SettingsCategory".Translate();
         }
 
         public override void DoSettingsWindowContents(Rect inRect)
@@ -78,8 +84,7 @@ namespace FACP
 
             if (entries.Count == 0)
             {
-                Widgets.Label(inRect, "Nothing to configure: none of the mods this project patches are "
-                    + "currently active, and Biotech is not enabled either.");
+                Widgets.Label(inRect, "FACP.UI.NothingToConfigure".Translate());
                 return;
             }
 
@@ -109,7 +114,7 @@ namespace FACP
                         listing.Gap(CategoryGap);
                     }
                     GUI.color = new Color(0.7f, 0.85f, 1f);
-                    listing.Label(category);
+                    listing.Label(entry.CategoryLabel);
                     GUI.color = Color.white;
                     listing.GapLine(2f);
                 }
@@ -126,7 +131,7 @@ namespace FACP
                 // Fixed row height so the tag can be placed against known geometry, and so
                 // ViewHeight below stays exact rather than an estimate.
                 float rowY = listing.CurHeight;
-                listing.CheckboxLabeled("    " + entry.label, ref enabled, entry.Tooltip, CheckboxRowHeight);
+                listing.CheckboxLabeled("    " + entry.Label, ref enabled, entry.Tooltip, CheckboxRowHeight);
 
                 if (entry.modifiesGenes)
                 {
@@ -155,17 +160,15 @@ namespace FACP
             Rect labelRect = listing.GetRect(CheckboxRowHeight);
             Text.Anchor = TextAnchor.MiddleLeft;
             Widgets.Label(new Rect(labelRect.x + 12f, labelRect.y, labelRect.width - 12f, labelRect.height),
-                entry.label);
+                entry.Label);
             Text.Anchor = TextAnchor.UpperLeft;
 
             string current = Settings.GetMode(entry.key, entry.DefaultMode);
             for (int i = 0; i < entry.modeKeys.Length; i++)
             {
-                string tooltip = (entry.modeDescriptions != null && i < entry.modeDescriptions.Length)
-                    ? entry.modeDescriptions[i] + "\n\n(" + entry.key + " = " + entry.modeKeys[i] + ")"
-                    : null;
+                string tooltip = entry.ModeDescription(i) + "\n\n(" + entry.key + " = " + entry.modeKeys[i] + ")";
                 bool active = current == entry.modeKeys[i];
-                if (listing.RadioButton(entry.modeLabels[i], active, 32f, tooltip, null) && !active)
+                if (listing.RadioButton(entry.ModeLabel(i), active, 32f, tooltip, null) && !active)
                 {
                     Settings.SetMode(entry.key, entry.modeKeys[i]);
                 }
@@ -179,19 +182,16 @@ namespace FACP
             Text.Font = GameFont.Tiny;
             GUI.color = new Color(1f, 1f, 1f, 0.65f);
             Widgets.Label(new Rect(inRect.x, y, inRect.width, 46f),
-                "Each patch is applied once while RimWorld loads, so changes take effect on the next "
-                + "restart. Switching one off means its edit is never made at all, leaving the source "
-                + "mod's def untouched; nothing here costs anything while you play. Only source mods "
-                + "you actually have installed are listed.");
+                "FACP.UI.Intro".Translate());
             GUI.color = Color.white;
             Text.Font = GameFont.Small;
             y += 50f;
 
-            if (Widgets.ButtonText(new Rect(inRect.x, y, ButtonWidth, ButtonHeight), "Enable all"))
+            if (Widgets.ButtonText(new Rect(inRect.x, y, ButtonWidth, ButtonHeight), "FACP.UI.EnableAll".Translate()))
             {
                 SetAll(entries, true);
             }
-            if (Widgets.ButtonText(new Rect(inRect.x + ButtonWidth + 8f, y, ButtonWidth, ButtonHeight), "Disable all"))
+            if (Widgets.ButtonText(new Rect(inRect.x + ButtonWidth + 8f, y, ButtonWidth, ButtonHeight), "FACP.UI.DisableAll".Translate()))
             {
                 SetAll(entries, false);
             }
@@ -199,7 +199,7 @@ namespace FACP
             // Deliberately no "restart now" button. Forcing a relaunch from here would go
             // around whatever else is managing startup (Prepatcher and friends rewrite it),
             // and the setting is already saved when this window closes.
-            string warning = RestartPending(entries) ? "Restart RimWorld to apply these changes." : null;
+            string warning = RestartPending(entries) ? (string)"FACP.UI.RestartToApply".Translate() : null;
 
             if (warning != null)
             {
@@ -244,9 +244,7 @@ namespace FACP
             Text.Font = GameFont.Tiny;
             GUI.color = new Color(1f, 0.92f, 0.6f, 0.9f);
             Widgets.Label(new Rect(rect.x, rect.y + 6f, rect.width, ExistingPawnNoteHeight - 8f),
-                "Toggling a patch only affects pawns generated afterwards. Pawns already in a save keep "
-                + "the face they were given: reset them through Facial Animation's face editor, or "
-                + "re-apply their genes, for a change here to show up on them.");
+                "FACP.UI.ExistingPawnsNote".Translate());
             GUI.color = Color.white;
             Text.Font = GameFont.Small;
 
@@ -263,8 +261,7 @@ namespace FACP
             Text.Font = GameFont.Tiny;
             GUI.color = new Color(1f, 1f, 1f, 0.75f);
             Widgets.Label(new Rect(tagRect.xMax + 8f, y + 4f, rect.width - tagWidth - 8f, GeneNoteHeight - 6f),
-                "Patches with this tag change a xenotype's gene list. Genes are not added to or removed "
-                + "from existing pawns automatically and will need manual adjustment.");
+                "FACP.UI.GeneTagNote".Translate());
             GUI.color = Color.white;
             Text.Font = GameFont.Small;
         }
@@ -293,11 +290,12 @@ namespace FACP
                         xmlCacheModActive = 0;
                         return null;
                     }
-                    cacheNotice = "Missile Girl is caching the combined XML. These patches are switched "
-                        + "on and off inside that document, so changing them here does nothing until you "
-                        + "clear the cache from Missile Girl's settings and restart: "
-                        + string.Join(", ", categories.ToArray())
-                        + ". Every other toggle applies normally.";
+                    List<string> names = new List<string>();
+                    foreach (string category in categories)
+                    {
+                        names.Add(("FACP.Category." + category).Translate());
+                    }
+                    cacheNotice = "FACP.UI.CacheNotice".Translate(string.Join(", ", names.ToArray()));
                 }
                 return cacheNotice;
             }

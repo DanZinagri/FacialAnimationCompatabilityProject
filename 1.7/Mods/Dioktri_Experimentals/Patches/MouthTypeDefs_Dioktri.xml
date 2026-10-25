@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Gated by LoadFolders: IfModActiveAll="Rimsenal.Dioktri, Nals.FacialAnimationExperimentals".
+     The twin folder Dioktri covers the case without Experimentals. -->
+<Patch>
+
+    <!-- Dioktri.SnakeTongue : as in the Dioktri folder, but mirroring Facial Animation -
+         Experimentals. That mod redefines MouthNormal with its own art and adds Fang and Shark
+         (female only, at probability 0.2 and 0.1), so the snake list does the same with snake
+         copies of all three. Same defName for the normal mouth as the twin folder, since only
+         one of the two folders ever loads. Art lives in
+         Common/Mods/Dioktri/Textures/FACP/SnakeMouth/FA-Experimentals. -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs</xpath>
+        <value>
+            <FacialAnimation.MouthTypeDef>
+                <defName>FACP_SnakeMouthNormal</defName>
+                <texPath>FACP/SnakeMouth/FA-Experimentals/snake_Normal</texPath>
+                <shader>Map/Transparent</shader>
+                <targetGeneDefs>
+                    <li>Gene_SnakeTongue</li>
+                </targetGeneDefs>
+            </FacialAnimation.MouthTypeDef>
+            <FacialAnimation.MouthTypeDef>
+                <defName>FACP_SnakeMouthFang</defName>
+                <texPath>FACP/SnakeMouth/FA-Experimentals/snake_Fang</texPath>
+                <shader>Map/Transparent</shader>
+                <gender>Female</gender>
+                <probability>0.2</probability>
+                <targetGeneDefs>
+                    <li>Gene_SnakeTongue</li>
+                </targetGeneDefs>
+            </FacialAnimation.MouthTypeDef>
+            <FacialAnimation.MouthTypeDef>
+                <defName>FACP_SnakeMouthShark</defName>
+                <texPath>FACP/SnakeMouth/FA-Experimentals/snake_Shark</texPath>
+                <shader>Map/Transparent</shader>
+                <gender>Female</gender>
+                <probability>0.1</probability>
+                <targetGeneDefs>
+                    <li>Gene_SnakeTongue</li>
+                </targetGeneDefs>
+            </FacialAnimation.MouthTypeDef>
+        </value>
+    </Operation>
+
+</Patch>

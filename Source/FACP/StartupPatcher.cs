@@ -7,6 +7,8 @@ using FaceTypeDef = FacialAnimation.FaceTypeDef;
 using FAHeadTypeDef = FacialAnimation.HeadTypeDef;
 using FAMouthTypeDef = FacialAnimation.MouthTypeDef;
 using FABrowTypeDef = FacialAnimation.BrowTypeDef;
+using FAEyeballTypeDef = FacialAnimation.EyeballTypeDef;
+using FALidTypeDef = FacialAnimation.LidTypeDef;
 using FAFaceAdjustmentDef = FacialAnimation.FaceAdjustmentDef;
 
 namespace FACP
@@ -213,7 +215,19 @@ namespace FACP
                 {
                     def = DefDatabase<FABrowTypeDef>.GetNamedSilentFail(defName);
                 }
+                if (def == null)
+                {
+                    def = DefDatabase<FAEyeballTypeDef>.GetNamedSilentFail(defName);
+                }
+                if (def == null)
+                {
+                    def = DefDatabase<FALidTypeDef>.GetNamedSilentFail(defName);
+                }
 
+                if (def == null && ToggleCatalogue.FaceTypesNeedingAnotherMod.Contains(defName))
+                {
+                    continue;
+                }
                 if (def == null)
                 {
                     // The source mod is present but the def is missing, so our XML add never
@@ -422,6 +436,11 @@ namespace FACP
                     RedirectTexPaths("VRE_CanineTail",
                         "Things/Pawn/Humanlike/BodyAttachments/WolfTail/", "FACP/WolfTail/");
                     break;
+                case "Dioktri.SnakeTongue":
+                    // The tongue is drawn into the snake mouth types now; the overlay would
+                    // stay frozen while the mouth animates under it.
+                    ClearRenderNodes("Gene_SnakeTongue");
+                    break;
                 case "Starlet.Ridge":
                     // The ridges live in the head art now; the overlay would draw them again.
                     ClearRenderNodes("GS_Ridge");
@@ -444,6 +463,7 @@ namespace FACP
                 case "Sanguophage.BatEars":
                 case "Sanguophage.UpperBatEars":
                 case "Sanguophage.BatNose":
+                case "Geist.BlankFace":
                 case "Phytokin.BarkSkin":
                 case "Saurid.ScaleSkin":
                     break; // pure additions

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Verse;
 
 namespace FACP
 {
@@ -7,9 +8,9 @@ namespace FACP
     public class ToggleEntry
     {
         public string key;
-        public string label;
+
+        // Grouping id for the settings list; its display name is FACP.Category.<category>.
         public string category;
-        public string description;
 
         // packageId of the source mod this patch is for, matching the IfModActive condition
         // on the LoadFolders entry the patch file lives under. Null for patches that are not
@@ -39,8 +40,28 @@ namespace FACP
         // rather than a simple on/off. modeKeys[0] is the default. When this is null the
         // entry is an ordinary checkbox.
         public string[] modeKeys;
-        public string[] modeLabels;
-        public string[] modeDescriptions;
+
+        // Display text, from Languages/English/Keyed/FACP_Toggles.xml. Only valid once keyed
+        // translations have loaded, i.e. from the settings window - never during patching.
+        public string Label
+        {
+            get { return ("FACP.Toggle." + key + ".Label").Translate(); }
+        }
+
+        public string CategoryLabel
+        {
+            get { return ("FACP.Category." + category).Translate(); }
+        }
+
+        public string ModeLabel(int index)
+        {
+            return ("FACP.Toggle." + key + ".Mode." + modeKeys[index]).Translate();
+        }
+
+        public string ModeDescription(int index)
+        {
+            return ("FACP.Toggle." + key + ".Mode." + modeKeys[index] + ".Desc").Translate();
+        }
 
         public bool IsMode
         {
@@ -67,7 +88,9 @@ namespace FACP
         {
             get
             {
-                string text = string.IsNullOrEmpty(description) ? label : description;
+                // A mode entry has no description of its own; each of its options carries one.
+                string descKey = "FACP.Toggle." + key + ".Desc";
+                string text = descKey.CanTranslate() ? (string)descKey.Translate() : Label;
                 if (modifiesGenes)
                 {
                     text += "\n\n" + FACPMod.GeneChangeNote;

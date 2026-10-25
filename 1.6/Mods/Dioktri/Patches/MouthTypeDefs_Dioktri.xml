@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Gated by LoadFolders: IfModActive="Rimsenal.Dioktri", IfModNotActive="Nals.FacialAnimationExperimentals".
+     The twin folder Dioktri_Experimentals takes over when Experimentals is installed. -->
+<Patch>
+
+    <!-- Dioktri.SnakeTongue : the snake tongue gene's overlay is removed by the startup pass,
+         and pawns carrying the gene draw from a snake list of Facial Animation mouths instead,
+         so the tongue moves with the animated mouth.
+
+         This folder mirrors plain Facial Animation, whose only mouth is MouthNormal: one snake
+         copy of that. Art lives in Common/Mods/Dioktri/Textures/FACP/SnakeMouth/FA.
+
+         A def of our own, so it is added unconditionally. Switched off, the startup pass parks
+         it on a gene that cannot exist rather than deleting it. -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs</xpath>
+        <value>
+            <FacialAnimation.MouthTypeDef>
+                <defName>FACP_SnakeMouthNormal</defName>
+                <texPath>FACP/SnakeMouth/FA/snake_Normal</texPath>
+                <shader>Map/Transparent</shader>
+                <targetGeneDefs>
+                    <li>Gene_SnakeTongue</li>
+                </targetGeneDefs>
+            </FacialAnimation.MouthTypeDef>
+        </value>
+    </Operation>
+
+</Patch>

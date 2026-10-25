@@ -19,12 +19,17 @@
 		<li IfModActive="det.boglegs">1.6/Mods/Bogleg</li>
 		<li IfModActive="det.brawnum">Common/Mods/Brawnum</li>
 		<li IfModActive="det.brawnum">1.6/Mods/Brawnum</li>
+		<li IfModActive="Rimsenal.Dioktri">Common/Mods/Dioktri</li>
+		<li IfModActive="Rimsenal.Dioktri" IfModNotActive="Nals.FacialAnimationExperimentals">1.6/Mods/Dioktri</li>
+		<li IfModActiveAll="Rimsenal.Dioktri, Nals.FacialAnimationExperimentals">1.6/Mods/Dioktri_Experimentals</li>
 		<li IfModActive="erin.expie">Common/Mods/Expie</li>
 		<li IfModActive="erin.expie">1.6/Mods/Expie</li>
 		<li IfModActive="Erin.Fenrisulfr">Common/Mods/Fenrisulfr</li>
 		<li IfModActive="Erin.Fenrisulfr">1.6/Mods/Fenrisulfr</li>
 		<li IfModActive="V.Rooboid.Faun">Common/Mods/Faun</li>
 		<li IfModActive="V.Rooboid.Faun">1.6/Mods/Faun</li>
+		<li IfModActive="Sov.Tenmo">Common/Mods/Geist</li>
+		<li IfModActive="Sov.Tenmo">1.6/Mods/Geist</li>
 		<li IfModActive="det.keshig">Common/Mods/Keshig</li>
 		<li IfModActive="det.keshig">1.6/Mods/Keshig</li>
 		<li IfModActive="tug.Minotaur">Common/Mods/Minotaur</li>
@@ -68,12 +73,17 @@
 		<li IfModActive="det.boglegs">1.7/Mods/Bogleg</li>
 		<li IfModActive="det.brawnum">Common/Mods/Brawnum</li>
 		<li IfModActive="det.brawnum">1.7/Mods/Brawnum</li>
+		<li IfModActive="Rimsenal.Dioktri">Common/Mods/Dioktri</li>
+		<li IfModActive="Rimsenal.Dioktri" IfModNotActive="Nals.FacialAnimationExperimentals">1.7/Mods/Dioktri</li>
+		<li IfModActiveAll="Rimsenal.Dioktri, Nals.FacialAnimationExperimentals">1.7/Mods/Dioktri_Experimentals</li>
 		<li IfModActive="erin.expie">Common/Mods/Expie</li>
 		<li IfModActive="erin.expie">1.7/Mods/Expie</li>
 		<li IfModActive="Erin.Fenrisulfr">Common/Mods/Fenrisulfr</li>
 		<li IfModActive="Erin.Fenrisulfr">1.7/Mods/Fenrisulfr</li>
 		<li IfModActive="V.Rooboid.Faun">Common/Mods/Faun</li>
 		<li IfModActive="V.Rooboid.Faun">1.7/Mods/Faun</li>
+		<li IfModActive="Sov.Tenmo">Common/Mods/Geist</li>
+		<li IfModActive="Sov.Tenmo">1.7/Mods/Geist</li>
 		<li IfModActive="det.keshig">Common/Mods/Keshig</li>
 		<li IfModActive="det.keshig">1.7/Mods/Keshig</li>
 		<li IfModActive="tug.Minotaur">Common/Mods/Minotaur</li>

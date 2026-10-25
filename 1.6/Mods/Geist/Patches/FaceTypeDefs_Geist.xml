@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Gated by LoadFolders: IfModActive="Sov.Tenmo" -->
+<Patch>
+
+    <!-- Geist.BlankFace : the Geist skullplate is featureless, so its eyes, lids and brows are
+         swapped for a fully transparent set. All three point at one Unisex folder of blank
+         textures; Facial Animation falls back to the "normal" shape whenever a pawn's shape
+         (closed lid, angled brow and so on) has no texture of its own, so the four files there
+         cover every shape.
+
+         The lids deliberately have no _cover texture. With one, Facial Animation would redraw
+         the head over the eye area on every blink, which is pointless with nothing to hide.
+
+         Defs of our own, so they are added unconditionally. Switched off, the startup pass
+         parks them on a gene that cannot exist rather than deleting them. -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs</xpath>
+        <value>
+            <FacialAnimation.EyeballTypeDef>
+                <defName>FACP_GeistBlankEyes</defName>
+                <texPath>FACP/GeistBlank</texPath>
+                <enableUnisexTexPath>true</enableUnisexTexPath>
+                <shader>Map/Transparent</shader>
+                <targetGeneDefs>
+                    <li>GS_Skullplate_Head</li>
+                </targetGeneDefs>
+            </FacialAnimation.EyeballTypeDef>
+            <FacialAnimation.LidTypeDef>
+                <defName>FACP_GeistBlankLids</defName>
+                <texPath>FACP/GeistBlank</texPath>
+                <enableUnisexTexPath>true</enableUnisexTexPath>
+                <shader>Map/Transparent</shader>
+                <targetGeneDefs>
+                    <li>GS_Skullplate_Head</li>
+                </targetGeneDefs>
+            </FacialAnimation.LidTypeDef>
+            <FacialAnimation.BrowTypeDef>
+                <defName>FACP_GeistBlankBrows</defName>
+                <texPath>FACP/GeistBlank</texPath>
+                <enableUnisexTexPath>true</enableUnisexTexPath>
+                <shader>Map/Transparent</shader>
+                <targetGeneDefs>
+                    <li>GS_Skullplate_Head</li>
+                </targetGeneDefs>
+            </FacialAnimation.BrowTypeDef>
+        </value>
+    </Operation>
+
+</Patch>

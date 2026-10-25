@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+	<!-- Settings window. {0} in FACP.UI.CacheNotice is the list of affected categories. -->
+	<FACP.SettingsCategory>Facial Animation Compatability Project</FACP.SettingsCategory>
+	<FACP.UI.NothingToConfigure>Nothing to configure: none of the mods this project patches are currently active, and Biotech is not enabled either.</FACP.UI.NothingToConfigure>
+	<FACP.UI.Intro>Each patch is applied once while RimWorld loads, so changes take effect on the next restart. Switching one off means its edit is never made at all, leaving the source mod's def untouched; nothing here costs anything while you play. Only source mods you actually have installed are listed.</FACP.UI.Intro>
+	<FACP.UI.EnableAll>Enable all</FACP.UI.EnableAll>
+	<FACP.UI.DisableAll>Disable all</FACP.UI.DisableAll>
+	<FACP.UI.RestartToApply>Restart RimWorld to apply these changes.</FACP.UI.RestartToApply>
+	<FACP.UI.ExistingPawnsNote>Toggling a patch only affects pawns generated afterwards. Pawns already in a save keep the face they were given: reset them through Facial Animation's face editor, or re-apply their genes, for a change here to show up on them.</FACP.UI.ExistingPawnsNote>
+	<FACP.UI.GeneTag>Gene add/remove</FACP.UI.GeneTag>
+	<FACP.UI.GeneTagNote>Patches with this tag change a xenotype's gene list. Genes are not added to or removed from existing pawns automatically and will need manual adjustment.</FACP.UI.GeneTagNote>
+	<FACP.UI.GeneChangeNote>This patch changes which genes a xenotype has. Genes are not added to or removed from existing pawns automatically, so anyone already in your save needs adjusting by hand.</FACP.UI.GeneChangeNote>
+	<FACP.UI.CacheNotice>Missile Girl is caching the combined XML. These patches are switched on and off inside that document, so changing them here does nothing until you clear the cache from Missile Girl's settings and restart: {0}. Every other toggle applies normally.</FACP.UI.CacheNotice>
+
+</LanguageData>
