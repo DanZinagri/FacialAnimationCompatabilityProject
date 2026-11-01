@@ -190,6 +190,11 @@
 	<FACP.Toggle.Korg.Mouth.Label>Large mouth for tusks</FACP.Toggle.Korg.Mouth.Label>
 	<FACP.Toggle.Korg.Mouth.Desc>Gives pawns with GS_Tusks a Facial Animation mouth three times the normal size, its corners meeting the tusks, and draws the tusks in front of it. Matches Facial Animation - Experimentals when that is installed.</FACP.Toggle.Korg.Mouth.Desc>
 
+	<!-- Faction - Elves -->
+	<FACP.Category.Elves>Faction - Elves</FACP.Category.Elves>
+	<FACP.Toggle.Elves.EarlessHead.Label>Earless head for sharp ears</FACP.Toggle.Elves.EarlessHead.Label>
+	<FACP.Toggle.Elves.EarlessHead.Desc>Gives pawns with Ears_HighSharp, Ears_MidSharp or Ears_LowSharp an earless Facial Animation head, so the head's own ears do not show underneath the gene's.</FACP.Toggle.Elves.EarlessHead.Desc>
+
 	<!-- Faun -->
 	<FACP.Category.Faun>Faun</FACP.Category.Faun>
 	<FACP.Toggle.Faun.DeerHead.Label>Deer heads</FACP.Toggle.Faun.DeerHead.Label>

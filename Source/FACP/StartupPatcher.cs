@@ -473,6 +473,7 @@ namespace FACP
                 case "Korg.SmushedNose":
                 case "Korg.Tusks":
                 case "Korg.Mouth":
+                case "Elves.EarlessHead":
                 case "Kabouter.BulbousNose":
                 case "Kabouter.FluffyBrows":
                 case "Kabouter.HighPointEars":

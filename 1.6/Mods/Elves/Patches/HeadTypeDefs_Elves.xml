@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Gated by LoadFolders: IfModActive="ICC.FOV.ELVES" -->
+<Patch>
+
+    <!-- Elves.EarlessHead : the three sharp-ear genes draw their ears as a render node on top
+         of the head, so the head underneath has to come without ears of its own or the pawn
+         ends up with two pairs. One head type covers all three; Facial Animation offers a type
+         to a pawn when any one of its genes appears in targetGeneDefs. Every Elves xenotype
+         carries at least one of them.
+
+         The art is this mod's shared Earless head (root Textures/Earless), not a copy.
+
+         A def of our own, so it is added unconditionally. Switched off, the startup pass
+         parks it on a gene that cannot exist rather than deleting it. -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs</xpath>
+        <value>
+            <FacialAnimation.HeadTypeDef>
+                <defName>FACP_ElvesEarless</defName>
+                <texPath>Earless</texPath>
+                <probability>1</probability>
+                <shader>Map/CutoutSkin</shader>
+                <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                <targetGeneDefs>
+                    <li>Ears_HighSharp</li>
+                    <li>Ears_MidSharp</li>
+                    <li>Ears_LowSharp</li>
+                </targetGeneDefs>
+            </FacialAnimation.HeadTypeDef>
+        </value>
+    </Operation>
+
+</Patch>

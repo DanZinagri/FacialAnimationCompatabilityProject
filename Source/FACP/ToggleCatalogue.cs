@@ -69,6 +69,7 @@ namespace FACP
             { "Molong.FiendEarless", new[] { "FACP_MolongFiendEarless" } },
             { "Korg.Head", new[] { "FACP_KorgHead" } },
             { "Korg.Mouth", new[] { "FACP_KorgMouthNormal" } },
+            { "Elves.EarlessHead", new[] { "FACP_ElvesEarless" } },
             { "Dioktri.SnakeTongue", new[] { "FACP_SnakeMouthNormal", "FACP_SnakeMouthFang", "FACP_SnakeMouthShark" } },
             { "Phytokin.BarkSkin", new[] { "BarkSkin" } },
             { "Saurid.ScaleSkin", new[] { "VRESaurids_ScaleSkin" } }
@@ -213,6 +214,9 @@ namespace FACP
             Add(list, "Korg.SmushedNose", "Sovereign.Kork");
             Add(list, "Korg.Tusks", "Sovereign.Kork");
             Add(list, "Korg.Mouth", "Sovereign.Kork");
+
+            // ---- Faction - Elves ----
+            Add(list, "Elves.EarlessHead", "ICC.FOV.ELVES");
 
             // ---- Faun ----
             Add(list, "Faun.DeerHead", "V.Rooboid.Faun");
