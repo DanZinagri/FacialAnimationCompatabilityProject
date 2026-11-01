@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Gated by LoadFolders: IfModActive="Sov.Tengri" -->
+<Patch>
+
+    <!-- Molong.FiendEarless : the fiend head gene forces vanilla head types, which Facial
+         Animation replaces anyway, and the fiend ear gene draws its ears as a render node on top.
+         Uses this mod's shared Earless head (root Textures/Earless) so the pawn has one pair.
+
+         A def of our own, so it is added unconditionally. Switched off, the startup pass
+         parks it on a gene that cannot exist rather than deleting it. -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs</xpath>
+        <value>
+            <FacialAnimation.HeadTypeDef>
+                <defName>FACP_MolongFiendEarless</defName>
+                <texPath>Earless</texPath>
+                <probability>1</probability>
+                <shader>Map/CutoutSkin</shader>
+                <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                <targetGeneDefs>
+                    <li>GS_FiendHead</li>
+                </targetGeneDefs>
+            </FacialAnimation.HeadTypeDef>
+        </value>
+    </Operation>
+
+    <!-- Molong.Skinhorns / FiendEars / BigNose / TigerEye : each points one render node at our
+         copy of its art, on a FACP/ path so nothing shadows the source mod's own textures.
+         Switched off, the replaces never run and the def keeps the paths it shipped with.
+
+         The big nose has a separate female path pointing at a blank texture (women of the gene
+         draw no nose), so both move to keep that. Tiger Eye is an implant hediff rather than a
+         gene, hence the HediffDef xpath. -->
+    <Operation Class="FACP.PatchOperationToggled">
+        <key>Molong.Skinhorns</key>
+        <operations>
+            <li Class="PatchOperationReplace">
+                <xpath>/Defs/GeneDef[defName="GS_Headbone_Skinhorns"]/renderNodeProperties/li/texPath</xpath>
+                <value>
+                    <texPath>FACP/Molong/Parts/Skinhorn</texPath>
+                </value>
+            </li>
+        </operations>
+    </Operation>
+    <Operation Class="FACP.PatchOperationToggled">
+        <key>Molong.FiendEars</key>
+        <operations>
+            <li Class="PatchOperationReplace">
+                <xpath>/Defs/GeneDef[defName="GS_Ears_MFiend"]/renderNodeProperties/li/texPath</xpath>
+                <value>
+                    <texPath>FACP/Molong/Parts/FiendEar</texPath>
+                </value>
+            </li>
+        </operations>
+    </Operation>
+    <Operation Class="FACP.PatchOperationToggled">
+        <key>Molong.BigNose</key>
+        <operations>
+            <li Class="PatchOperationReplace">
+                <xpath>/Defs/GeneDef[defName="GS_BigNose"]/renderNodeProperties/li/texPath</xpath>
+                <value>
+                    <texPath>FACP/Molong/Parts/NoseBig</texPath>
+                </value>
+            </li>
+            <li Class="PatchOperationReplace">
+                <xpath>/Defs/GeneDef[defName="GS_BigNose"]/renderNodeProperties/li/texPathFemale</xpath>
+                <value>
+                    <texPathFemale>FACP/Molong/Parts/Blank</texPathFemale>
+                </value>
+            </li>
+        </operations>
+    </Operation>
+    <Operation Class="FACP.PatchOperationToggled">
+        <key>Molong.TigerEye</key>
+        <operations>
+            <li Class="PatchOperationReplace">
+                <xpath>/Defs/HediffDef[defName="GS_TigerEyeHediff"]/renderNodeProperties/li/texPath</xpath>
+                <value>
+                    <texPath>FACP/Molong/Parts/TigerEye</texPath>
+                </value>
+            </li>
+        </operations>
+    </Operation>
+
+</Patch>

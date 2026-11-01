@@ -30,10 +30,18 @@
 		<li IfModActive="V.Rooboid.Faun">1.6/Mods/Faun</li>
 		<li IfModActive="Sov.Tenmo">Common/Mods/Geist</li>
 		<li IfModActive="Sov.Tenmo">1.6/Mods/Geist</li>
+		<li IfModActive="Sovereign.ChipChipChip">Common/Mods/Kabouter</li>
+		<li IfModActive="Sovereign.ChipChipChip">1.6/Mods/Kabouter</li>
+		<li IfModActive="Sovereign.Kork">Common/Mods/Korg</li>
+		<li IfModActive="Sovereign.Kork">1.6/Mods/Korg</li>
+		<li IfModActive="Sovereign.Kork" IfModNotActive="Nals.FacialAnimationExperimentals">1.6/Mods/Korg_FA</li>
+		<li IfModActiveAll="Sovereign.Kork, Nals.FacialAnimationExperimentals">1.6/Mods/Korg_FAExperimentals</li>
 		<li IfModActive="det.keshig">Common/Mods/Keshig</li>
 		<li IfModActive="det.keshig">1.6/Mods/Keshig</li>
 		<li IfModActive="tug.Minotaur">Common/Mods/Minotaur</li>
 		<li IfModActive="tug.Minotaur">1.6/Mods/Minotaur</li>
+		<li IfModActive="Sov.Tengri">Common/Mods/Molong</li>
+		<li IfModActive="Sov.Tengri">1.6/Mods/Molong</li>
 		<li IfModActive="eclair155.onixeno">Common/Mods/Oni</li>
 		<li IfModActive="eclair155.onixeno">1.6/Mods/Oni</li>
 		<li IfModActive="erin.rhyaeth">Common/Mods/Rhyaeth</li>
@@ -84,10 +92,18 @@
 		<li IfModActive="V.Rooboid.Faun">1.7/Mods/Faun</li>
 		<li IfModActive="Sov.Tenmo">Common/Mods/Geist</li>
 		<li IfModActive="Sov.Tenmo">1.7/Mods/Geist</li>
+		<li IfModActive="Sovereign.ChipChipChip">Common/Mods/Kabouter</li>
+		<li IfModActive="Sovereign.ChipChipChip">1.7/Mods/Kabouter</li>
+		<li IfModActive="Sovereign.Kork">Common/Mods/Korg</li>
+		<li IfModActive="Sovereign.Kork">1.7/Mods/Korg</li>
+		<li IfModActive="Sovereign.Kork" IfModNotActive="Nals.FacialAnimationExperimentals">1.7/Mods/Korg_FA</li>
+		<li IfModActiveAll="Sovereign.Kork, Nals.FacialAnimationExperimentals">1.7/Mods/Korg_FAExperimentals</li>
 		<li IfModActive="det.keshig">Common/Mods/Keshig</li>
 		<li IfModActive="det.keshig">1.7/Mods/Keshig</li>
 		<li IfModActive="tug.Minotaur">Common/Mods/Minotaur</li>
 		<li IfModActive="tug.Minotaur">1.7/Mods/Minotaur</li>
+		<li IfModActive="Sov.Tengri">Common/Mods/Molong</li>
+		<li IfModActive="Sov.Tengri">1.7/Mods/Molong</li>
 		<li IfModActive="eclair155.onixeno">Common/Mods/Oni</li>
 		<li IfModActive="eclair155.onixeno">1.7/Mods/Oni</li>
 		<li IfModActive="erin.rhyaeth">Common/Mods/Rhyaeth</li>

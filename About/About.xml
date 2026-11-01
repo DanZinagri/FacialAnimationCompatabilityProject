@@ -68,6 +68,9 @@
 		<li>sovereign.bnuy</li>
 		<li>sov.tenmo</li>
 		<li>rimsenal.dioktri</li>
+		<li>sovereign.chipchipchip</li>
+		<li>sov.tengri</li>
+		<li>sovereign.kork</li>
 	</loadAfter>
 	<loadBefore>
 		<li>barb.facetexture</li>

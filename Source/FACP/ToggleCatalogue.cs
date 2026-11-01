@@ -64,6 +64,11 @@ namespace FACP
             { "Sanguophage.EarlessHead", new[] { "FACP_SanguophageEarless" } },
             { "Starlet.Ridge", new[] { "FACP_StarletRidge" } },
             { "Geist.BlankFace", new[] { "FACP_GeistBlankEyes", "FACP_GeistBlankLids", "FACP_GeistBlankBrows" } },
+            { "Kabouter.EarlessHead", new[] { "FACP_KabouterEarless" } },
+            { "Kabouter.BlankBrow", new[] { "FACP_KabouterBlankBrow" } },
+            { "Molong.FiendEarless", new[] { "FACP_MolongFiendEarless" } },
+            { "Korg.Head", new[] { "FACP_KorgHead" } },
+            { "Korg.Mouth", new[] { "FACP_KorgMouthNormal" } },
             { "Dioktri.SnakeTongue", new[] { "FACP_SnakeMouthNormal", "FACP_SnakeMouthFang", "FACP_SnakeMouthShark" } },
             { "Phytokin.BarkSkin", new[] { "BarkSkin" } },
             { "Saurid.ScaleSkin", new[] { "VRESaurids_ScaleSkin" } }
@@ -188,6 +193,27 @@ namespace FACP
             // ---- Dioktri ----
             Add(list, "Dioktri.SnakeTongue", "Rimsenal.Dioktri");
 
+            // ---- Kabouter ----
+            Add(list, "Kabouter.BulbousNose", "Sovereign.ChipChipChip");
+            Add(list, "Kabouter.FluffyBrows", "Sovereign.ChipChipChip");
+            Add(list, "Kabouter.HighPointEars", "Sovereign.ChipChipChip");
+            Add(list, "Kabouter.EarlessHead", "Sovereign.ChipChipChip");
+            Add(list, "Kabouter.BlankBrow", "Sovereign.ChipChipChip");
+
+            // ---- Molong ----
+            Add(list, "Molong.Skinhorns", "Sov.Tengri");
+            Add(list, "Molong.FiendEars", "Sov.Tengri");
+            Add(list, "Molong.BigNose", "Sov.Tengri");
+            Add(list, "Molong.TigerEye", "Sov.Tengri");
+            Add(list, "Molong.FiendEarless", "Sov.Tengri");
+
+            // ---- Korg ----
+            Add(list, "Korg.Head", "Sovereign.Kork");
+            Add(list, "Korg.StubbyEars", "Sovereign.Kork");
+            Add(list, "Korg.SmushedNose", "Sovereign.Kork");
+            Add(list, "Korg.Tusks", "Sovereign.Kork");
+            Add(list, "Korg.Mouth", "Sovereign.Kork");
+
             // ---- Faun ----
             Add(list, "Faun.DeerHead", "V.Rooboid.Faun");
 
@@ -220,7 +246,18 @@ namespace FACP
                 "Auronya.Whiskers",   // whisker node appended to ERN_AuronyaHead
                 "Sanguophage.BatEars",       // texPath replaced on VRE_BatEars
                 "Sanguophage.UpperBatEars",  // texPath replaced on VRE_UpperBatEars
-                "Sanguophage.BatNose");      // texPath replaced on VRE_BatNose
+                "Sanguophage.BatNose",       // texPath replaced on VRE_BatNose
+                "Kabouter.BulbousNose",      // texPath replaced on GS_bulbous_Gnose
+                "Kabouter.FluffyBrows",      // texPaths entry replaced on GS_Fluffy_Eyebrows
+                "Kabouter.HighPointEars",    // texPath replaced on GS_GHigh_Pointy
+                "Molong.Skinhorns",          // texPath replaced on GS_Headbone_Skinhorns
+                "Molong.FiendEars",          // texPath replaced on GS_Ears_MFiend
+                "Molong.BigNose",            // texPath + texPathFemale replaced on GS_BigNose
+                "Molong.TigerEye",           // texPath replaced on the GS_TigerEyeHediff node
+                "Korg.StubbyEars",           // texPath replaced on GS_Stubby_Ear
+                "Korg.SmushedNose",          // texPath replaced on GS_smushed_nose
+                "Korg.Tusks",                // texPaths/li replaced on GS_Tusks
+                "Korg.Mouth");               // GS_Tusks node layer lifted above the mouth
 
             // Minotaur.BovineHead is deliberately not on that list. Its "on" state deletes the
             // source mod's own head node, which no amount of skipping a patch can do, so it

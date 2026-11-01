@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Gated by LoadFolders: IfModActive="Sovereign.ChipChipChip" -->
+<Patch>
+
+    <!-- Kabouter.EarlessHead : the high-pointy ear gene draws its ears as a render node on top
+         of the head, so the head underneath has to come without ears of its own or the pawn
+         ends up with two pairs. Uses this mod's shared Earless head (root Textures/Earless).
+
+         A def of our own, so it is added unconditionally. Switched off, the startup pass
+         parks it on a gene that cannot exist rather than deleting it. -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs</xpath>
+        <value>
+            <FacialAnimation.HeadTypeDef>
+                <defName>FACP_KabouterEarless</defName>
+                <texPath>Earless</texPath>
+                <probability>1</probability>
+                <shader>Map/CutoutSkin</shader>
+                <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                <targetGeneDefs>
+                    <li>GS_GHigh_Pointy</li>
+                </targetGeneDefs>
+            </FacialAnimation.HeadTypeDef>
+        </value>
+    </Operation>
+
+    <!-- Kabouter.BlankBrow : the fluffy eyebrow gene draws its own brows as a render node, so
+         Facial Animation's animated brows would sit on top of them. A transparent brow type
+         for that gene leaves only the gene's. Its textures are two blank PNGs; FA falls back
+         to the "normal" shape for every other brow shape.
+
+         A def of our own, so it is added unconditionally. Switched off, the startup pass
+         parks it on a gene that cannot exist rather than deleting it. -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs</xpath>
+        <value>
+            <FacialAnimation.BrowTypeDef>
+                <defName>FACP_KabouterBlankBrow</defName>
+                <texPath>FACP/KabouterBlank</texPath>
+                <enableUnisexTexPath>true</enableUnisexTexPath>
+                <shader>Map/Transparent</shader>
+                <targetGeneDefs>
+                    <li>GS_Fluffy_Eyebrows</li>
+                </targetGeneDefs>
+            </FacialAnimation.BrowTypeDef>
+        </value>
+    </Operation>
+
+    <!-- Kabouter.BulbousNose / FluffyBrows / HighPointEars : each points one cosmetic gene's
+         render node at our copy of its art, on a FACP/ path so nothing shadows the source mod's
+         own textures. Switched off, the replace never runs and the gene keeps the path it
+         shipped with.
+
+         The nose copy also sits 16px (on a 512 canvas) further back than the original. The
+         original was drawn for vanilla heads, whose front edge is further forward than Facial
+         Animation's, so on an animated face it floated just outside the outline. The fluffy
+         brow gene lists its art in texPaths rather than texPath, hence the different xpath. -->
+    <Operation Class="FACP.PatchOperationToggled">
+        <key>Kabouter.BulbousNose</key>
+        <operations>
+            <li Class="PatchOperationReplace">
+                <xpath>/Defs/GeneDef[defName="GS_bulbous_Gnose"]/renderNodeProperties/li/texPath</xpath>
+                <value>
+                    <texPath>FACP/Kabouter/Nose/bulbous_nose</texPath>
+                </value>
+            </li>
+        </operations>
+    </Operation>
+    <Operation Class="FACP.PatchOperationToggled">
+        <key>Kabouter.FluffyBrows</key>
+        <operations>
+            <li Class="PatchOperationReplace">
+                <xpath>/Defs/GeneDef[defName="GS_Fluffy_Eyebrows"]/renderNodeProperties/li/texPaths/li</xpath>
+                <value>
+                    <li>FACP/Kabouter/Eyebrows/FluffyBrow</li>
+                </value>
+            </li>
+        </operations>
+    </Operation>
+    <Operation Class="FACP.PatchOperationToggled">
+        <key>Kabouter.HighPointEars</key>
+        <operations>
+            <li Class="PatchOperationReplace">
+                <xpath>/Defs/GeneDef[defName="GS_GHigh_Pointy"]/renderNodeProperties/li/texPath</xpath>
+                <value>
+                    <texPath>FACP/Kabouter/Ears/HighPoint</texPath>
+                </value>
+            </li>
+        </operations>
+    </Operation>
+
+</Patch>

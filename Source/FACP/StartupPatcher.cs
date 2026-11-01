@@ -463,6 +463,21 @@ namespace FACP
                 case "Sanguophage.BatEars":
                 case "Sanguophage.UpperBatEars":
                 case "Sanguophage.BatNose":
+                case "Molong.Skinhorns":
+                case "Molong.FiendEars":
+                case "Molong.BigNose":
+                case "Molong.TigerEye":
+                case "Molong.FiendEarless":
+                case "Korg.Head":
+                case "Korg.StubbyEars":
+                case "Korg.SmushedNose":
+                case "Korg.Tusks":
+                case "Korg.Mouth":
+                case "Kabouter.BulbousNose":
+                case "Kabouter.FluffyBrows":
+                case "Kabouter.HighPointEars":
+                case "Kabouter.EarlessHead":
+                case "Kabouter.BlankBrow":
                 case "Geist.BlankFace":
                 case "Phytokin.BarkSkin":
                 case "Saurid.ScaleSkin":

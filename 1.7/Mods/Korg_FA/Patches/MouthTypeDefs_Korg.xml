@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Gated by LoadFolders: IfModActive="Sovereign.Kork", IfModNotActive="Nals.FacialAnimationExperimentals".
+     The twin folder Korg_FAExperimentals takes over when Experimentals is installed. -->
+<Patch>
+
+    <!-- Korg.Mouth : pawns with the tusks gene draw a 3x copy of plain Facial Animation's MouthNormal,
+         sat on the tusks with its corners at their inner edges, so the tusks read as part of
+         the mouth. Being the only mouth that targets the gene, it is the one those pawns get.
+         Same defName in both twin folders, since only one of them ever loads. Art lives in
+         Common/Mods/Korg/Textures/FACP/Korg/Mouth/FA.
+
+         A def of our own, so it is added unconditionally. Switched off, the startup pass parks
+         it on a gene that cannot exist rather than deleting it. -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs</xpath>
+        <value>
+            <FacialAnimation.MouthTypeDef>
+                <defName>FACP_KorgMouthNormal</defName>
+                <texPath>FACP/Korg/Mouth/FA/Normal</texPath>
+                <shader>Map/Transparent</shader>
+                <targetGeneDefs>
+                    <li>GS_Tusks</li>
+                </targetGeneDefs>
+            </FacialAnimation.MouthTypeDef>
+        </value>
+    </Operation>
+
+</Patch>

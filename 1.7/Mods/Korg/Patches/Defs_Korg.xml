@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Gated by LoadFolders: IfModActive="Sovereign.Kork" -->
+<Patch>
+
+    <!-- Korg.Head : the brute head gene forces a vanilla head type, which Facial Animation
+         replaces anyway. This gives the gene an FA head drawn for the Korg instead
+         (Common/Mods/Korg/Textures/FACP/Korg/KorgHead).
+
+         A def of our own, so it is added unconditionally. Switched off, the startup pass
+         parks it on a gene that cannot exist rather than deleting it. -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs</xpath>
+        <value>
+            <FacialAnimation.HeadTypeDef>
+                <defName>FACP_KorgHead</defName>
+                <texPath>FACP/Korg/KorgHead</texPath>
+                <probability>1</probability>
+                <shader>Map/CutoutSkin</shader>
+                <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                <targetGeneDefs>
+                    <li>GS_Head_Brute</li>
+                </targetGeneDefs>
+            </FacialAnimation.HeadTypeDef>
+        </value>
+    </Operation>
+
+    <!-- Korg.StubbyEars / SmushedNose / Tusks : each points one render node at our copy of its
+         art, on a FACP/ path so nothing shadows the source mod's own textures. Switched off,
+         the replaces never run and the def keeps the paths it shipped with. The tusks node
+         uses a texPaths list rather than a texPath. -->
+    <Operation Class="FACP.PatchOperationToggled">
+        <key>Korg.StubbyEars</key>
+        <operations>
+            <li Class="PatchOperationReplace">
+                <xpath>/Defs/GeneDef[defName="GS_Stubby_Ear"]/renderNodeProperties/li/texPath</xpath>
+                <value>
+                    <texPath>FACP/Korg/Parts/StubbyEars</texPath>
+                </value>
+            </li>
+        </operations>
+    </Operation>
+    <Operation Class="FACP.PatchOperationToggled">
+        <key>Korg.SmushedNose</key>
+        <operations>
+            <li Class="PatchOperationReplace">
+                <xpath>/Defs/GeneDef[defName="GS_smushed_nose"]/renderNodeProperties/li/texPath</xpath>
+                <value>
+                    <texPath>FACP/Korg/Parts/SmushedNose</texPath>
+                </value>
+            </li>
+        </operations>
+    </Operation>
+    <Operation Class="FACP.PatchOperationToggled">
+        <key>Korg.Tusks</key>
+        <operations>
+            <li Class="PatchOperationReplace">
+                <xpath>/Defs/GeneDef[defName="GS_Tusks"]/renderNodeProperties/li/texPaths/li</xpath>
+                <value>
+                    <li>FACP/Korg/Parts/Tusks</li>
+                </value>
+            </li>
+        </operations>
+    </Operation>
+
+    <!-- Korg.Mouth (layer half) : the large mouth reaches over the tusks, and Facial Animation
+         draws mouths at 56 (cover 56.5) against the tusks' 52. Lifting the tusks to 57 keeps
+         them in front of the mouth. Only the large mouth needs it, so it rides that toggle; the
+         mouth def itself is in the Korg_FA / Korg_FAExperimentals folders. -->
+    <Operation Class="FACP.PatchOperationToggled">
+        <key>Korg.Mouth</key>
+        <operations>
+            <li Class="PatchOperationReplace">
+                <xpath>/Defs/GeneDef[defName="GS_Tusks"]/renderNodeProperties/li/drawData/defaultData/layer</xpath>
+                <value>
+                    <layer>57</layer>
+                </value>
+            </li>
+        </operations>
+    </Operation>
+
+</Patch>

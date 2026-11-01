@@ -151,6 +151,45 @@
 	<FACP.Toggle.Dioktri.SnakeTongue.Label>Snake tongue mouths</FACP.Toggle.Dioktri.SnakeTongue.Label>
 	<FACP.Toggle.Dioktri.SnakeTongue.Desc>Removes Gene_SnakeTongue's tongue overlay and gives carriers their own list of Facial Animation mouths with the tongue drawn in, so it moves with the animated mouth. Mirrors the normal mouth list: one snake mouth on plain Facial Animation; with FA - Experimentals, snake copies of its normal, fang and shark mouths.</FACP.Toggle.Dioktri.SnakeTongue.Desc>
 
+	<!-- Kabouter Xenotype -->
+	<FACP.Category.Kabouter>Kabouter Xenotype</FACP.Category.Kabouter>
+	<FACP.Toggle.Kabouter.BulbousNose.Label>Bulbous nose - replacement art</FACP.Toggle.Kabouter.BulbousNose.Label>
+	<FACP.Toggle.Kabouter.BulbousNose.Desc>Points GS_bulbous_Gnose at this mod's nose texture, which sits further back so it joins a Facial Animation face instead of floating just outside the outline. Switched off, Kabouter draws its own.</FACP.Toggle.Kabouter.BulbousNose.Desc>
+	<FACP.Toggle.Kabouter.FluffyBrows.Label>Fluffy eyebrows - replacement art</FACP.Toggle.Kabouter.FluffyBrows.Label>
+	<FACP.Toggle.Kabouter.FluffyBrows.Desc>Points GS_Fluffy_Eyebrows at this mod's eyebrow texture. Switched off, Kabouter draws its own.</FACP.Toggle.Kabouter.FluffyBrows.Desc>
+	<FACP.Toggle.Kabouter.HighPointEars.Label>High-pointy ears - replacement art</FACP.Toggle.Kabouter.HighPointEars.Label>
+	<FACP.Toggle.Kabouter.EarlessHead.Label>Earless head for high-pointy ears</FACP.Toggle.Kabouter.EarlessHead.Label>
+	<FACP.Toggle.Kabouter.EarlessHead.Desc>Gives pawns with GS_GHigh_Pointy an earless Facial Animation head, so the head's own ears do not show underneath the gene's.</FACP.Toggle.Kabouter.EarlessHead.Desc>
+	<FACP.Toggle.Kabouter.BlankBrow.Label>Fluffy eyebrows - blank animated brow</FACP.Toggle.Kabouter.BlankBrow.Label>
+	<FACP.Toggle.Kabouter.BlankBrow.Desc>Gives pawns with GS_Fluffy_Eyebrows a transparent Facial Animation brow, so the animated brows do not draw over the gene's own.</FACP.Toggle.Kabouter.BlankBrow.Desc>
+	<FACP.Toggle.Kabouter.HighPointEars.Desc>Points GS_GHigh_Pointy at this mod's ear texture. Switched off, Kabouter draws its own.</FACP.Toggle.Kabouter.HighPointEars.Desc>
+
+	<!-- Molong Xenotype -->
+	<FACP.Category.Molong>Molong Xenotype</FACP.Category.Molong>
+	<FACP.Toggle.Molong.Skinhorns.Label>Skin-horns - replacement art</FACP.Toggle.Molong.Skinhorns.Label>
+	<FACP.Toggle.Molong.Skinhorns.Desc>Points GS_Headbone_Skinhorns at this mod's horn texture. Switched off, Molong draws its own.</FACP.Toggle.Molong.Skinhorns.Desc>
+	<FACP.Toggle.Molong.FiendEars.Label>Fiend ears - replacement art</FACP.Toggle.Molong.FiendEars.Label>
+	<FACP.Toggle.Molong.FiendEars.Desc>Points GS_Ears_MFiend at this mod's ear texture. Switched off, Molong draws its own.</FACP.Toggle.Molong.FiendEars.Desc>
+	<FACP.Toggle.Molong.BigNose.Label>Big nose - replacement art</FACP.Toggle.Molong.BigNose.Label>
+	<FACP.Toggle.Molong.BigNose.Desc>Points GS_BigNose at this mod's nose texture (and, for women, its blank one). Switched off, Molong draws its own.</FACP.Toggle.Molong.BigNose.Desc>
+	<FACP.Toggle.Molong.TigerEye.Label>Eye of the tiger - replacement art</FACP.Toggle.Molong.TigerEye.Label>
+	<FACP.Toggle.Molong.TigerEye.Desc>Points the eye of the tiger implant's overlay at this mod's texture. Switched off, Molong draws its own.</FACP.Toggle.Molong.TigerEye.Desc>
+	<FACP.Toggle.Molong.FiendEarless.Label>Earless head for fiend head</FACP.Toggle.Molong.FiendEarless.Label>
+	<FACP.Toggle.Molong.FiendEarless.Desc>Gives pawns with GS_FiendHead an earless Facial Animation head, so the head's own ears do not show underneath the fiend ears.</FACP.Toggle.Molong.FiendEarless.Desc>
+
+	<!-- Korg Xenotype -->
+	<FACP.Category.Korg>Korg Xenotype</FACP.Category.Korg>
+	<FACP.Toggle.Korg.Head.Label>Korg head for brute head</FACP.Toggle.Korg.Head.Label>
+	<FACP.Toggle.Korg.Head.Desc>Gives pawns with GS_Head_Brute a Facial Animation head drawn for the Korg.</FACP.Toggle.Korg.Head.Desc>
+	<FACP.Toggle.Korg.StubbyEars.Label>Stubby ears - replacement art</FACP.Toggle.Korg.StubbyEars.Label>
+	<FACP.Toggle.Korg.StubbyEars.Desc>Points GS_Stubby_Ear at this mod's ear texture. Switched off, Korg draws its own.</FACP.Toggle.Korg.StubbyEars.Desc>
+	<FACP.Toggle.Korg.SmushedNose.Label>Smushed nose - replacement art</FACP.Toggle.Korg.SmushedNose.Label>
+	<FACP.Toggle.Korg.SmushedNose.Desc>Points GS_smushed_nose at this mod's nose texture. Switched off, Korg draws its own.</FACP.Toggle.Korg.SmushedNose.Desc>
+	<FACP.Toggle.Korg.Tusks.Label>Tusks - replacement art</FACP.Toggle.Korg.Tusks.Label>
+	<FACP.Toggle.Korg.Tusks.Desc>Points GS_Tusks at this mod's tusk texture. Switched off, Korg draws its own.</FACP.Toggle.Korg.Tusks.Desc>
+	<FACP.Toggle.Korg.Mouth.Label>Large mouth for tusks</FACP.Toggle.Korg.Mouth.Label>
+	<FACP.Toggle.Korg.Mouth.Desc>Gives pawns with GS_Tusks a Facial Animation mouth three times the normal size, its corners meeting the tusks, and draws the tusks in front of it. Matches Facial Animation - Experimentals when that is installed.</FACP.Toggle.Korg.Mouth.Desc>
+
 	<!-- Faun -->
 	<FACP.Category.Faun>Faun</FACP.Category.Faun>
 	<FACP.Toggle.Faun.DeerHead.Label>Deer heads</FACP.Toggle.Faun.DeerHead.Label>
