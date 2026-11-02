@@ -72,6 +72,7 @@
 		<li>sov.tengri</li>
 		<li>sovereign.kork</li>
 		<li>icc.fov.elves</li>
+		<li>vexedtrees980.rimelvesbiotech</li>
 	</loadAfter>
 	<loadBefore>
 		<li>barb.facetexture</li>

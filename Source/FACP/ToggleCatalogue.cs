@@ -70,6 +70,7 @@ namespace FACP
             { "Korg.Head", new[] { "FACP_KorgHead" } },
             { "Korg.Mouth", new[] { "FACP_KorgMouthNormal" } },
             { "Elves.EarlessHead", new[] { "FACP_ElvesEarless" } },
+            { "RimElves.EarlessHead", new[] { "FACP_RimElvesEarless" } },
             { "Dioktri.SnakeTongue", new[] { "FACP_SnakeMouthNormal", "FACP_SnakeMouthFang", "FACP_SnakeMouthShark" } },
             { "Phytokin.BarkSkin", new[] { "BarkSkin" } },
             { "Saurid.ScaleSkin", new[] { "VRESaurids_ScaleSkin" } }
@@ -217,6 +218,9 @@ namespace FACP
 
             // ---- Faction - Elves ----
             Add(list, "Elves.EarlessHead", "ICC.FOV.ELVES");
+
+            // ---- Rim-Elves ----
+            Add(list, "RimElves.EarlessHead", "VexedTrees980.RimElvesBiotech");
 
             // ---- Faun ----
             Add(list, "Faun.DeerHead", "V.Rooboid.Faun");

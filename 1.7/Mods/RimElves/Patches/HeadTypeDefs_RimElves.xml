@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Gated by LoadFolders: IfModActive="VexedTrees980.RimElvesBiotech" -->
+<Patch>
+
+    <!-- RimElves.EarlessHead : the elve xenotype takes its ears from vanilla's Ears_Pointed, which
+         draws them as a render node on top of the head, so the head underneath has to come
+         without ears of its own or the pawn ends up with two pairs.
+
+         The gene is Biotech's, not this mod's, so while Rim-Elves is loaded any pawn with pointed
+         ears gets this head, not only elves. They would show the same two pairs.
+
+         The art is this mod's shared Earless head (root Textures/Earless), not a copy.
+
+         A def of our own, so it is added unconditionally. Switched off, the startup pass
+         parks it on a gene that cannot exist rather than deleting it. -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs</xpath>
+        <value>
+            <FacialAnimation.HeadTypeDef>
+                <defName>FACP_RimElvesEarless</defName>
+                <texPath>Earless</texPath>
+                <probability>1</probability>
+                <shader>Map/CutoutSkin</shader>
+                <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                <targetGeneDefs>
+                    <li>Ears_Pointed</li>
+                </targetGeneDefs>
+            </FacialAnimation.HeadTypeDef>
+        </value>
+    </Operation>
+
+</Patch>

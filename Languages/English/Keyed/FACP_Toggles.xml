@@ -195,6 +195,11 @@
 	<FACP.Toggle.Elves.EarlessHead.Label>Earless head for sharp ears</FACP.Toggle.Elves.EarlessHead.Label>
 	<FACP.Toggle.Elves.EarlessHead.Desc>Gives pawns with Ears_HighSharp, Ears_MidSharp or Ears_LowSharp an earless Facial Animation head, so the head's own ears do not show underneath the gene's.</FACP.Toggle.Elves.EarlessHead.Desc>
 
+	<!-- Rim-Elves -->
+	<FACP.Category.RimElves>Rim-Elves</FACP.Category.RimElves>
+	<FACP.Toggle.RimElves.EarlessHead.Label>Earless head for pointed ears</FACP.Toggle.RimElves.EarlessHead.Label>
+	<FACP.Toggle.RimElves.EarlessHead.Desc>Gives pawns with Ears_Pointed an earless Facial Animation head, so the head's own ears do not show underneath the gene's. The gene is vanilla's, so this reaches every pawn with pointed ears while Rim-Elves is loaded, not only elves.</FACP.Toggle.RimElves.EarlessHead.Desc>
+
 	<!-- Faun -->
 	<FACP.Category.Faun>Faun</FACP.Category.Faun>
 	<FACP.Toggle.Faun.DeerHead.Label>Deer heads</FACP.Toggle.Faun.DeerHead.Label>
