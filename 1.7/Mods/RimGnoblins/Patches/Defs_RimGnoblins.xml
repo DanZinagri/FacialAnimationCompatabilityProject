@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Gated by LoadFolders: IfModActive="VexedTrees980.RimGnoblinsBiotech" -->
+<Patch>
+
+    <!-- Gnoblin.EarlessHead : the outward ears gene draws its ears as a render node on top of
+         the head, so the head underneath has to come without ears of its own or the pawn ends
+         up with two pairs. Uses this mod's shared Earless head (root Textures/Earless).
+
+         The gnoblin xenotype also carries Head_Gaunt, which has a Facial Animation head of its
+         own; Gnoblin.NoGauntHead takes that gene off the xenotype in the startup pass so this
+         is the only head left to pick.
+
+         A def of our own, so it is added unconditionally. Switched off, the startup pass
+         parks it on a gene that cannot exist rather than deleting it. -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs</xpath>
+        <value>
+            <FacialAnimation.HeadTypeDef>
+                <defName>FACP_GnoblinEarless</defName>
+                <texPath>Earless</texPath>
+                <probability>1</probability>
+                <shader>Map/CutoutSkin</shader>
+                <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+                <targetGeneDefs>
+                    <li>RG_GoblinEars</li>
+                </targetGeneDefs>
+            </FacialAnimation.HeadTypeDef>
+        </value>
+    </Operation>
+
+    <!-- Gnoblin.OutwardEars / Nose : each points one render node at our copy of its art, on a
+         FACP/ path so nothing shadows the source mod's own textures. Switched off, the
+         replaces never run and the def keeps the paths it shipped with. The nose node picks
+         at random from a texPaths list, so the whole list is replaced. -->
+    <Operation Class="FACP.PatchOperationToggled">
+        <key>Gnoblin.OutwardEars</key>
+        <operations>
+            <li Class="PatchOperationReplace">
+                <xpath>/Defs/GeneDef[defName="RG_GoblinEars"]/renderNodeProperties/li/texPath</xpath>
+                <value>
+                    <texPath>FACP/Gnoblin/Parts/GoblinEars</texPath>
+                </value>
+            </li>
+        </operations>
+    </Operation>
+    <Operation Class="FACP.PatchOperationToggled">
+        <key>Gnoblin.Nose</key>
+        <operations>
+            <li Class="PatchOperationReplace">
+                <xpath>/Defs/GeneDef[defName="RG_GoblinNose"]/renderNodeProperties/li/texPaths</xpath>
+                <value>
+                    <texPaths>
+                        <li>FACP/Gnoblin/Parts/GoblinNose</li>
+                        <li>FACP/Gnoblin/Parts/GnomeNose</li>
+                    </texPaths>
+                </value>
+            </li>
+        </operations>
+    </Operation>
+
+    <!-- Gnoblin.MaleOnlyNose (opt-in) : a female pawn draws from texPathsFemale ahead of
+         texPaths (PawnRenderNode.TexPathFor), so giving the nose node a female list holding
+         only a blank texture leaves women without the nose and men untouched. -->
+    <Operation Class="FACP.PatchOperationToggled">
+        <key>Gnoblin.MaleOnlyNose</key>
+        <operations>
+            <li Class="PatchOperationAdd">
+                <xpath>/Defs/GeneDef[defName="RG_GoblinNose"]/renderNodeProperties/li</xpath>
+                <value>
+                    <texPathsFemale>
+                        <li>FACP/Gnoblin/Parts/Blank</li>
+                    </texPathsFemale>
+                </value>
+            </li>
+        </operations>
+    </Operation>
+
+</Patch>

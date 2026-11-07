@@ -200,6 +200,19 @@
 	<FACP.Toggle.RimElves.EarlessHead.Label>Earless head for pointed ears</FACP.Toggle.RimElves.EarlessHead.Label>
 	<FACP.Toggle.RimElves.EarlessHead.Desc>Gives pawns with Ears_Pointed an earless Facial Animation head, so the head's own ears do not show underneath the gene's. The gene is vanilla's, so this reaches every pawn with pointed ears while Rim-Elves is loaded, not only elves.</FACP.Toggle.RimElves.EarlessHead.Desc>
 
+	<!-- Rim-Gnoblins -->
+	<FACP.Category.Gnoblin>Rim-Gnoblins</FACP.Category.Gnoblin>
+	<FACP.Toggle.Gnoblin.EarlessHead.Label>Earless head for outward ears</FACP.Toggle.Gnoblin.EarlessHead.Label>
+	<FACP.Toggle.Gnoblin.EarlessHead.Desc>Gives pawns with RG_GoblinEars an earless Facial Animation head, so the head's own ears do not show underneath the gene's.</FACP.Toggle.Gnoblin.EarlessHead.Desc>
+	<FACP.Toggle.Gnoblin.NoGauntHead.Label>Remove gaunt head from gnoblins</FACP.Toggle.Gnoblin.NoGauntHead.Label>
+	<FACP.Toggle.Gnoblin.NoGauntHead.Desc>Takes Head_Gaunt off the gnoblin xenotype, so the earless head is the only one they can get. Does nothing while the earless head is switched off.</FACP.Toggle.Gnoblin.NoGauntHead.Desc>
+	<FACP.Toggle.Gnoblin.OutwardEars.Label>Outward ears - replacement art</FACP.Toggle.Gnoblin.OutwardEars.Label>
+	<FACP.Toggle.Gnoblin.OutwardEars.Desc>Points RG_GoblinEars at this mod's ear texture. Switched off, Rim-Gnoblins draws its own.</FACP.Toggle.Gnoblin.OutwardEars.Desc>
+	<FACP.Toggle.Gnoblin.Nose.Label>Prominent nose - replacement art</FACP.Toggle.Gnoblin.Nose.Label>
+	<FACP.Toggle.Gnoblin.Nose.Desc>Points RG_GoblinNose at this mod's goblin and gnome nose textures. Switched off, Rim-Gnoblins draws its own.</FACP.Toggle.Gnoblin.Nose.Desc>
+	<FACP.Toggle.Gnoblin.MaleOnlyNose.Label>Male-only nose</FACP.Toggle.Gnoblin.MaleOnlyNose.Label>
+	<FACP.Toggle.Gnoblin.MaleOnlyNose.Desc>Female pawns with RG_GoblinNose draw no nose; males keep it. Off by default.</FACP.Toggle.Gnoblin.MaleOnlyNose.Desc>
+
 	<!-- Faun -->
 	<FACP.Category.Faun>Faun</FACP.Category.Faun>
 	<FACP.Toggle.Faun.DeerHead.Label>Deer heads</FACP.Toggle.Faun.DeerHead.Label>

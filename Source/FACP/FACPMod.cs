@@ -61,10 +61,10 @@ namespace FACP
         }
 
         // Consulted by StartupPatcher. An unknown key means "never switched off", so new
-        // patches ship enabled.
+        // patches ship enabled - except the opt-in preferences, which ship off.
         public static bool IsEnabled(string key)
         {
-            return Settings == null || Settings.IsEnabled(key);
+            return (Settings == null) ? !FACPSettings.IsDefaultOff(key) : Settings.IsEnabled(key);
         }
 
         // Consulted by StartupPatcher for the multiple-choice patches.
@@ -338,7 +338,9 @@ namespace FACP
             for (int i = 0; i < entries.Count; i++)
             {
                 // A mode entry has no on/off state to set; leave the player's choice alone.
-                if (!entries[i].IsMode)
+                // Nor does "Enable all" tick an opt-in preference - those are a matter of taste,
+                // not a fix - though "Disable all" still clears them.
+                if (!entries[i].IsMode && !(enabled && entries[i].defaultOff))
                 {
                     Settings.SetEnabled(entries[i].key, enabled);
                 }

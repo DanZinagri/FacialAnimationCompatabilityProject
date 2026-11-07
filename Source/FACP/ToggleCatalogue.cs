@@ -71,6 +71,7 @@ namespace FACP
             { "Korg.Mouth", new[] { "FACP_KorgMouthNormal" } },
             { "Elves.EarlessHead", new[] { "FACP_ElvesEarless" } },
             { "RimElves.EarlessHead", new[] { "FACP_RimElvesEarless" } },
+            { "Gnoblin.EarlessHead", new[] { "FACP_GnoblinEarless" } },
             { "Dioktri.SnakeTongue", new[] { "FACP_SnakeMouthNormal", "FACP_SnakeMouthFang", "FACP_SnakeMouthShark" } },
             { "Phytokin.BarkSkin", new[] { "BarkSkin" } },
             { "Saurid.ScaleSkin", new[] { "VRESaurids_ScaleSkin" } }
@@ -222,6 +223,13 @@ namespace FACP
             // ---- Rim-Elves ----
             Add(list, "RimElves.EarlessHead", "VexedTrees980.RimElvesBiotech");
 
+            // ---- Rim-Gnoblins ----
+            Add(list, "Gnoblin.EarlessHead", "VexedTrees980.RimGnoblinsBiotech");
+            Add(list, "Gnoblin.NoGauntHead", "VexedTrees980.RimGnoblinsBiotech", DlcGate.None, modifiesGenes: true);
+            Add(list, "Gnoblin.OutwardEars", "VexedTrees980.RimGnoblinsBiotech");
+            Add(list, "Gnoblin.Nose", "VexedTrees980.RimGnoblinsBiotech");
+            Add(list, "Gnoblin.MaleOnlyNose", "VexedTrees980.RimGnoblinsBiotech", defaultOff: true);
+
             // ---- Faun ----
             Add(list, "Faun.DeerHead", "V.Rooboid.Faun");
 
@@ -265,7 +273,10 @@ namespace FACP
                 "Korg.StubbyEars",           // texPath replaced on GS_Stubby_Ear
                 "Korg.SmushedNose",          // texPath replaced on GS_smushed_nose
                 "Korg.Tusks",                // texPaths/li replaced on GS_Tusks
-                "Korg.Mouth");               // GS_Tusks node layer lifted above the mouth
+                "Korg.Mouth",                // GS_Tusks node layer lifted above the mouth
+                "Gnoblin.OutwardEars",       // texPath replaced on RG_GoblinEars
+                "Gnoblin.Nose",              // texPaths replaced on RG_GoblinNose
+                "Gnoblin.MaleOnlyNose");     // blank texPathsFemale added to RG_GoblinNose
 
             // Minotaur.BovineHead is deliberately not on that list. Its "on" state deletes the
             // source mod's own head node, which no amount of skipping a patch can do, so it
@@ -301,7 +312,7 @@ namespace FACP
         // The category is the key's first segment ("Sanguophage" for "Sanguophage.BatEars"),
         // so every toggle of one source mod shares a header without naming it twice.
         private static void Add(List<ToggleEntry> list, string key, string packageId,
-            DlcGate dlc = DlcGate.None, bool modifiesGenes = false)
+            DlcGate dlc = DlcGate.None, bool modifiesGenes = false, bool defaultOff = false)
         {
             list.Add(new ToggleEntry
             {
@@ -309,7 +320,8 @@ namespace FACP
                 category = key.Substring(0, key.IndexOf('.')),
                 packageId = packageId,
                 dlc = dlc,
-                modifiesGenes = modifiesGenes
+                modifiesGenes = modifiesGenes,
+                defaultOff = defaultOff
             });
 
             string[] faceTypes;

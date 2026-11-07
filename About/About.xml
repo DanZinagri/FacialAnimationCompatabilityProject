@@ -73,6 +73,7 @@
 		<li>sovereign.kork</li>
 		<li>icc.fov.elves</li>
 		<li>vexedtrees980.rimelvesbiotech</li>
+		<li>vexedtrees980.rimgnoblinsbiotech</li>
 	</loadAfter>
 	<loadBefore>
 		<li>barb.facetexture</li>

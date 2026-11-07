@@ -25,6 +25,11 @@ namespace FACP
         // pawns generated afterwards. Flagged rows get a tag in the settings list.
         public bool modifiesGenes;
 
+        // Set on the few entries that are a preference rather than a fix - something only some
+        // players want - so they start switched off and stay off until ticked. FACPSettings
+        // stores these the other way round from everything else.
+        public bool defaultOff;
+
         // Set on toggles whose XML is wrapped in PatchOperationToggled - the ones that append
         // into a def owned by the source mod, where "off" has to mean the append never happens.
         // Their on/off state is therefore decided while the combined XML document is being

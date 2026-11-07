@@ -48,6 +48,8 @@
 		<li IfModActive="erin.rhyaeth">Common/Mods/Rhyaeth</li>
 		<li IfModActive="erin.rhyaeth">1.6/Mods/Rhyaeth</li>
 		<li IfModActive="VexedTrees980.RimElvesBiotech">1.6/Mods/RimElves</li>
+		<li IfModActive="VexedTrees980.RimGnoblinsBiotech">Common/Mods/RimGnoblins</li>
+		<li IfModActive="VexedTrees980.RimGnoblinsBiotech">1.6/Mods/RimGnoblins</li>
 		<li IfModActive="Erin.Shisune">Common/Mods/Shisune</li>
 		<li IfModActive="Erin.Shisune">1.6/Mods/Shisune</li>
 		<li IfModActive="Sovereign.bnuy">Common/Mods/Starlet</li>
@@ -112,6 +114,8 @@
 		<li IfModActive="erin.rhyaeth">Common/Mods/Rhyaeth</li>
 		<li IfModActive="erin.rhyaeth">1.7/Mods/Rhyaeth</li>
 		<li IfModActive="VexedTrees980.RimElvesBiotech">1.7/Mods/RimElves</li>
+		<li IfModActive="VexedTrees980.RimGnoblinsBiotech">Common/Mods/RimGnoblins</li>
+		<li IfModActive="VexedTrees980.RimGnoblinsBiotech">1.7/Mods/RimGnoblins</li>
 		<li IfModActive="Erin.Shisune">Common/Mods/Shisune</li>
 		<li IfModActive="Erin.Shisune">1.7/Mods/Shisune</li>
 		<li IfModActive="Sovereign.bnuy">Common/Mods/Starlet</li>

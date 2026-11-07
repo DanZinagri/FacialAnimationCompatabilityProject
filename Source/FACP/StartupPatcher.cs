@@ -455,6 +455,16 @@ namespace FACP
                         RemoveGeneFromXenotype("VRE_Ekkimian", "Head_Gaunt");
                     }
                     break;
+                case "Gnoblin.NoGauntHead":
+                    // Gnoblins carry Head_Gaunt, which has a Facial Animation head of its own, and
+                    // Facial Animation picks at random between every head a pawn's genes qualify
+                    // for. Dropping the gene leaves the earless head as the only candidate. Only
+                    // worth doing while that head is in play, as with the Ekkimian above.
+                    if (FACPMod.IsEnabled("Gnoblin.EarlessHead"))
+                    {
+                        RemoveGeneFromXenotype("Gnoblin", "Head_Gaunt");
+                    }
+                    break;
                 case "Lycanthrope.CanineNose":
                     ClearRenderNodes("VRE_CanineNose");
                     break;
@@ -475,6 +485,10 @@ namespace FACP
                 case "Korg.Mouth":
                 case "Elves.EarlessHead":
                 case "RimElves.EarlessHead":
+                case "Gnoblin.EarlessHead":
+                case "Gnoblin.OutwardEars":
+                case "Gnoblin.Nose":
+                case "Gnoblin.MaleOnlyNose":
                 case "Kabouter.BulbousNose":
                 case "Kabouter.FluffyBrows":
                 case "Kabouter.HighPointEars":
